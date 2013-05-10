@@ -80,23 +80,25 @@
     return self;
 }
 
+
+// Syntaxvorlage / Uebung
 -(NSString *)printVorname:(NSString *)vorname PlusNachname:(NSString *)nachname {
     return [[vorname stringByAppendingString:@" "] stringByAppendingString:nachname];
 }
+
+
 
 -(NSArray *) getNodesByXPath:(NSString*) xpath AndXMLResponse:(NSString*) xmlResponse {
     
     CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:xmlResponse options:0 error:nil];
     
-    // Returns 'matchId'
-    NSArray *nodes;
+    // Extrahieren des Namespace aus dem XPath
+    NSString *namespace = [[[xpath componentsSeparatedByString:@":"] objectAtIndex:1] stringByReplacingOccurrencesOfString:@"//" withString: @""];
     
+    // Holen des Blattknotens mit dem Namen //namespace:knot
+    NSArray *nodes = [doc nodesForXPath:xpath namespaceMappings:[NSDictionary dictionaryWithObject:@"http://msiggi.de/Sportsdata/Webservices" forKey:namespace] error:nil];
     
-    NSString *namespace = @"Test";
-    NSString *nodeName = @"Test2";
-    
-    nodes = [doc nodesForXPath:[@"//GetLastMatchResponse:Goal" namespaceMappings:[NSDictionary dictionaryWithObject:@"http://msiggi.de/Sportsdata/Webservices" forKey:@"GetLastMatchResponse"] error:nil];
-    
+    // Zu Testzwecken
     //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"XML" message:matchId delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     //[alert show];
     
