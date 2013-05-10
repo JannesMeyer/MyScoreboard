@@ -9,7 +9,7 @@
 #import "Match.h"
 
 @interface Match()
-@property (nonatomic, readwrite) int matchId;
+@property (readwrite, nonatomic) int matchId;
 @end
 
 @implementation Match

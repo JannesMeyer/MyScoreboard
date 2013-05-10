@@ -10,13 +10,13 @@
 #import "Team.h"
 
 @interface Match : NSObject
-@property (nonatomic, readonly) int matchId;
-@property (nonatomic, strong) Team* team1;
-@property (nonatomic, strong) Team* team2;
-@property (nonatomic, strong) NSDate* startTime;
-@property (nonatomic, strong) NSMutableArray* goals; // of Goal
+@property (readonly, nonatomic) int matchId;
+@property (strong, nonatomic) Team* team1;
+@property (strong, nonatomic) Team* team2;
+@property (strong, nonatomic) NSDate* startTime;
+@property (strong, nonatomic) NSMutableArray* goals; // of Goal
 @property (nonatomic) int team1Score;
 @property (nonatomic) int team2Score;
-@property (nonatomic, strong) NSString* stadiumName;
-@property (nonatomic, strong) NSString* locationName;
+@property (strong, nonatomic) NSString* stadiumName;
+@property (strong, nonatomic) NSString* locationName;
 @end
