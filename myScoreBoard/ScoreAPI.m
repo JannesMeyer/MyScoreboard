@@ -7,8 +7,31 @@
 //
 
 #import "ScoreAPI.h"
+#import "TouchXML.h"
 
 @implementation ScoreAPI
+
+// ###########################
+// API - Public Methods
+
+
+-(Match *) getMatchesForMatchday {
+    
+    NSString* meinName = [self printVorname:@"David" PlusNachname:@"Mohr"];
+    
+    return nil;
+}
+
+
+-(Match *) getMatchesForToday {
+    return nil;
+}
+
+
+
+// ###########################
+// API - Internal Methods
+
 
 -(NSArray *) getTeamsByLeagueSaison: (NSString*) leagueSaison AndLeagueShortcut:(NSString *)leagueShortcut {
     
@@ -29,11 +52,18 @@
     // Endgeplaenkel
     completeString = [completeString stringByAppendingString: @"</m:GetTeamsByLeagueSaison></SOAP-ENV:Body></SOAP-ENV:Envelope>"];
     
-    NSString* response = [xmlConnectionStub getSOAPResponse:completeString];
+    NSString* xmlresponse = [xmlConnectionStub getSOAPResponse:completeString];
     
+    // X-Path mit Namespace!!!
+    NSArray *nodes = [self getNodesByXPath:xPath XMLResponse:xmlresponse];
     
-    
-    // Response
+    for (CXMLElement *node in nodes){
+        
+        NSString *goalName = [[[node elementsForName:@"goalGetterName"]objectAtIndex:0] stringValue];
+        NSString *goalMatchMinute = [[[node elementsForName:@"goalMatchMinute"]objectAtIndex:0] stringValue];
+        NSLog(@"node = %@: %@", goalMatchMinute, goalName);
+        
+    }
     
 }
 
@@ -54,15 +84,23 @@
     return [[vorname stringByAppendingString:@" "] stringByAppendingString:nachname];
 }
 
--(Match *) getMatchesForMatchday {
+-(NSArray *) getNodesByXPath:(NSString*) xpath AndXMLResponse:(NSString*) xmlResponse {
     
-    NSString* meinName = [self printVorname:@"David" PlusNachname:@"Mohr"];
+    CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:xmlResponse options:0 error:nil];
     
-    return nil;
-}
-
--(Match *) getMatchesForToday {
-    return nil;
+    // Returns 'matchId'
+    NSArray *nodes;
+    
+    
+    NSString *namespace = @"Test";
+    NSString *nodeName = @"Test2";
+    
+    nodes = [doc nodesForXPath:[@"//GetLastMatchResponse:Goal" namespaceMappings:[NSDictionary dictionaryWithObject:@"http://msiggi.de/Sportsdata/Webservices" forKey:@"GetLastMatchResponse"] error:nil];
+    
+    //UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"XML" message:matchId delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    //[alert show];
+    
+    return nodes;
 }
 
 

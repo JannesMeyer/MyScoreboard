@@ -84,7 +84,7 @@
         
         NSString *goalName = [[[node elementsForName:@"goalGetterName"]objectAtIndex:0] stringValue];
         NSString *goalMatchMinute = [[[node elementsForName:@"goalMatchMinute"]objectAtIndex:0] stringValue];
-        NSLog(@"node = %@: %@", goalMatchMinute, goalName);
+        //NSLog(@"node = %@: %@", goalMatchMinute, goalName);
 
     }
     
