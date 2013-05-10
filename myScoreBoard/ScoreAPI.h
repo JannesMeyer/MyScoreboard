@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Models/Match.h"
 
-@interface ScoreAPI : NSObject {
-}
-
+@interface ScoreAPI : NSObject
 
 +(Match *) getMatchesForToday;
 +(Match *) getMatchesForMatchday;
-+(void) setUpdateAction;
-+(void) triggerUodate;
+
+
+//+(void) setUpdateAction;
+//+(void) triggerUodate;
 
 
 @end

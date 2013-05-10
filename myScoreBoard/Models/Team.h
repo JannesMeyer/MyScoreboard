@@ -11,5 +11,6 @@
 @interface Team : NSObject
 @property (nonatomic) int teamId;
 @property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* teamIconURL;
 @property (nonatomic, strong) NSString* twitterHashTag;
 @end
