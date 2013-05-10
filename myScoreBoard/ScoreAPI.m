@@ -52,18 +52,25 @@
     // Endgeplaenkel
     completeString = [completeString stringByAppendingString: @"</m:GetTeamsByLeagueSaison></SOAP-ENV:Body></SOAP-ENV:Envelope>"];
     
-    NSString* xmlresponse = [xmlConnectionStub getSOAPResponse:completeString];
+    NSString* xmlResponse;
+    //xmlresponse = [xmlConnectionStub getSOAPResponse:completeString];
     
     // X-Path mit Namespace!!!
-    NSArray *nodes = [self getNodesByXPath:xPath XMLResponse:xmlresponse];
+    NSArray *nodesTeamID = [self getNodesByXPath:@"//GetTeamsByLeagueSaison:teamID" AndXMLResponse:xmlResponse];
+    NSArray *nodesTeamName = [self getNodesByXPath:@"//GetTeamsByLeagueSaison:teamName" AndXMLResponse:xmlResponse];
+    NSArray *nodesTeamIconURL = [self getNodesByXPath:@"//GetTeamsByLeagueSaison:teamIconURL" AndXMLResponse:xmlResponse];
     
-    for (CXMLElement *node in nodes){
-        
-        NSString *goalName = [[[node elementsForName:@"goalGetterName"]objectAtIndex:0] stringValue];
-        NSString *goalMatchMinute = [[[node elementsForName:@"goalMatchMinute"]objectAtIndex:0] stringValue];
-        NSLog(@"node = %@: %@", goalMatchMinute, goalName);
-        
+    NSMutableArray *teams = [[NSMutableArray alloc] initWithCapacity:[nodesTeamID count]];
+    
+    for (int i = 0; i <= [nodesTeamID count]; i++) {
+        id team = [[Team alloc] init];
+        [team setTeamId:(NSUInteger)[nodesTeamID objectAtIndex:i]];
+        [team setName:[nodesTeamName objectAtIndex:i]];
+        [team setTeamIconURL:[nodesTeamIconURL objectAtIndex:i]];
+        [teams addObject:team];
     }
+    
+    return teams;
     
 }
 
