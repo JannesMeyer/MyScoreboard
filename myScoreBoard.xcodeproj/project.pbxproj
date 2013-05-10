@@ -32,6 +32,9 @@
 		8149661E1733D5C700C7063A /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660D1733D5C700C7063A /* CXMLNode_XPathExtensions.m */; };
 		8149661F1733D5C700C7063A /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660F1733D5C700C7063A /* CXMLNode.m */; };
 		814966201733D5C700C7063A /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 814966121733D5C700C7063A /* CTidy.m */; };
+		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
+		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
+		DF120540173CFA27004CD78F /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053F173CFA27004CD78F /* Goal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,12 @@
 		814966111733D5C700C7063A /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
 		814966121733D5C700C7063A /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		814966131733D5C700C7063A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		DF120538173CF65D004CD78F /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Models/Match.h; sourceTree = "<group>"; };
+		DF120539173CF65D004CD78F /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Models/Match.m; sourceTree = "<group>"; };
+		DF12053B173CF96D004CD78F /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = Models/Team.h; sourceTree = "<group>"; };
+		DF12053C173CF96D004CD78F /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Team.m; path = Models/Team.m; sourceTree = "<group>"; };
+		DF12053E173CFA27004CD78F /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Goal.h; path = Models/Goal.h; sourceTree = "<group>"; };
+		DF12053F173CFA27004CD78F /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Goal.m; path = Models/Goal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +136,7 @@
 		814965AB1733CA7A00C7063A /* myScoreBoard */ = {
 			isa = PBXGroup;
 			children = (
+				DF120537173CF61D004CD78F /* Models */,
 				814966211733D5CD00C7063A /* TouchXML */,
 				814965B41733CA7A00C7063A /* AppDelegate.h */,
 				814965B51733CA7A00C7063A /* AppDelegate.m */,
@@ -200,6 +210,19 @@
 				814966131733D5C700C7063A /* TouchXML.h */,
 			);
 			name = TouchXML;
+			sourceTree = "<group>";
+		};
+		DF120537173CF61D004CD78F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DF120538173CF65D004CD78F /* Match.h */,
+				DF120539173CF65D004CD78F /* Match.m */,
+				DF12053B173CF96D004CD78F /* Team.h */,
+				DF12053C173CF96D004CD78F /* Team.m */,
+				DF12053E173CFA27004CD78F /* Goal.h */,
+				DF12053F173CFA27004CD78F /* Goal.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +307,9 @@
 				8149661E1733D5C700C7063A /* CXMLNode_XPathExtensions.m in Sources */,
 				8149661F1733D5C700C7063A /* CXMLNode.m in Sources */,
 				814966201733D5C700C7063A /* CTidy.m in Sources */,
+				DF12053A173CF65D004CD78F /* Match.m in Sources */,
+				DF12053D173CF96D004CD78F /* Team.m in Sources */,
+				DF120540173CFA27004CD78F /* Goal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +438,7 @@
 				814965C71733CA7A00C7063A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
