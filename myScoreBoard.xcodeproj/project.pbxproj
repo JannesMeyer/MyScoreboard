@@ -32,6 +32,7 @@
 		8149661E1733D5C700C7063A /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660D1733D5C700C7063A /* CXMLNode_XPathExtensions.m */; };
 		8149661F1733D5C700C7063A /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660F1733D5C700C7063A /* CXMLNode.m */; };
 		814966201733D5C700C7063A /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 814966121733D5C700C7063A /* CTidy.m */; };
+		A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A143011C173CFE0800E5518D /* ScoreAPI.m */; };
 		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
 		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
 		DF120540173CFA27004CD78F /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053F173CFA27004CD78F /* Goal.m */; };
@@ -82,6 +83,8 @@
 		814966111733D5C700C7063A /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
 		814966121733D5C700C7063A /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		814966131733D5C700C7063A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
+		A143011B173CFE0800E5518D /* ScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreAPI.h; sourceTree = "<group>"; };
+		A143011C173CFE0800E5518D /* ScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreAPI.m; sourceTree = "<group>"; };
 		DF120538173CF65D004CD78F /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Models/Match.h; sourceTree = "<group>"; };
 		DF120539173CF65D004CD78F /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Models/Match.m; sourceTree = "<group>"; };
 		DF12053B173CF96D004CD78F /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = Models/Team.h; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				814965B51733CA7A00C7063A /* AppDelegate.m */,
 				814965BD1733CA7A00C7063A /* MainStoryboard.storyboard */,
 				814965C01733CA7A00C7063A /* ViewController.h */,
+				A143011B173CFE0800E5518D /* ScoreAPI.h */,
+				A143011C173CFE0800E5518D /* ScoreAPI.m */,
 				814965C11733CA7A00C7063A /* ViewController.m */,
 				814965AC1733CA7A00C7063A /* Supporting Files */,
 			);
@@ -310,6 +315,7 @@
 				DF12053A173CF65D004CD78F /* Match.m in Sources */,
 				DF12053D173CF96D004CD78F /* Team.m in Sources */,
 				DF120540173CFA27004CD78F /* Goal.m in Sources */,
+				A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
