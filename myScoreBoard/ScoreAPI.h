@@ -7,14 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Models/Match.h"
 
 @interface ScoreAPI : NSObject {
 }
 
--(void) initialize {
-    
-    
-}
 
 +(Match *) getMatchesForToday;
 +(Match *) getMatchesForMatchday;
