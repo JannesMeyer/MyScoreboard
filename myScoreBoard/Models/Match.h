@@ -10,7 +10,7 @@
 #import "Team.h"
 
 @interface Match : NSObject
-@property (nonatomic) int matchId;
+@property (nonatomic, readonly) int matchId;
 @property (nonatomic, strong) Team* team1;
 @property (nonatomic, strong) Team* team2;
 @property (nonatomic, strong) NSDate* startTime;
