@@ -10,9 +10,11 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    ECSlidingViewController* slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Test"];
     return YES;
 }
 							
