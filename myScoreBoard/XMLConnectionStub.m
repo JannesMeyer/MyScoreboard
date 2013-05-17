@@ -10,12 +10,7 @@
 
 @implementation XMLConnectionStub
 
-{
-    BOOL dataFinishedLoading;
-}
-
 - (void) requestSOAPResponse:(NSString *)completeString AndNamespace:(NSString *) namespace {
-        dataFinishedLoading = false;
     NSURL *url = [NSURL URLWithString:@"http://www.OpenLigaDB.de/Webservices/Sportsdata.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *msgLength = [NSString stringWithFormat:@"%d", [completeString length]];
@@ -71,16 +66,12 @@
 {
     NSLog(@"DONE. Received Bytes: %d", [[self webData] length]);
     _xmlResponse = [[NSString alloc] initWithBytes: [[self webData] bytes] length:[[self webData] length] encoding:NSUTF8StringEncoding];
-    dataFinishedLoading = true;
     
-    //NSLog(@"%@",theXML);
-    
-    //[theXML release];
 }
 
 -(NSString *) getSOAPResponse:(NSString *)completeString AndNamespace:(NSString *)nameSpace {
+    
     [self requestSOAPResponse:completeString AndNamespace:nameSpace];
-
     return _xmlResponse;
     
 }
