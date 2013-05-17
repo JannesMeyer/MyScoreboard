@@ -42,11 +42,11 @@
 		DF3570F1173D3735002A3519 /* navbar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E6173D3735002A3519 /* navbar-shadow@2x.png */; };
 		DF3570F2173D3735002A3519 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E7173D3735002A3519 /* navbar@2x.png */; };
 		DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3570F5173D3B95002A3519 /* CustomMenuCell.m */; };
+		DF6BAD9D1746501B00B298FF /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BAD9A1746501B00B298FF /* ECSlidingViewController.m */; };
+		DF6BAD9E1746501B00B298FF /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BAD9C1746501B00B298FF /* UIImage+ImageWithUIView.m */; };
+		DF6BADAA1746562D00B298FF /* InitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */; };
 		DF86F58E173D172400DF4EAE /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* TestViewController.m */; };
 		DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuViewController.m */; };
-		DF86F590173D172400DF4EAE /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F589173D172400DF4EAE /* ECSlidingViewController.m */; };
-		DF86F591173D172400DF4EAE /* InitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F58B173D172400DF4EAE /* InitialSlidingViewController.m */; };
-		DF86F592173D172400DF4EAE /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F58D173D172400DF4EAE /* UIImage+ImageWithUIView.m */; };
 		DF86F595173D173600DF4EAE /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF86F593173D173600DF4EAE /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -109,16 +109,16 @@
 		DF3570E7173D3735002A3519 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbar@2x.png"; path = "Images/navbar@2x.png"; sourceTree = "<group>"; };
 		DF3570F4173D3B95002A3519 /* CustomMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomMenuCell.h; path = CustomViews/CustomMenuCell.h; sourceTree = "<group>"; };
 		DF3570F5173D3B95002A3519 /* CustomMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomMenuCell.m; path = CustomViews/CustomMenuCell.m; sourceTree = "<group>"; };
+		DF6BAD991746501B00B298FF /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		DF6BAD9A1746501B00B298FF /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		DF6BAD9B1746501B00B298FF /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
+		DF6BAD9C1746501B00B298FF /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSlidingViewController.h; sourceTree = "<group>"; };
+		DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSlidingViewController.m; sourceTree = "<group>"; };
 		DF86F584173D172400DF4EAE /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		DF86F585173D172400DF4EAE /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		DF86F586173D172400DF4EAE /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		DF86F587173D172400DF4EAE /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		DF86F588173D172400DF4EAE /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
-		DF86F589173D172400DF4EAE /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
-		DF86F58A173D172400DF4EAE /* InitialSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSlidingViewController.h; sourceTree = "<group>"; };
-		DF86F58B173D172400DF4EAE /* InitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSlidingViewController.m; sourceTree = "<group>"; };
-		DF86F58C173D172400DF4EAE /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
-		DF86F58D173D172400DF4EAE /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
 		DF86F593173D173600DF4EAE /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -177,6 +177,7 @@
 				814966211733D5CD00C7063A /* TouchXML */,
 				A143011B173CFE0800E5518D /* ScoreAPI.h */,
 				A143011C173CFE0800E5518D /* ScoreAPI.m */,
+				DF6BAD9717464FF900B298FF /* Vendor */,
 				814965AC1733CA7A00C7063A /* Supporting Files */,
 			);
 			path = myScoreBoard;
@@ -283,19 +284,34 @@
 			name = CustomViews;
 			sourceTree = "<group>";
 		};
+		DF6BAD9717464FF900B298FF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DF6BAD981746501B00B298FF /* ECSlidingViewController */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		DF6BAD981746501B00B298FF /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DF6BAD991746501B00B298FF /* ECSlidingViewController.h */,
+				DF6BAD9A1746501B00B298FF /* ECSlidingViewController.m */,
+				DF6BAD9B1746501B00B298FF /* UIImage+ImageWithUIView.h */,
+				DF6BAD9C1746501B00B298FF /* UIImage+ImageWithUIView.m */,
+			);
+			path = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
 		DF86F583173D171200DF4EAE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */,
+				DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */,
 				DF86F584173D172400DF4EAE /* TestViewController.m */,
 				DF86F585173D172400DF4EAE /* TestViewController.h */,
 				DF86F586173D172400DF4EAE /* MenuViewController.m */,
 				DF86F587173D172400DF4EAE /* MenuViewController.h */,
-				DF86F588173D172400DF4EAE /* ECSlidingViewController.h */,
-				DF86F589173D172400DF4EAE /* ECSlidingViewController.m */,
-				DF86F58A173D172400DF4EAE /* InitialSlidingViewController.h */,
-				DF86F58B173D172400DF4EAE /* InitialSlidingViewController.m */,
-				DF86F58C173D172400DF4EAE /* UIImage+ImageWithUIView.h */,
-				DF86F58D173D172400DF4EAE /* UIImage+ImageWithUIView.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -394,10 +410,10 @@
 				A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */,
 				DF86F58E173D172400DF4EAE /* TestViewController.m in Sources */,
 				DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */,
-				DF86F590173D172400DF4EAE /* ECSlidingViewController.m in Sources */,
-				DF86F591173D172400DF4EAE /* InitialSlidingViewController.m in Sources */,
-				DF86F592173D172400DF4EAE /* UIImage+ImageWithUIView.m in Sources */,
 				DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */,
+				DF6BAD9D1746501B00B298FF /* ECSlidingViewController.m in Sources */,
+				DF6BAD9E1746501B00B298FF /* UIImage+ImageWithUIView.m in Sources */,
+				DF6BADAA1746562D00B298FF /* InitialSlidingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

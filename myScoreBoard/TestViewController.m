@@ -2,7 +2,7 @@
 //  TestViewController.m
 //  MenuTut
 //
-//  Created by Artur Malek on 26.04.13.
+//  Created by Jannes Meyer on 26.04.13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
