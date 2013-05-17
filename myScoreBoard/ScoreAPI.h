@@ -11,6 +11,8 @@
 
 @interface ScoreAPI : NSObject
 
+-(id) init;
+
 -(Match *) getMatchesForToday;
 -(Match *) getMatchesForMatchday;
 

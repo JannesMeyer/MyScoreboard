@@ -15,6 +15,16 @@
 // API - Public Methods
 
 
+// Nur zum Testen
+-(id) init {
+    self = [super init];
+    if (self) {
+        // Testaufruf
+        [self getTeamsByLeagueSaison:@"2012" AndLeagueShortcut:@"BL1"];
+    }
+    return self;
+}
+
 -(Match *) getMatchesForMatchday {
     NSString* meinName = [self printVorname:@"David" PlusNachname:@"Mohr"];
     return nil;
@@ -24,7 +34,6 @@
 -(Match *) getMatchesForToday {
     return nil;
 }
-
 
 
 // ###########################
@@ -70,19 +79,6 @@
     
     return teams;
     
-}
-
-
--(void) initialize {
-    
-}
-
--(id)init {
-    self = [super init];
-    if(self) {
-        [self initialize];
-    }
-    return self;
 }
 
 

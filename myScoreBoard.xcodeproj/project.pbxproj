@@ -13,7 +13,6 @@
 		814965B01733CA7A00C7063A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 814965AE1733CA7A00C7063A /* InfoPlist.strings */; };
 		814965B21733CA7A00C7063A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 814965B11733CA7A00C7063A /* main.m */; };
 		814965B61733CA7A00C7063A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 814965B51733CA7A00C7063A /* AppDelegate.m */; };
-		814965C21733CA7A00C7063A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 814965C11733CA7A00C7063A /* ViewController.m */; };
 		814965F61733D40400C7063A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 814965F51733D40400C7063A /* libxml2.dylib */; };
 		814966141733D5C700C7063A /* CXMLDocument_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 814965F91733D5C700C7063A /* CXMLDocument_CreationExtensions.m */; };
 		814966151733D5C700C7063A /* CXMLNode_CreationExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 814965FB1733D5C700C7063A /* CXMLNode_CreationExtensions.m */; };
@@ -62,8 +61,6 @@
 		814965B31733CA7A00C7063A /* myScoreBoard-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "myScoreBoard-Prefix.pch"; sourceTree = "<group>"; };
 		814965B41733CA7A00C7063A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		814965B51733CA7A00C7063A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		814965C01733CA7A00C7063A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		814965C11733CA7A00C7063A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		814965F51733D40400C7063A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		814965F81733D5C700C7063A /* CXMLDocument_CreationExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXMLDocument_CreationExtensions.h; sourceTree = "<group>"; };
 		814965F91733D5C700C7063A /* CXMLDocument_CreationExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXMLDocument_CreationExtensions.m; sourceTree = "<group>"; };
@@ -178,8 +175,6 @@
 				DF86F583173D171200DF4EAE /* ViewController */,
 				DF120537173CF61D004CD78F /* Models */,
 				814966211733D5CD00C7063A /* TouchXML */,
-				814965C01733CA7A00C7063A /* ViewController.h */,
-				814965C11733CA7A00C7063A /* ViewController.m */,
 				A143011B173CFE0800E5518D /* ScoreAPI.h */,
 				A143011C173CFE0800E5518D /* ScoreAPI.m */,
 				814965AC1733CA7A00C7063A /* Supporting Files */,
@@ -380,7 +375,6 @@
 			files = (
 				814965B21733CA7A00C7063A /* main.m in Sources */,
 				814965B61733CA7A00C7063A /* AppDelegate.m in Sources */,
-				814965C21733CA7A00C7063A /* ViewController.m in Sources */,
 				814966141733D5C700C7063A /* CXMLDocument_CreationExtensions.m in Sources */,
 				814966151733D5C700C7063A /* CXMLNode_CreationExtensions.m in Sources */,
 				814966161733D5C700C7063A /* CXHTMLDocument.m in Sources */,
