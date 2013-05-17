@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
-#import "ScoreAPI.h"
+#import "OpenLigaScoreAPI.h"
 #import "MatchGroup.h"
 #import "TouchXML.h"
 #import "XMLConnectionStub.h"
 
-@implementation ScoreAPI
+@implementation OpenLigaScoreAPI
 
 // ###########################
 // API - Public Methods

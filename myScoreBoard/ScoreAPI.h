@@ -1,15 +1,20 @@
 //
-//  ScoreAPI.h
+//  ScoreAPIProtocol.h
 //  myScoreBoard
 //
-//  Created by stud on 10.05.13.
+//  Created by Jannes on May/17/13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Models/Match.h"
-#import "ScoreAPIProtocol.h"
+#import "MatchGroup.h"
 
-@interface ScoreAPI : NSObject <ScoreAPIProtocol>
+@protocol ScoreAPI <NSObject>
+
+//- (id)init;
+- (MatchGroup*)getMatchesForToday;
+- (MatchGroup*)getMatchesForMatchday;
+//- (void)setUpdateAction;
+//- (void)triggerUodate;
 
 @end

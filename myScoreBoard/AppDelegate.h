@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScoreAPIProtocol.h"
+#import "ScoreAPI.h"
 #import "MatchGroup.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic) UIWindow *window;
 // API
-@property (readonly, nonatomic) id<ScoreAPIProtocol> api;
+@property (readonly, nonatomic) id<ScoreAPI> api;
 @property (readonly, nonatomic) MatchGroup* matchgroup;
 
 @end

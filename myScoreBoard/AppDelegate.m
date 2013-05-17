@@ -7,12 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "ScoreAPI.h"
+#import "OpenLigaScoreAPI.h"
 #import "DummyScoreAPI.h"
 
 @interface AppDelegate()
 @property (readwrite, nonatomic) bool dummyApiEnabled;
-@property (readwrite, nonatomic) id<ScoreAPIProtocol> api;
+@property (readwrite, nonatomic) id<ScoreAPI> api;
 @property (readwrite, nonatomic) MatchGroup* matchgroup;
 @end
 
@@ -27,12 +27,12 @@
 }
 
 // Lazy instantiation of the API socket
-- (id<ScoreAPIProtocol>)api {
+- (id<ScoreAPI>)api {
     if (!_api) {
         if (self.dummyApiEnabled) {
             _api = [[DummyScoreAPI alloc] init];
         } else {
-            _api = [[ScoreAPI alloc] init];
+            _api = [[OpenLigaScoreAPI alloc] init];
         }
     }
     return _api;

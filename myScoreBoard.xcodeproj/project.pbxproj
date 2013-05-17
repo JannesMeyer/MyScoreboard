@@ -27,7 +27,7 @@
 		8149661E1733D5C700C7063A /* CXMLNode_XPathExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660D1733D5C700C7063A /* CXMLNode_XPathExtensions.m */; };
 		8149661F1733D5C700C7063A /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660F1733D5C700C7063A /* CXMLNode.m */; };
 		814966201733D5C700C7063A /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 814966121733D5C700C7063A /* CTidy.m */; };
-		A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A143011C173CFE0800E5518D /* ScoreAPI.m */; };
+		A143011D173CFE0800E5518D /* OpenLigaScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */; };
 		A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */; };
 		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
 		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
@@ -92,8 +92,8 @@
 		814966111733D5C700C7063A /* CTidy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTidy.h; sourceTree = "<group>"; };
 		814966121733D5C700C7063A /* CTidy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTidy.m; sourceTree = "<group>"; };
 		814966131733D5C700C7063A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
-		A143011B173CFE0800E5518D /* ScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreAPI.h; sourceTree = "<group>"; };
-		A143011C173CFE0800E5518D /* ScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreAPI.m; sourceTree = "<group>"; };
+		A143011B173CFE0800E5518D /* OpenLigaScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenLigaScoreAPI.h; sourceTree = "<group>"; };
+		A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenLigaScoreAPI.m; sourceTree = "<group>"; };
 		A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLConnectionStub.h; sourceTree = "<group>"; };
 		A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLConnectionStub.m; sourceTree = "<group>"; };
 		DF120538173CF65D004CD78F /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Models/Match.h; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		DFE74E92174676A100D14896 /* MatchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchGroup.m; path = Models/MatchGroup.m; sourceTree = "<group>"; };
 		DFE74E94174680B600D14896 /* DummyScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyScoreAPI.h; sourceTree = "<group>"; };
 		DFE74E95174680B600D14896 /* DummyScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyScoreAPI.m; sourceTree = "<group>"; };
-		DFE74E97174681B600D14896 /* ScoreAPIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreAPIProtocol.h; sourceTree = "<group>"; };
+		DFE74E97174681B600D14896 /* ScoreAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreAPI.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,11 +184,11 @@
 				DF86F583173D171200DF4EAE /* Controllers */,
 				DF3570F3173D3B66002A3519 /* CustomViews */,
 				DF120537173CF61D004CD78F /* Models */,
-				A143011B173CFE0800E5518D /* ScoreAPI.h */,
-				A143011C173CFE0800E5518D /* ScoreAPI.m */,
-				DFE74E97174681B600D14896 /* ScoreAPIProtocol.h */,
+				A143011B173CFE0800E5518D /* OpenLigaScoreAPI.h */,
+				A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */,
 				A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */,
 				A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */,
+				DFE74E97174681B600D14896 /* ScoreAPI.h */,
 				DFE74E94174680B600D14896 /* DummyScoreAPI.h */,
 				DFE74E95174680B600D14896 /* DummyScoreAPI.m */,
 				DF6BAD9717464FF900B298FF /* Vendor */,
@@ -425,7 +425,7 @@
 				DF12053A173CF65D004CD78F /* Match.m in Sources */,
 				DF12053D173CF96D004CD78F /* Team.m in Sources */,
 				DF120540173CFA27004CD78F /* Goal.m in Sources */,
-				A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */,
+				A143011D173CFE0800E5518D /* OpenLigaScoreAPI.m in Sources */,
 				DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */,
 				DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */,
 				DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */,
