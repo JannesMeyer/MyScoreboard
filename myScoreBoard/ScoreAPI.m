@@ -21,7 +21,7 @@
     self = [super init];
     if (self) {
         // Testaufruf
-        [self getTeamsByLeagueSaison:@"2012" AndLeagueShortcut:@"BL1"];
+        [self getTeamsByLeagueSaison:@"2013" AndLeagueShortcut:@"BL1"];
     }
     return self;
 }
