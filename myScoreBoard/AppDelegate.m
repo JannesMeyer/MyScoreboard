@@ -21,7 +21,12 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Detect whether to use dummy data or live data
     NSArray* args = [[NSProcessInfo processInfo] arguments];
-    self.dummyApiEnabled = [args[1] isEqual: @"UseDummyApi"];
+    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {
+        self.dummyApiEnabled = true;
+    } else {
+        self.dummyApiEnabled = false;
+    }
+
 
     return YES;
 }
