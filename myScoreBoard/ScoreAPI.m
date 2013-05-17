@@ -7,6 +7,7 @@
 //
 
 #import "ScoreAPI.h"
+#import "MatchGroup.h"
 #import "TouchXML.h"
 #import "XMLConnectionStub.h"
 
@@ -26,13 +27,11 @@
     return self;
 }
 
--(Match *) getMatchesForMatchday {
-    NSString* meinName = [self printVorname:@"David" PlusNachname:@"Mohr"];
+- (MatchGroup*)getMatchesForToday {
     return nil;
 }
 
-
--(Match *) getMatchesForToday {
+- (MatchGroup*)getMatchesForMatchday {
     return nil;
 }
 

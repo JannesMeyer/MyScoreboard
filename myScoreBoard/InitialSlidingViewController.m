@@ -7,7 +7,6 @@
 //
 
 #import "InitialSlidingViewController.h"
-#import "ScoreAPI.h"
 
 @implementation InitialSlidingViewController
 
@@ -21,7 +20,7 @@
         storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
     }
 
-    self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Test"];
+    self.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Match"];
     
 //    ECSlidingViewController* slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
 //    slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Test"];
@@ -29,9 +28,6 @@
     // Navbar background image
     UIImage *navBackgroundImage = [UIImage imageNamed:@"navbar"];
     [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
-
-    // Test score API
-    ScoreAPI* api = [[ScoreAPI alloc] init];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation

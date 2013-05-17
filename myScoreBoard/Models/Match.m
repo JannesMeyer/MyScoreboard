@@ -14,14 +14,15 @@
 
 @implementation Match
 
--(id)initWithId:(int) newId {
+-(id)initWithId:(int) matchId {
     self = [super init];
     if (self) {
-        self.matchId = newId;
+        self.matchId = matchId;
     }
     return self;
 }
 
+// Getter for goals
 -(NSMutableArray*)goals {
     if (!_goals) _goals = [[NSMutableArray alloc] init];
     return _goals;

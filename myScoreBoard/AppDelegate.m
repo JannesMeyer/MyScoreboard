@@ -7,12 +7,33 @@
 //
 
 #import "AppDelegate.h"
+#import "ScoreAPI.h"
+#import "DummyScoreAPI.h"
+
+@interface AppDelegate()
+@property (readwrite, nonatomic) id<ScoreAPIProtocol> api;
+@property (readwrite, nonatomic) MatchGroup* matchgroup;
+@end
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     return YES;
+}
+
+// Lazy instantiation of the API socket
+- (id<ScoreAPIProtocol>)api {
+    if (!_api) {
+        _api = [[ScoreAPI alloc] init];
+//        _api = [[DummyScoreAPI alloc] init];
+    }
+    return _api;
+}
+
+// Lazy instantiation of the MatchGroup
+- (MatchGroup*)matchgroup {
+    if (!_matchgroup) _matchgroup = [self.api getMatchesForMatchday];
+    return _matchgroup;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

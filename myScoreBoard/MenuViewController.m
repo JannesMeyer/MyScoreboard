@@ -6,40 +6,53 @@
 //  Copyright (c) 2012 EdgeCase. All rights reserved.
 //
 
+#import "AppDelegate.h"
 #import "MenuViewController.h"
+#import "MatchViewController.h"
 #import "CustomMenuCell.h"
 
+#import "Match.h"
+
 @interface MenuViewController()
-@property (nonatomic, strong) NSArray *menuItems;
-@property (nonatomic, strong) NSArray *catPics;
+@property (weak, nonatomic) NSMutableArray* matches;
+@property (weak, nonatomic) NSString* groupName;
+@property (weak, nonatomic) AppDelegate* app;
 @end
 
 @implementation MenuViewController
-@synthesize menuItems;
-@synthesize catPics;
-@synthesize menuTView;
 
-
-- (void)awakeFromNib
-{
-    self.menuItems = [NSArray arrayWithObjects:@"Test", @"Test2", nil];
-    self.catPics = [NSArray arrayWithObjects:@"", nil];
+// Lazy instantiation of the reference to the AppDelegate
+- (AppDelegate*)app {
+    if (!_app) _app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    return _app;
 }
 
-- (void)viewDidLoad
-{
-  [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-bg"]];  
-  
+- (void)awakeFromNib {
+    self.matches = self.app.matchgroup.matches;
+    self.groupName = self.app.matchgroup.name;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+//    // Get some data from the API
+//    for (Match* match in self.matches) {
+//        NSLog(@"%@ - %@", match.team1.name, match.team2.name);
+//    }
+    
+    self.menuTView.delegate = self;
+    self.menuTView.dataSource = self;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-bg"]];
+
     [self.slidingViewController setAnchorRightRevealAmount:276.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
     self.menuTView.backgroundColor = [UIColor clearColor];
-    self.menuTView.delegate = self;
-    self.menuTView.dataSource = self;
-    self.menuTView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-    [self.menuTView selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionTop];
     
+    self.menuTView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    //NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    //[self.menuTView selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionTop];
+
 
     self.menuTView.rowHeight = 50;
     self.menuTView.sectionHeaderHeight = 27;
@@ -76,48 +89,41 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return @"1. BUNDESLIGA";
+        return [self.groupName uppercaseString];
     }
     return nil;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
     if (sectionIndex == 0) {
-        return self.menuItems.count;
-    } else {
-        return 0;
+        return self.matches.count;
     }
+    return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-        NSString *cellIdentifier = @"MenuItemCell";
-        CustomMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        if (cell == nil) {
-            cell = [[CustomMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        }
-  
-        return cell;
-        
-    
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellIdentifier = @"MenuItemCell";
+    CustomMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[CustomMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString* identifier = @"Match";
 
+    MatchViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
+    // Set match ID in the new ViewController
+//    NSLog(@"%@", [[[self.matches objectAtIndex:indexPath.row] team1] name]);
+    newTopViewController.matchName = @"Hallo";
+
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        CGRect frame = self.slidingViewController.topViewController.view.frame;
+        self.slidingViewController.topViewController = newTopViewController;
+        self.slidingViewController.topViewController.view.frame = frame;
+        [self.slidingViewController resetTopView];
+    }];
     
-  NSString *identifier = [NSString stringWithFormat:@"%@", [self.menuItems objectAtIndex:indexPath.row]];
-
-  UIViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-  
-  [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-    CGRect frame = self.slidingViewController.topViewController.view.frame;
-    self.slidingViewController.topViewController = newTopViewController;
-    self.slidingViewController.topViewController.view.frame = frame;
-    [self.slidingViewController resetTopView];
-  }];
-     
 }
 
 - (void)viewDidUnload {

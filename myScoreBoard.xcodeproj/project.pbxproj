@@ -43,12 +43,14 @@
 		DF3570F1173D3735002A3519 /* navbar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E6173D3735002A3519 /* navbar-shadow@2x.png */; };
 		DF3570F2173D3735002A3519 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E7173D3735002A3519 /* navbar@2x.png */; };
 		DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3570F5173D3B95002A3519 /* CustomMenuCell.m */; };
-		DF86F58E173D172400DF4EAE /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* TestViewController.m */; };
+		DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* MatchViewController.m */; };
 		DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuViewController.m */; };
 		DF86F595173D173600DF4EAE /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF86F593173D173600DF4EAE /* iPhone.storyboard */; };
 		DFE74E89174663EB00D14896 /* InitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */; };
 		DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8C174664DD00D14896 /* ECSlidingViewController.m */; };
 		DFE74E90174664DD00D14896 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8E174664DD00D14896 /* UIImage+ImageWithUIView.m */; };
+		DFE74E93174676A100D14896 /* MatchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E92174676A100D14896 /* MatchGroup.m */; };
+		DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E95174680B600D14896 /* DummyScoreAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -114,8 +116,8 @@
 		DF3570F5173D3B95002A3519 /* CustomMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomMenuCell.m; path = CustomViews/CustomMenuCell.m; sourceTree = "<group>"; };
 		DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSlidingViewController.h; sourceTree = "<group>"; };
 		DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSlidingViewController.m; sourceTree = "<group>"; };
-		DF86F584173D172400DF4EAE /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		DF86F585173D172400DF4EAE /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		DF86F584173D172400DF4EAE /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
+		DF86F585173D172400DF4EAE /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
 		DF86F586173D172400DF4EAE /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		DF86F587173D172400DF4EAE /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		DF86F593173D173600DF4EAE /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
@@ -123,6 +125,11 @@
 		DFE74E8C174664DD00D14896 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ECSlidingViewController.m; path = Vendor/ECSlidingViewController/ECSlidingViewController.m; sourceTree = "<group>"; };
 		DFE74E8D174664DD00D14896 /* UIImage+ImageWithUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageWithUIView.h"; path = "Vendor/ECSlidingViewController/UIImage+ImageWithUIView.h"; sourceTree = "<group>"; };
 		DFE74E8E174664DD00D14896 /* UIImage+ImageWithUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageWithUIView.m"; path = "Vendor/ECSlidingViewController/UIImage+ImageWithUIView.m"; sourceTree = "<group>"; };
+		DFE74E91174676A100D14896 /* MatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchGroup.h; path = Models/MatchGroup.h; sourceTree = "<group>"; };
+		DFE74E92174676A100D14896 /* MatchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchGroup.m; path = Models/MatchGroup.m; sourceTree = "<group>"; };
+		DFE74E94174680B600D14896 /* DummyScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyScoreAPI.h; sourceTree = "<group>"; };
+		DFE74E95174680B600D14896 /* DummyScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyScoreAPI.m; sourceTree = "<group>"; };
+		DFE74E97174681B600D14896 /* ScoreAPIProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreAPIProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,10 +186,13 @@
 				DF120537173CF61D004CD78F /* Models */,
 				A143011B173CFE0800E5518D /* ScoreAPI.h */,
 				A143011C173CFE0800E5518D /* ScoreAPI.m */,
-				DF6BAD9717464FF900B298FF /* Vendor */,
-				814965AC1733CA7A00C7063A /* Supporting Files */,
+				DFE74E97174681B600D14896 /* ScoreAPIProtocol.h */,
 				A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */,
 				A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */,
+				DFE74E94174680B600D14896 /* DummyScoreAPI.h */,
+				DFE74E95174680B600D14896 /* DummyScoreAPI.m */,
+				DF6BAD9717464FF900B298FF /* Vendor */,
+				814965AC1733CA7A00C7063A /* Supporting Files */,
 			);
 			path = myScoreBoard;
 			sourceTree = "<group>";
@@ -255,6 +265,8 @@
 			children = (
 				DF120538173CF65D004CD78F /* Match.h */,
 				DF120539173CF65D004CD78F /* Match.m */,
+				DFE74E91174676A100D14896 /* MatchGroup.h */,
+				DFE74E92174676A100D14896 /* MatchGroup.m */,
 				DF12053B173CF96D004CD78F /* Team.h */,
 				DF12053C173CF96D004CD78F /* Team.m */,
 				DF12053E173CFA27004CD78F /* Goal.h */,
@@ -303,10 +315,10 @@
 			children = (
 				DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */,
 				DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */,
-				DF86F584173D172400DF4EAE /* TestViewController.m */,
-				DF86F585173D172400DF4EAE /* TestViewController.h */,
-				DF86F586173D172400DF4EAE /* MenuViewController.m */,
 				DF86F587173D172400DF4EAE /* MenuViewController.h */,
+				DF86F586173D172400DF4EAE /* MenuViewController.m */,
+				DF86F585173D172400DF4EAE /* MatchViewController.h */,
+				DF86F584173D172400DF4EAE /* MatchViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -414,13 +426,15 @@
 				DF12053D173CF96D004CD78F /* Team.m in Sources */,
 				DF120540173CFA27004CD78F /* Goal.m in Sources */,
 				A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */,
-				DF86F58E173D172400DF4EAE /* TestViewController.m in Sources */,
+				DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */,
 				DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */,
 				DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */,
 				A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */,
 				DFE74E89174663EB00D14896 /* InitialSlidingViewController.m in Sources */,
 				DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */,
 				DFE74E90174664DD00D14896 /* UIImage+ImageWithUIView.m in Sources */,
+				DFE74E93174676A100D14896 /* MatchGroup.m in Sources */,
+				DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

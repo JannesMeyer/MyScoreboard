@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECSlidingViewController.h"
 #import "MenuViewController.h"
 
-@interface TestViewController : UIViewController<UITextFieldDelegate>
+@interface MatchViewController : UIViewController<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *matchLabel;
 @property (weak, nonatomic) IBOutlet UISlider *testSlider;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
+
+@property (strong, nonatomic) NSString* matchName;
+
 - (IBAction)revealMenu:(id)sender;
+
 @end

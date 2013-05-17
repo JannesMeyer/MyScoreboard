@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Team : NSObject
+
 @property (nonatomic) int teamId;
-@property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) NSString* teamIconURL;
-@property (nonatomic, strong) NSString* twitterHashTag;
+@property (nonatomic) NSString* name;
+@property (nonatomic) NSString* teamIconURL;
+@property (nonatomic) NSString* twitterHashTag;
+
+- (id)initWithId:(int) teamId andName:(NSString*) name;
+
 @end

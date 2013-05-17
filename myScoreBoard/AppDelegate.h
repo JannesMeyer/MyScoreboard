@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ECSlidingViewController.h"
+#import "ScoreAPIProtocol.h"
+#import "MatchGroup.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic) UIWindow *window;
+// API
+@property (readonly, nonatomic) id<ScoreAPIProtocol> api;
+@property (readonly, nonatomic) MatchGroup* matchgroup;
 
 @end

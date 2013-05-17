@@ -6,16 +6,15 @@
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
-#import "TestViewController.h"
+#import "MatchViewController.h"
 
-@interface TestViewController ()
+@interface MatchViewController ()
 
 @end
 
-@implementation TestViewController
+@implementation MatchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -23,8 +22,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.testSlider.maximumValue = 100;
     self.testSlider.minimumValue = 0;
@@ -46,13 +44,10 @@
 //    navItem.titleView = imgView;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
-    
+    self.matchLabel.text = self.matchName;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)aTextField {
-    
-
-    
     
 }
 
@@ -71,8 +66,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     self.view.layer.shadowOpacity = 0.75f;
@@ -86,12 +80,12 @@
     [self.view addGestureRecognizer:self.slidingViewController.panGesture];
 }
 
-- (IBAction)revealMenu:(id)sender
-{
+- (IBAction)revealMenu:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
 }
+
 @end
