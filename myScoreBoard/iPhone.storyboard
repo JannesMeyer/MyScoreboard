@@ -114,26 +114,64 @@
                         <outlet property="navBar" destination="wNz-zt-ok9" id="VRL-Uh-GBk"/>
                         <outlet property="testSlider" destination="dKB-it-13h" id="G82-GP-tOq"/>
                         <outlet property="textField" destination="47Q-nG-J3X" id="NPi-mN-OxG"/>
-                        <segue destination="xDI-1s-zxY" kind="modal" id="UTq-qD-g3P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AS8-Mu-2Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="0.0"/>
+            <point key="canvasLocation" x="1124" y="0.0"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="qkJ-wf-qXg">
+        <scene sceneID="B9m-MT-fO1">
             <objects>
-                <viewController id="xDI-1s-zxY" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J6s-a8-sqa">
+                <viewController id="59n-yT-XKz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rBN-ij-Ntk">
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Page 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLn-YJ-Fpm">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="4b9-Dj-p4S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="lLn-YJ-Fpm" secondAttribute="bottom" constant="250" id="dto-vm-9da"/>
+                            <constraint firstItem="lLn-YJ-Fpm" firstAttribute="leading" secondItem="rBN-ij-Ntk" secondAttribute="leading" constant="124" id="eW9-8I-DSp"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pxv-Uy-Caw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S0a-uM-g8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="0.0"/>
+            <point key="canvasLocation" x="1118" y="684"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Z03-kH-8mg">
+            <objects>
+                <viewController id="bM8-zc-egI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fRV-U5-K92">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Page 3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QxO-kr-5bk">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QxO-kr-5bk" firstAttribute="top" secondItem="fRV-U5-K92" secondAttribute="top" constant="263" id="0oq-lK-94e"/>
+                            <constraint firstItem="QxO-kr-5bk" firstAttribute="leading" secondItem="fRV-U5-K92" secondAttribute="leading" constant="149" id="ZDY-ys-4a5"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="loM-8V-xYH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1124" y="1374"/>
         </scene>
     </scenes>
     <classes>
