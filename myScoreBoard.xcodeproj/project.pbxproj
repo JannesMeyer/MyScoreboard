@@ -28,6 +28,7 @@
 		8149661F1733D5C700C7063A /* CXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8149660F1733D5C700C7063A /* CXMLNode.m */; };
 		814966201733D5C700C7063A /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 814966121733D5C700C7063A /* CTidy.m */; };
 		A143011D173CFE0800E5518D /* ScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A143011C173CFE0800E5518D /* ScoreAPI.m */; };
+		A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */; };
 		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
 		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
 		DF120540173CFA27004CD78F /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053F173CFA27004CD78F /* Goal.m */; };
@@ -91,6 +92,8 @@
 		814966131733D5C700C7063A /* TouchXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchXML.h; sourceTree = "<group>"; };
 		A143011B173CFE0800E5518D /* ScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreAPI.h; sourceTree = "<group>"; };
 		A143011C173CFE0800E5518D /* ScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreAPI.m; sourceTree = "<group>"; };
+		A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLConnectionStub.h; sourceTree = "<group>"; };
+		A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLConnectionStub.m; sourceTree = "<group>"; };
 		DF120538173CF65D004CD78F /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Models/Match.h; sourceTree = "<group>"; };
 		DF120539173CF65D004CD78F /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Models/Match.m; sourceTree = "<group>"; };
 		DF12053B173CF96D004CD78F /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = Models/Team.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				A143011C173CFE0800E5518D /* ScoreAPI.m */,
 				DF6BAD9717464FF900B298FF /* Vendor */,
 				814965AC1733CA7A00C7063A /* Supporting Files */,
+				A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */,
+				A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */,
 			);
 			path = myScoreBoard;
 			sourceTree = "<group>";
@@ -411,9 +416,7 @@
 				DF86F58E173D172400DF4EAE /* TestViewController.m in Sources */,
 				DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */,
 				DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */,
-				DF6BAD9D1746501B00B298FF /* ECSlidingViewController.m in Sources */,
-				DF6BAD9E1746501B00B298FF /* UIImage+ImageWithUIView.m in Sources */,
-				DF6BADAA1746562D00B298FF /* InitialSlidingViewController.m in Sources */,
+				A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

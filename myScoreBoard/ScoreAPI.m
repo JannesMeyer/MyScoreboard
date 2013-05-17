@@ -8,6 +8,7 @@
 
 #import "ScoreAPI.h"
 #import "TouchXML.h"
+#import "XMLConnectionStub.h"
 
 @implementation ScoreAPI
 
@@ -59,8 +60,14 @@
     // Endgeplaenkel
     completeString = [completeString stringByAppendingString: @"</m:GetTeamsByLeagueSaison></SOAP-ENV:Body></SOAP-ENV:Envelope>"];
     
+    
+    
     NSString* xmlResponse;
-    //xmlresponse = [xmlConnectionStub getSOAPResponse:completeString];
+    
+    XMLConnectionStub *xmlConnectionStub = [[XMLConnectionStub alloc] init];
+    xmlResponse = [xmlConnectionStub getSOAPResponse:completeString AndNamespace:@"GetTeamsByLeagueSaison"];
+    
+    //NSLog(xmlResponse);
     
     // X-Path mit Namespace!!!
     NSArray *nodesTeamID = [self getNodesByXPath:@"//GetTeamsByLeagueSaison:teamID" AndXMLResponse:xmlResponse];
@@ -90,7 +97,7 @@
 
 
 -(NSArray *) getNodesByXPath:(NSString*) xpath AndXMLResponse:(NSString*) xmlResponse {
-    
+
     CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:xmlResponse options:0 error:nil];
     
     // Extrahieren des Namespace aus dem XPath
@@ -106,7 +113,7 @@
     return nodes;
 }
 
--(void) triggerUodate {
+-(void) triggerUpdate {
     
 }
 
