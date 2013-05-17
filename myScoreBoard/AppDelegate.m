@@ -11,6 +11,7 @@
 #import "DummyScoreAPI.h"
 
 @interface AppDelegate()
+@property (readwrite, nonatomic) bool dummyApiEnabled;
 @property (readwrite, nonatomic) id<ScoreAPIProtocol> api;
 @property (readwrite, nonatomic) MatchGroup* matchgroup;
 @end
@@ -18,14 +19,21 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Detect whether to use dummy data or live data
+    NSArray* args = [[NSProcessInfo processInfo] arguments];
+    self.dummyApiEnabled = [args[1] isEqual: @"UseDummyApi"];
+
     return YES;
 }
 
 // Lazy instantiation of the API socket
 - (id<ScoreAPIProtocol>)api {
     if (!_api) {
-        _api = [[ScoreAPI alloc] init];
-//        _api = [[DummyScoreAPI alloc] init];
+        if (self.dummyApiEnabled) {
+            _api = [[DummyScoreAPI alloc] init];
+        } else {
+            _api = [[ScoreAPI alloc] init];
+        }
     }
     return _api;
 }
