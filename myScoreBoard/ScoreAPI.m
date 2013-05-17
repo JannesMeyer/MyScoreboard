@@ -59,14 +59,10 @@
     // Endgeplaenkel
     completeString = [completeString stringByAppendingString: @"</m:GetTeamsByLeagueSaison></SOAP-ENV:Body></SOAP-ENV:Envelope>"];
     
-    
-    
     NSString* xmlResponse;
     
     XMLConnectionStub *xmlConnectionStub = [[XMLConnectionStub alloc] init];
     xmlResponse = [xmlConnectionStub getSOAPResponse:completeString AndNamespace:@"GetTeamsByLeagueSaison"];
-    
-    //NSLog(xmlResponse);
     
     // X-Path mit Namespace!!!
     NSArray *nodesTeamID = [self getNodesByXPath:@"//GetTeamsByLeagueSaison:teamID" AndXMLResponse:xmlResponse];
@@ -96,6 +92,8 @@
 
 
 -(NSArray *) getNodesByXPath:(NSString*) xpath AndXMLResponse:(NSString*) xmlResponse {
+    
+    NSLog(@"%@",xmlResponse);
 
     CXMLDocument *doc = [[CXMLDocument alloc] initWithXMLString:xmlResponse options:0 error:nil];
     

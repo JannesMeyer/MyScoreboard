@@ -10,8 +10,10 @@
 
 @interface XMLConnectionStub : NSObject
 
-@property (strong, nonatomic) NSMutableData* webData;
+@property (strong, nonatomic) NSData* webData;
 @property (strong, nonatomic) NSString* xmlResponse;
+
+
 
 - (NSString* ) getSOAPResponse: (NSString*) completeString AndNamespace: (NSString*) nameSpace;
 
