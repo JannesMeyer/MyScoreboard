@@ -13,7 +13,6 @@
 @end
 
 @implementation TestViewController
-@synthesize testSlider,textField,navBar,menuButton,navItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,20 +26,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    testSlider.maximumValue = 100;
-    testSlider.minimumValue = 0;
-    testSlider.value = 20;
-    textField.delegate = self;
+    self.testSlider.maximumValue = 100;
+    self.testSlider.minimumValue = 0;
+    self.testSlider.value = 20;
+    self.textField.delegate = self;
     
-    NSArray *array = [[NSArray alloc]initWithObjects:@"asdsadsa",@"dsasddsa", nil];
+    [self.menuButton setImage:[UIImage imageNamed:@"icon-navbar"]];
+    
+    [self.menuButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    // Navigation bar shadow
+    self.navBar.shadowImage = [UIImage imageNamed:@"navbar-shadow"];
+    
+//    NSArray *array = [[NSArray alloc]initWithObjects:@"asdsadsa",@"dsasddsa", nil];
+//    NSArray *array2 = [NSArray arrayWithObjects:@"asddsadsa",@"dsfdssd",@"dfdfsdf", nil];
     
     
-    NSArray *array2 = [NSArray arrayWithObjects:@"asddsadsa",@"dsfdssd",@"dfdfsdf", nil];
+//    UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menu_umsatz"]];
+//    navItem.titleView = imgView;
     
-    
-    UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menu_umsatz"]];
-    navItem.titleView = imgView;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
     
 }
 
@@ -54,7 +59,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)aTextField{
     NSString *textFieldtext = aTextField.text;
     int value = [textFieldtext intValue];
-    testSlider.value = value;
+    self.testSlider.value = value;
     [aTextField resignFirstResponder];
     return YES;
 }
@@ -86,4 +91,7 @@
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MenuViewController.h"
-//#import "MenuCell.h"
+#import "CustomMenuCell.h"
 
 @interface MenuViewController()
 @property (nonatomic, strong) NSArray *menuItems;
@@ -22,48 +22,81 @@
 
 - (void)awakeFromNib
 {
-  
-    self.menuItems = [NSArray arrayWithObjects:@"Test", nil];
-    
+    self.menuItems = [NSArray arrayWithObjects:@"Test", @"Test2", nil];
     self.catPics = [NSArray arrayWithObjects:@"", nil];
-    
-    
 }
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-bg"]];  
   
     [self.slidingViewController setAnchorRightRevealAmount:276.0f];
     self.slidingViewController.underLeftWidthLayout = ECFullWidth;
-    self.menuTView.backgroundColor = [UIColor colorWithPatternImage:[[UIImage imageNamed:@"menu_bg.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:0.0]];
+    self.menuTView.backgroundColor = [UIColor clearColor];
     self.menuTView.delegate = self;
     self.menuTView.dataSource = self;
     self.menuTView.separatorStyle = UITableViewCellSeparatorStyleNone;
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
     [self.menuTView selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionTop];
     
+
+    self.menuTView.rowHeight = 50;
+    self.menuTView.sectionHeaderHeight = 27;
+//    self.menuTView.allowsSelection = false;
 }
 
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    int paddingLeft = 10;
+    
+    CGRect frame = CGRectMake(0, 0, 320, 27);
+    UIView* headerView = [[UIView alloc] initWithFrame: frame];
+    headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-hsection"]];
+    
+    int textColor = 0x6b6e6b;
+    float r = ((textColor & 0xFF0000) >> 16) / 255.0;
+    float g = ((textColor & 0x00FF00) >> 8) / 255.0;
+    float b = ((textColor & 0x0000FF) >> 0) / 255.0;
+    
+    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(paddingLeft, 0, frame.size.width - paddingLeft, frame.size.height)];
+    title.font = [UIFont systemFontOfSize:11];
+    title.textColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
+    title.backgroundColor = [UIColor clearColor];
+    title.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
+    
+    [headerView addSubview:title];
+    
+    return headerView;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"1. BUNDESLIGA";
+    }
+    return nil;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    
-    return self.menuItems.count;
-
+    if (sectionIndex == 0) {
+        return self.menuItems.count;
+    } else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
         NSString *cellIdentifier = @"MenuItemCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+        CustomMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+            cell = [[CustomMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
-    
-        //cell.categoryPic.image = [UIImage imageNamed:[self.catPics objectAtIndex:indexPath.row]];
-    cell.textLabel.text = [self.menuItems objectAtIndex:indexPath.row];
   
         return cell;
         

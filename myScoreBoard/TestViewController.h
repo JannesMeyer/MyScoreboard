@@ -11,10 +11,9 @@
 #import "MenuViewController.h"
 
 @interface TestViewController : UIViewController<UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UISlider *testSlider;
-@property (strong, nonatomic) IBOutlet UITextField *textField;
-@property (strong, nonatomic) IBOutlet UINavigationBar *navBar;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *menuButton;
-@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
+@property (weak, nonatomic) IBOutlet UISlider *testSlider;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (weak, nonatomic) IBOutlet UINavigationBar *navBar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 - (IBAction)revealMenu:(id)sender;
 @end

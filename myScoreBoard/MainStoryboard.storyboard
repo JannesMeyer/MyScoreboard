@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xDJ-zN-qsX">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xDJ-zN-qsX">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -62,7 +62,7 @@
                             </slider>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="47Q-nG-J3X">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="268" id="g8z-Re-Df6"/>
+                                    <constraint firstAttribute="width" constant="268" id="CAi-Ra-8NF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -74,10 +74,9 @@
                                 </segments>
                             </segmentedControl>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNz-zt-ok9">
-                                <color key="tintColor" red="0.7329402504728445" green="0.83207370923913038" blue="0.50514440519038051" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                 <items>
-                                    <navigationItem title="Test" id="hTM-66-L1m">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="ojK-Tx-eRz">
+                                    <navigationItem id="hTM-66-L1m">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="ojK-Tx-eRz">
                                             <connections>
                                                 <action selector="revealMenu:" destination="evF-Ej-VPe" id="TI5-Fa-fop"/>
                                             </connections>
@@ -85,26 +84,34 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jdh-jt-h9M">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="ofx-9e-fy4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6we-P1-3LK" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="154" id="6Jw-Td-nd3"/>
-                            <constraint firstItem="PTz-Py-BEN" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="260" id="Pvo-Mf-n9b"/>
-                            <constraint firstItem="wNz-zt-ok9" firstAttribute="trailing" secondItem="DWs-4y-Q5t" secondAttribute="trailing" type="default" id="Xlc-CK-kE2"/>
-                            <constraint firstAttribute="trailing" secondItem="47Q-nG-J3X" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="YxB-Yf-IYO"/>
+                            <constraint firstItem="6we-P1-3LK" firstAttribute="leading" secondItem="dKB-it-13h" secondAttribute="leading" type="default" id="Jzg-lO-cS6"/>
+                            <constraint firstItem="47Q-nG-J3X" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="215" id="Of3-L8-jLS"/>
+                            <constraint firstItem="47Q-nG-J3X" firstAttribute="centerX" secondItem="DWs-4y-Q5t" secondAttribute="centerX" type="default" id="Zja-qu-MPZ"/>
+                            <constraint firstItem="6we-P1-3LK" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="113" id="bLd-9M-mwp"/>
+                            <constraint firstItem="dKB-it-13h" firstAttribute="leading" secondItem="DWs-4y-Q5t" secondAttribute="leading" constant="32" id="dio-QX-XBj"/>
                             <constraint firstItem="wNz-zt-ok9" firstAttribute="leading" secondItem="DWs-4y-Q5t" secondAttribute="leading" type="default" id="dlc-Zz-gBO"/>
-                            <constraint firstItem="PTz-Py-BEN" firstAttribute="centerX" secondItem="47Q-nG-J3X" secondAttribute="centerX" type="default" id="gNd-6i-khH"/>
-                            <constraint firstItem="dKB-it-13h" firstAttribute="leading" secondItem="DWs-4y-Q5t" secondAttribute="leading" constant="75" id="h0r-Ib-zZA"/>
-                            <constraint firstItem="dKB-it-13h" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="84" id="n8K-RH-P3I"/>
-                            <constraint firstAttribute="bottom" secondItem="47Q-nG-J3X" secondAttribute="bottom" constant="204" id="pji-46-ToQ"/>
+                            <constraint firstItem="Jdh-jt-h9M" firstAttribute="centerX" secondItem="6we-P1-3LK" secondAttribute="centerX" type="default" id="eGD-fa-Aad"/>
+                            <constraint firstItem="dKB-it-13h" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="78" id="eqy-gp-iVg"/>
+                            <constraint firstItem="47Q-nG-J3X" firstAttribute="centerX" secondItem="wNz-zt-ok9" secondAttribute="centerX" type="default" id="jN8-YS-v3T"/>
+                            <constraint firstItem="PTz-Py-BEN" firstAttribute="leading" secondItem="6we-P1-3LK" secondAttribute="leading" type="default" id="meN-Z7-VBq"/>
+                            <constraint firstAttribute="bottom" secondItem="Jdh-jt-h9M" secondAttribute="bottom" constant="220" id="qQW-jx-5Fn"/>
                             <constraint firstItem="wNz-zt-ok9" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" type="default" id="sQB-EX-qhC"/>
-                            <constraint firstItem="6we-P1-3LK" firstAttribute="leading" secondItem="DWs-4y-Q5t" secondAttribute="leading" constant="92" id="zDl-iV-gHx"/>
+                            <constraint firstItem="PTz-Py-BEN" firstAttribute="top" secondItem="DWs-4y-Q5t" secondAttribute="top" constant="174" id="tb1-kA-Tct"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="menuButton" destination="ojK-Tx-eRz" id="paD-HT-yL7"/>
+                        <outlet property="menuButton" destination="ojK-Tx-eRz" id="6IK-XI-AHg"/>
                         <outlet property="navBar" destination="wNz-zt-ok9" id="VRL-Uh-GBk"/>
-                        <outlet property="navItem" destination="hTM-66-L1m" id="aIX-rQ-lhd"/>
                         <outlet property="testSlider" destination="dKB-it-13h" id="G82-GP-tOq"/>
                         <outlet property="textField" destination="47Q-nG-J3X" id="NPi-mN-OxG"/>
                         <segue destination="xDI-1s-zxY" kind="modal" id="UTq-qD-g3P"/>
@@ -129,6 +136,33 @@
             <point key="canvasLocation" x="1516" y="0.0"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="InitialSlidingViewController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSlidingViewController.h"/>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="menuTView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TestViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TestViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="revealMenu:"/>
+                <relationship kind="outlet" name="menuButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="testSlider" candidateClass="UISlider"/>
+                <relationship kind="outlet" name="textField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

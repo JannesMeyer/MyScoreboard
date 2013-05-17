@@ -13,8 +13,15 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     ECSlidingViewController* slidingViewController = (ECSlidingViewController *)self.window.rootViewController;
+    
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    
     slidingViewController.topViewController = [storyboard instantiateViewControllerWithIdentifier:@"Test"];
+    
+    // Navbar background image
+    UIImage *navBackgroundImage = [UIImage imageNamed:@"navbar"];
+    [[UINavigationBar appearance] setBackgroundImage:navBackgroundImage forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 							
