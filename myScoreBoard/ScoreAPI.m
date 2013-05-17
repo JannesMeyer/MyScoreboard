@@ -67,7 +67,7 @@
     XMLConnectionStub *xmlConnectionStub = [[XMLConnectionStub alloc] init];
     xmlResponse = [xmlConnectionStub getSOAPResponse:completeString AndNamespace:@"GetTeamsByLeagueSaison"];
     
-    //NSLog(xmlResponse);
+    NSLog(@"%@",xmlResponse);
     
     // X-Path mit Namespace!!!
     NSArray *nodesTeamID = [self getNodesByXPath:@"//GetTeamsByLeagueSaison:teamID" AndXMLResponse:xmlResponse];
