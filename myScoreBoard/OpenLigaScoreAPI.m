@@ -10,6 +10,7 @@
 #import "MatchGroup.h"
 #import "TouchXML.h"
 #import "XMLConnectionStub.h"
+#import "Goal.h"
 
 @implementation OpenLigaScoreAPI
 
@@ -83,21 +84,37 @@
         
         Match *match = [[Match alloc] init];
         
-        NSString *matchID = [[node elementsForName:@"matchID"] objectAtIndex:0];
+        // XML-Extract of...
+        // matchID
+        NSString *matchID = [[[node elementsForName:@"matchID"] objectAtIndex:0] stringValue];
         
+        // team1
         Team *team1 = [[Team alloc] init];
-        [team1 setTeamId: (NSUInteger) [[node elementsForName:@"idTeam1"] objectAtIndex:0]];
-        [team1 setName:[[node elementsForName:@"nameTeam1"] objectAtIndex:0]];
-        [team1 setTeamIconURL:[[node elementsForName:@"iconUrlTeam1"] objectAtIndex:0]];
+        [team1 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam1"] objectAtIndex:0] stringValue]];
+        [team1 setName:[[[node elementsForName:@"nameTeam1"] objectAtIndex:0] stringValue]];
+        [team1 setTeamIconURL:[[[node elementsForName:@"iconUrlTeam1"] objectAtIndex:0] stringValue]];
         
+        // team2
         Team *team2 = [[Team alloc]init];
-        [team2 setTeamId: (NSUInteger) [[node elementsForName:@"idTeam2"] objectAtIndex:0]];
-        [team2 setName: [[node elementsForName:@"nameTeam2"] objectAtIndex:0]];
-        [team2 setTeamIconURL: [[node elementsForName:@"iconUrlTeam2"] objectAtIndex:0]];
+        [team2 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam2"] objectAtIndex:0] stringValue]];
+        [team2 setName: [[[node elementsForName:@"nameTeam2"] objectAtIndex:0] stringValue]];
+        [team2 setTeamIconURL: [[[node elementsForName:@"iconUrlTeam2"] objectAtIndex:0] stringValue]];
         
+        // startTime
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
-        NSDate *startTime = [dateFormatter dateFromString:[[node elementsForName:@"matchDateTime"] objectAtIndex:0]];
+        NSDate *startTime = [dateFormatter dateFromString:[[[node elementsForName:@"matchDateTime"] objectAtIndex:0] stringValue]];
+        
+        // goals
+        NSArray *xmlGoals = [node elementsForName:@"goals"];
+        NSMutableArray *goals = [[NSMutableArray alloc] init];
+        
+        for (CXMLElement *xmlGoal in xmlGoals) {
+            Goal *goal = [[Goal alloc] init];
+            [goal setTime:(NSUInteger) [[[node elementsForName:@"goalMatchMinute"] objectAtIndex:0 ] stringValue]];
+            
+            
+        }
         
         
         

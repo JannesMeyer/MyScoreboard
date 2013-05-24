@@ -10,7 +10,7 @@
 #import "Team.h"
 
 @interface Goal : NSObject
-@property (nonatomic) NSDate* time;
+@property (nonatomic) int time;
 @property (nonatomic) int halftime;
 @property (nonatomic) NSString* byPlayer;
 @property (weak, nonatomic) Team* byTeam;
