@@ -26,9 +26,21 @@
         
         MatchGroup *matchGroup = [self getMatchesForMatchday];
         
+        
+        
         for(Match *match in [matchGroup matches]) {
-            NSLog(@"MatchId: %d", [match matchId]);
-            //NSLog(@"Match: %@ - %@", [[match team1] name], [[match team2] name]);
+            
+            
+            NSLog(@"Match: %@ - %@", [[match team1] name], [[match team2] name]);
+            
+            for(Goal *goal in [match goals]) {
+                NSLog(@"Tor von: %@", [[goal byTeam] name]);
+
+            }
+            NSLog(@"-------");
+            
+            //NSLog(@"MatchId: %d", [match matchId]);
+            
         }
         
     }
@@ -40,7 +52,6 @@
 }
 
 - (MatchGroup*)getMatchesForMatchday {
-    
     
     // default: Current matchday
     NSString *ligaShortcut = @"BL1";
@@ -113,18 +124,28 @@
         
         NSMutableArray *goals = [[NSMutableArray alloc] init];
         
-        int goalNumber = 0;
+        int goalNumber = 0;        
         
         for (CXMLElement *xmlGoal in xmlGoals) {
             Goal *goal = [[Goal alloc] init];
-            [goal setTime:(NSUInteger) [[[xmlGoal elementsForName:@"goalMatchMinute"] objectAtIndex:0 ] stringValue]];
-            // TODO: halftime?
+            
+            int time = [[[[xmlGoal elementsForName:@"goalMatchMinute"] objectAtIndex:0 ] stringValue] intValue];
+            
+            [goal setTime: time];
+            
+            if(time <= 45) {
+                [goal setHalftime:1];
+            } else {
+                [goal setHalftime:2];
+            }
+            
             [goal setByPlayer:[[[xmlGoal elementsForName:@"goalGetterName"] objectAtIndex:0] stringValue]];
             
-            // TODO: byTeam
             [goal setByTeam:[self getTeamBy:xmlGoals AndNumber:goalNumber AndTeam1:team1 AndTeam2:team2]];
             
             goalNumber++;
+            
+            [goals addObject:goal];
         }
         [match setGoals:goals];
         
@@ -160,11 +181,11 @@
 
 /**
  * Gibt anhand der Änderung des Spielstands das Team zurück, welches das Tor geschossen hat. Vorbedingung: mit 'goalNumber' geht die laufende
- * Nummer des Treffers ein. TODO: Testen!!!
+ * Nummer des Treffers ein. Works fine ;-) 28.05.2013, dmohr
  */
 - (Team *) getTeamBy: (NSArray*) xmlGoals AndNumber: (int) goalNumber AndTeam1: (Team*) team1 AndTeam2: (Team*) team2 {
     
-    NSString* scoreTeam1 = [[[[xmlGoals objectAtIndex:0] elementsForName:@"goalScoreTeam1"] objectAtIndex:0] stringValue];
+    NSString* scoreTeam1 = [[[[xmlGoals objectAtIndex:goalNumber] elementsForName:@"goalScoreTeam1"] objectAtIndex:0] stringValue];
     Boolean ownGoal = [[[[[xmlGoals objectAtIndex:0] elementsForName:@"goalOwnGoal"] objectAtIndex:0] stringValue] boolValue];
     
     if(goalNumber == 0) {
@@ -178,6 +199,7 @@
     } else {
         NSString* scoreTeam1Minus1 = [[[[xmlGoals objectAtIndex:goalNumber-1] elementsForName:@"goalScoreTeam1"] objectAtIndex:0] stringValue];
         // Wenn Team1 einen anderen Torstand hat als ein Goal-Element vorher und dieses kein Eigentor war, dann hat Team 1 das Tor geschossen
+        //NSLog(@"ScoreTeam1: %@ :: ScoreTeam1Min1: %@", scoreTeam1, scoreTeam1Minus1);
         if(![scoreTeam1 isEqualToString: scoreTeam1Minus1] && !ownGoal) {
             return team1;
         // Ansonsten Team2
@@ -191,6 +213,7 @@
 /**
  * Holt den aktuellen Spieltag der als Parameter einzugebenden Liga
  */
+
 - (NSString *) getCurrentGroupOrderID: (NSString*) leagueShortcut {
     
     NSString* completeString = @"<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SOAP-ENV:Body><m:GetCurrentGroupOrderID xmlns:m=\"http://msiggi.de/Sportsdata/Webservices\">";

@@ -11,6 +11,7 @@
 @implementation XMLConnectionStub
 
 - (void) requestSOAPResponse:(NSString *)completeString AndNamespace:(NSString *) namespace {
+    
     NSURL *url = [NSURL URLWithString:@"http://www.OpenLigaDB.de/Webservices/Sportsdata.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     NSString *msgLength = [NSString stringWithFormat:@"%d", [completeString length]];
@@ -25,23 +26,10 @@
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [completeString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    //NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self startImmediately:YES];
-    
     NSURLResponse *theResponse = nil;
     
     _webData = [NSURLConnection sendSynchronousRequest:theRequest returningResponse:&theResponse error:nil];
     _xmlResponse = [[NSString alloc] initWithBytes: [[self webData] bytes] length:[[self webData] length] encoding:NSUTF8StringEncoding];
-
-    /*
-    if( theConnection )
-    {
-        _webData = [NSMutableData data];
-    }
-    else
-    {
-        NSLog(@"theConnection is NULL");
-    }
-     */
     
 }
 
