@@ -11,7 +11,7 @@
 
 @interface Match : NSObject
 
-@property (nonatomic) int matchId;
+@property (readonly, nonatomic) int matchId;
 @property (nonatomic) Team* team1;
 @property (nonatomic) Team* team2;
 @property (nonatomic) NSDate* startTime;

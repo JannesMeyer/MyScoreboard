@@ -27,22 +27,9 @@
         MatchGroup *matchGroup = [self getMatchesForMatchday];
         
         for(Match *match in [matchGroup matches]) {
-            
-            NSLog(@"MatchID : %@", [NSString stringWithFormat:@"%d", [match matchId]]);
-            
+            NSLog(@"MatchId: %d", [match matchId]);
+            //NSLog(@"Match: %@ - %@", [[match team1] name], [[match team2] name]);
         }
-        
-        
-        // NSArray *teams = [self getTeamsByLeagueSaison:@"2013" AndLeagueShortcut:@"BL1"];
-        // NSString *currGroupOrderID = [self getCurrentGroupOrderID: @"BL1"];
-        // NSLog(@"GroupOrderId : %@", currGroupOrderID);
-        
-//        for (Team *team in teams) {
-//            NSLog(@"TeamID : %@",[team teamId]);
-//            NSLog(@"TeamName : %@", [team name]);
-//            NSLog(@"TeamIconURL : %@", [team teamIconURL]);
-//            
-//        }
         
     }
     return self;
@@ -53,8 +40,9 @@
 }
 
 - (MatchGroup*)getMatchesForMatchday {
-    // default: Current matchday
     
+    
+    // default: Current matchday
     NSString *ligaShortcut = @"BL1";
     NSString *leagueSaison = @"2012";
     NSString *currentGroupOrderID = [self getCurrentGroupOrderID:ligaShortcut];
@@ -82,24 +70,25 @@
     
     NSString *xmlResponse;
     
+    
+    // Stellt Verbindung her und ...
     XMLConnectionStub *xmlConnectionStub = [[XMLConnectionStub alloc] init];
     
+    // ... startet SOAP-Request
     xmlResponse = [xmlConnectionStub getSOAPResponse:completeString AndNamespace:@"GetMatchdataByGroupLeagueSaison"];
     
     NSArray *nodes = [self getNodesByXPath:@"//GetMatchdataByGroupLeagueSaison:Matchdata" AndXMLResponse:xmlResponse];
     
-    MatchGroup *matchGroup = [[MatchGroup alloc] init];
+    NSMutableArray *matches = [[NSMutableArray alloc] init];
     
-    for (CXMLElement *node in nodes) {
-        
-        Match *match = [[Match alloc] init];
+    for (CXMLElement *node in nodes) {        
         
         // XML-Extract of...
         // matchID
         NSString *matchID = [[[node elementsForName:@"matchID"] objectAtIndex:0] stringValue];
-        [match setMatchId:(NSUInteger) matchID];
+        Match *match = [[Match alloc] initWithId:[matchID intValue]];
         
-        // team1
+        // team1	
         Team *team1 = [[Team alloc] init];
         [team1 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam1"] objectAtIndex:0] stringValue]];
         [team1 setName:[[[node elementsForName:@"nameTeam1"] objectAtIndex:0] stringValue]];
@@ -119,16 +108,23 @@
         NSDate *startTime = [dateFormatter dateFromString:[[[node elementsForName:@"matchDateTime"] objectAtIndex:0] stringValue]];
         [match setStartTime:startTime];
         
-        // goals
-        NSArray *xmlGoals = [node elementsForName:@"goals"];
+        // goals/Goal
+        NSArray *xmlGoals = [[[node elementsForName:@"goals"] objectAtIndex:0] elementsForName:@"Goal"];
+        
         NSMutableArray *goals = [[NSMutableArray alloc] init];
+        
+        int goalNumber = 0;
         
         for (CXMLElement *xmlGoal in xmlGoals) {
             Goal *goal = [[Goal alloc] init];
-            [goal setTime:(NSUInteger) [[[node elementsForName:@"goalMatchMinute"] objectAtIndex:0 ] stringValue]];
-            // halftime?
-            [goal setByPlayer:[[[node elementsForName:@"goalGetterName"] objectAtIndex:0] stringValue]];
-            // byPlayer
+            [goal setTime:(NSUInteger) [[[xmlGoal elementsForName:@"goalMatchMinute"] objectAtIndex:0 ] stringValue]];
+            // TODO: halftime?
+            [goal setByPlayer:[[[xmlGoal elementsForName:@"goalGetterName"] objectAtIndex:0] stringValue]];
+            
+            // TODO: byTeam
+            [goal setByTeam:[self getTeamBy:xmlGoals AndNumber:goalNumber AndTeam1:team1 AndTeam2:team2]];
+            
+            goalNumber++;
         }
         [match setGoals:goals];
         
@@ -141,16 +137,18 @@
         [match setTeam2Score:(NSUInteger) pointsTeam2];
         
         // StadiumName
-        NSString *stadiumName = [[[node elementsForName:@"locationStadium"] objectAtIndex:0] stringValue];
+        NSString *stadiumName = [[[[[node elementsForName:@"location"] objectAtIndex:0 ] elementsForName:@"locationStadium"] objectAtIndex:0] stringValue];
         [match setStadiumName:stadiumName];
         
         // LocationCity
-        NSString *locationName = [[[node elementsForName:@"locationCity"] objectAtIndex:0] stringValue];
-        [match setLocationName:locationName];
+        NSString *locationCity = [[[[[node elementsForName:@"location"] objectAtIndex:0 ] elementsForName:@"locationCity"] objectAtIndex:0] stringValue];
+        [match setLocationName:locationCity];
         
-        // Adding to MatchGroup
-        [matchGroup add:match];
+        // Adding to MatchArray
+        [matches addObject:match];
     }
+    
+    MatchGroup *matchGroup = [[MatchGroup alloc] initWithMatches:matches];
     
     return matchGroup;
 
@@ -159,6 +157,36 @@
 
 // ###########################
 // API - Internal Methods
+
+/**
+ * Gibt anhand der Änderung des Spielstands das Team zurück, welches das Tor geschossen hat. Vorbedingung: mit 'goalNumber' geht die laufende
+ * Nummer des Treffers ein. TODO: Testen!!!
+ */
+- (Team *) getTeamBy: (NSArray*) xmlGoals AndNumber: (int) goalNumber AndTeam1: (Team*) team1 AndTeam2: (Team*) team2 {
+    
+    NSString* scoreTeam1 = [[[[xmlGoals objectAtIndex:0] elementsForName:@"goalScoreTeam1"] objectAtIndex:0] stringValue];
+    Boolean ownGoal = [[[[[xmlGoals objectAtIndex:0] elementsForName:@"goalOwnGoal"] objectAtIndex:0] stringValue] boolValue];
+    
+    if(goalNumber == 0) {
+        // Wenn Team1 das erste Tor geschossen hat und es kein Eigentor ist, dann hat Team 1 das Tor geschossen
+        if([scoreTeam1 isEqualToString:@"1"] && !ownGoal) {
+            return team1;
+        // Ansonsten Team2
+        } else {
+            return team2;
+        }
+    } else {
+        NSString* scoreTeam1Minus1 = [[[[xmlGoals objectAtIndex:goalNumber-1] elementsForName:@"goalScoreTeam1"] objectAtIndex:0] stringValue];
+        // Wenn Team1 einen anderen Torstand hat als ein Goal-Element vorher und dieses kein Eigentor war, dann hat Team 1 das Tor geschossen
+        if(![scoreTeam1 isEqualToString: scoreTeam1Minus1] && !ownGoal) {
+            return team1;
+        // Ansonsten Team2
+        } else {
+            return team2;
+        }
+    }
+    return nil;
+}
 
 /**
  * Holt den aktuellen Spieltag der als Parameter einzugebenden Liga
