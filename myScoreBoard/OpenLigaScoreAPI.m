@@ -112,9 +112,12 @@
         for (CXMLElement *xmlGoal in xmlGoals) {
             Goal *goal = [[Goal alloc] init];
             [goal setTime:(NSUInteger) [[[node elementsForName:@"goalMatchMinute"] objectAtIndex:0 ] stringValue]];
-            
-            
+            // halftime?
+            [goal setByPlayer:[[[node elementsForName:@"goalGetterName"] objectAtIndex:0] stringValue]];
+            // byPlayer
         }
+        
+        
         
         
         
