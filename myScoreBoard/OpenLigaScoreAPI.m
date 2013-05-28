@@ -23,9 +23,19 @@
     self = [super init];
     if (self) {
         // Testaufruf
-        //NSArray *teams = [self getTeamsByLeagueSaison:@"2013" AndLeagueShortcut:@"BL1"];
-        NSString *currGroupOrderID = [self getCurrentGroupOrderID: @"BL1"];
-        NSLog(@"GroupOrderId : %@", currGroupOrderID);
+        
+        MatchGroup *matchGroup = [self getMatchesForMatchday];
+        
+        for(Match *match in [matchGroup matches]) {
+            
+            NSLog(@"MatchID : %@", [NSString stringWithFormat:@"%d", [match matchId]]);
+            
+        }
+        
+        
+        // NSArray *teams = [self getTeamsByLeagueSaison:@"2013" AndLeagueShortcut:@"BL1"];
+        // NSString *currGroupOrderID = [self getCurrentGroupOrderID: @"BL1"];
+        // NSLog(@"GroupOrderId : %@", currGroupOrderID);
         
 //        for (Team *team in teams) {
 //            NSLog(@"TeamID : %@",[team teamId]);
@@ -87,23 +97,27 @@
         // XML-Extract of...
         // matchID
         NSString *matchID = [[[node elementsForName:@"matchID"] objectAtIndex:0] stringValue];
+        [match setMatchId:(NSUInteger) matchID];
         
         // team1
         Team *team1 = [[Team alloc] init];
         [team1 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam1"] objectAtIndex:0] stringValue]];
         [team1 setName:[[[node elementsForName:@"nameTeam1"] objectAtIndex:0] stringValue]];
         [team1 setTeamIconURL:[[[node elementsForName:@"iconUrlTeam1"] objectAtIndex:0] stringValue]];
+        [match setTeam1:team1];
         
         // team2
         Team *team2 = [[Team alloc]init];
         [team2 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam2"] objectAtIndex:0] stringValue]];
         [team2 setName: [[[node elementsForName:@"nameTeam2"] objectAtIndex:0] stringValue]];
         [team2 setTeamIconURL: [[[node elementsForName:@"iconUrlTeam2"] objectAtIndex:0] stringValue]];
+        [match setTeam2:team2];
         
         // startTime
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss"];
         NSDate *startTime = [dateFormatter dateFromString:[[[node elementsForName:@"matchDateTime"] objectAtIndex:0] stringValue]];
+        [match setStartTime:startTime];
         
         // goals
         NSArray *xmlGoals = [node elementsForName:@"goals"];
@@ -116,16 +130,30 @@
             [goal setByPlayer:[[[node elementsForName:@"goalGetterName"] objectAtIndex:0] stringValue]];
             // byPlayer
         }
+        [match setGoals:goals];
         
+        // ScoreTeam1
+        NSString *pointsTeam1 = [[[node elementsForName:@"pointsTeam1"] objectAtIndex:0] stringValue];
+        [match setTeam1Score:(NSUInteger) pointsTeam1];
         
+        // ScoreTeam2
+        NSString *pointsTeam2 = [[[node elementsForName:@"pointsTeam2"] objectAtIndex:0] stringValue];
+        [match setTeam2Score:(NSUInteger) pointsTeam2];
         
+        // StadiumName
+        NSString *stadiumName = [[[node elementsForName:@"locationStadium"] objectAtIndex:0] stringValue];
+        [match setStadiumName:stadiumName];
         
+        // LocationCity
+        NSString *locationName = [[[node elementsForName:@"locationCity"] objectAtIndex:0] stringValue];
+        [match setLocationName:locationName];
         
+        // Adding to MatchGroup
+        [matchGroup add:match];
     }
     
-    
-    
-    return nil;
+    return matchGroup;
+
 }
 
 
