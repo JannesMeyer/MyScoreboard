@@ -29,16 +29,19 @@
     return _goals;
 }
 
+- (NSArray*)goalsForTeam:(int)teamId {
+    NSIndexSet* indexes = [self.goals indexesOfObjectsPassingTest:^BOOL(Goal* goal, NSUInteger idx, BOOL *stop) {
+        return goal.byTeam.teamId == teamId;
+    }];
+    return [self.goals objectsAtIndexes:indexes];
+}
+
 - (int)team1Score {
-    return [[self.goals indexesOfObjectsPassingTest:^BOOL(Goal* goal, NSUInteger idx, BOOL *stop) {
-        return goal.byTeam.teamId == self.team1.teamId;
-    }] count];
+    return [[self goalsForTeam:self.team1.teamId] count];
 }
 
 - (int)team2Score {
-    return [[self.goals indexesOfObjectsPassingTest:^BOOL(Goal* goal, NSUInteger idx, BOOL *stop) {
-        return goal.byTeam.teamId == self.team2.teamId;
-    }] count];
+    return [[self goalsForTeam:self.team2.teamId] count];
 }
 
 - (int)currentMinute {
