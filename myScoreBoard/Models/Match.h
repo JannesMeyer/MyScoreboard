@@ -16,8 +16,8 @@
 @property (nonatomic) Team* team2;
 @property (nonatomic) NSDate* startTime;
 @property (nonatomic) NSMutableArray* goals; // of Goal
-@property (readonly, nonatomic) int team1Score;
-@property (readonly, nonatomic) int team2Score;
+@property (nonatomic) int team1Score;
+@property (nonatomic) int team2Score;
 @property (nonatomic) NSString* stadiumName;
 @property (nonatomic) NSString* locationName;
 
