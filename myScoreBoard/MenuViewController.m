@@ -89,7 +89,9 @@
     Match* match = [self.matches objectAtIndex:indexPath.row];
     [cell setTeam1Name:match.team1.name];
     [cell setTeam2Name:match.team2.name];
-//    [NSDate timeIntervalSinceReferenceDate]
+    [cell setTeam1Score:match.team1Score];
+    [cell setTeam2Score:match.team2Score];
+    [cell setMinutes:match.currentMinute];
     return cell;
     
 }

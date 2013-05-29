@@ -7,6 +7,7 @@
 //
 
 #import "Match.h"
+#import "Goal.h"
 
 @interface Match()
 @property (readwrite, nonatomic) int matchId;
@@ -26,6 +27,22 @@
 -(NSMutableArray*)goals {
     if (!_goals) _goals = [[NSMutableArray alloc] init];
     return _goals;
+}
+
+- (int)team1Score {
+    return [[self.goals indexesOfObjectsPassingTest:^BOOL(Goal* goal, NSUInteger idx, BOOL *stop) {
+        return goal.byTeam.teamId == self.team1.teamId;
+    }] count];
+}
+
+- (int)team2Score {
+    return [[self.goals indexesOfObjectsPassingTest:^BOOL(Goal* goal, NSUInteger idx, BOOL *stop) {
+        return goal.byTeam.teamId == self.team2.teamId;
+    }] count];
+}
+
+- (int)currentMinute {
+    return arc4random() % 90;
 }
 
 @end

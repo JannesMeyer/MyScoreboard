@@ -8,6 +8,7 @@
 
 #import "MatchViewController.h"
 #import "MenuViewController.h"
+#import "Goal.h"
 
 @interface MatchViewController()
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
@@ -40,11 +41,16 @@
 }
 
 - (void)updateUI {
-    self.minuteLabel.text = [NSString stringWithFormat:@"%d", 20];
+    self.minuteLabel.text = [NSString stringWithFormat:@"%d", self.match.currentMinute];
     self.locationLabel.text = self.match.stadiumName;
     self.matchNameLabel.text = [NSString stringWithFormat:@"%@ vs. %@", self.match.team1.name, self.match.team2.name];
-    self.scoreLabel1.text = [NSString stringWithFormat:@"%d", 0];
-    self.scoreLabel2.text = [NSString stringWithFormat:@"%d", 0];
+    self.scoreLabel1.text = [NSString stringWithFormat:@"%d", self.match.team1Score];
+    self.scoreLabel2.text = [NSString stringWithFormat:@"%d", self.match.team2Score];
+    NSString* goalText = @"";
+    for (Goal* goal in self.match.goals) {
+        goalText = [goalText stringByAppendingFormat:@"%@ - %d min\n", goal.byPlayer, goal.time];
+    }
+    self.goalsLabel1.text = goalText;
 }
 
 - (IBAction)revealMenu:(id)sender {

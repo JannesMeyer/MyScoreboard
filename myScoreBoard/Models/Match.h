@@ -16,11 +16,14 @@
 @property (nonatomic) Team* team2;
 @property (nonatomic) NSDate* startTime;
 @property (nonatomic) NSMutableArray* goals; // of Goal
-@property (nonatomic) int team1Score;
-@property (nonatomic) int team2Score;
 @property (nonatomic) NSString* stadiumName;
 @property (nonatomic) NSString* locationName;
 
--(id)initWithId:(int) matchId;
+// designated initializer
+- (id)initWithId:(int) matchId;
+
+- (int)team1Score;
+- (int)team2Score;
+- (int)currentMinute;
 
 @end

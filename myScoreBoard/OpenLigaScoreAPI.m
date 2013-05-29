@@ -149,13 +149,13 @@
         }
         [match setGoals:goals];
         
-        // ScoreTeam1
-        NSString *pointsTeam1 = [[[node elementsForName:@"pointsTeam1"] objectAtIndex:0] stringValue];
-        [match setTeam1Score:(NSUInteger) pointsTeam1];
-        
-        // ScoreTeam2
-        NSString *pointsTeam2 = [[[node elementsForName:@"pointsTeam2"] objectAtIndex:0] stringValue];
-        [match setTeam2Score:(NSUInteger) pointsTeam2];
+//        // ScoreTeam1
+//        NSString *pointsTeam1 = [[[node elementsForName:@"pointsTeam1"] objectAtIndex:0] stringValue];
+//        [match setTeam1Score:(NSUInteger) pointsTeam1];
+//        
+//        // ScoreTeam2
+//        NSString *pointsTeam2 = [[[node elementsForName:@"pointsTeam2"] objectAtIndex:0] stringValue];
+//        [match setTeam2Score:(NSUInteger) pointsTeam2];
         
         // StadiumName
         NSString *stadiumName = [[[[[node elementsForName:@"location"] objectAtIndex:0 ] elementsForName:@"locationStadium"] objectAtIndex:0] stringValue];
