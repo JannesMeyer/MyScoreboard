@@ -1,13 +1,13 @@
 //
-//  CustomMenuCell.h
+//  MatchNC.h
 //  myScoreBoard
 //
-//  Created by Jannes on May/10/13.
+//  Created by Jannes on May/29/13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CustomMenuCell : UITableViewCell
+@interface MatchNC : UINavigationController
 
 @end

@@ -1,91 +1,83 @@
 //
-//  TestViewController.m
-//  MenuTut
+//  MatchViewController.m
+//  myScoreBoard
 //
 //  Created by Jannes Meyer on 26.04.13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
 #import "MatchViewController.h"
+#import "MenuViewController.h"
 
-@interface MatchViewController ()
-
+@interface MatchViewController()
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
+@property (weak, nonatomic) IBOutlet UIImageView *scoreContainer;
+@property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *matchNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *goalsLabel1;
 @end
 
 @implementation MatchViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.testSlider.maximumValue = 100;
-    self.testSlider.minimumValue = 0;
-    self.testSlider.value = 20;
-    self.textField.delegate = self;
     
-    [self.menuButton setImage:[UIImage imageNamed:@"icon-navbar"]];
-    
-    [self.menuButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    // Navigation bar shadow
-    self.navBar.shadowImage = [UIImage imageNamed:@"navbar-shadow"];
-    
-//    NSArray *array = [[NSArray alloc]initWithObjects:@"asdsadsa",@"dsasddsa", nil];
-//    NSArray *array2 = [NSArray arrayWithObjects:@"asddsadsa",@"dsfdssd",@"dfdfsdf", nil];
-    
-    
-//    UIImageView *imgView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menu_umsatz"]];
-//    navItem.titleView = imgView;
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
-    self.matchLabel.text = self.matchName;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)aTextField {
-    
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)aTextField{
-    NSString *textFieldtext = aTextField.text;
-    int value = [textFieldtext intValue];
-    self.testSlider.value = value;
-    [aTextField resignFirstResponder];
-    return YES;
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    self.view.layer.shadowOpacity = 0.75f;
-    self.view.layer.shadowRadius = 10.0f;
-    self.view.layer.shadowColor = [UIColor blackColor].CGColor;
-    
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
-        self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"Menu"];
+    if (self.match) {
+        [self updateUI];
     }
     
-    [self.view addGestureRecognizer:self.slidingViewController.panGesture];
+    // Custom background
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
+    // Navigation bar button
+    [self.menuButton setImage:[UIImage imageNamed:@"icon-navbar"]];
+    [self.menuButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    // Score container
+    self.scoreContainer.image = [[UIImage imageNamed:@"score-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 8, 7)];
+}
+
+- (void)updateUI {
+    self.minuteLabel.text = [NSString stringWithFormat:@"%d", 20];
+    self.locationLabel.text = self.match.stadiumName;
+    self.matchNameLabel.text = [NSString stringWithFormat:@"%@ vs. %@", self.match.team1.name, self.match.team2.name];
+    self.scoreLabel1.text = [NSString stringWithFormat:@"%d", 0];
+    self.scoreLabel2.text = [NSString stringWithFormat:@"%d", 0];
 }
 
 - (IBAction)revealMenu:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
+- (void)addScoreView {
+//    UIImageView* container = [[UIImageView alloc] initWithFrame:CGRectMake(10, 100, 300, 100)];
+//    container.opaque = NO;
+//    container.image = [[UIImage imageNamed:@"score-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 8, 7)];
+//
+//    UILabel* team1 = [[UILabel alloc] initWithFrame:CGRectMake(5, 5, container.bounds.size.width / 2, 30)];
+//    team1.text = @"Werder Bremen";
+//    team1.opaque = NO;
+//    team1.backgroundColor = nil;
+//    team1.textColor = [UIColor whiteColor];
+//    team1.shadowColor = [UIColor blackColor];
+//    team1.shadowOffset = CGSizeMake(0, 1);
+//    team1.font = [UIFont boldSystemFontOfSize:18];
+//
+//    UILabel* team2 = [[UILabel alloc] initWithFrame:CGRectMake(145, 5, container.bounds.size.width / 2, 30)];
+//    team2.text = @"TSG Hoffenheim";
+//    team2.opaque = NO;
+//    team2.backgroundColor = nil;
+//    team2.textColor = [UIColor whiteColor];
+//    team2.shadowColor = [UIColor blackColor];
+//    team2.shadowOffset = CGSizeMake(0, 1);
+//    team2.font = [UIFont boldSystemFontOfSize:18];
+//    team2.textAlignment = NSTextAlignmentRight;
+//
+//    [container addSubview:team1];
+//    [container addSubview:team2];
+//    [self.view addSubview:container];
 }
 
 @end

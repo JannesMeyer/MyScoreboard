@@ -29,6 +29,7 @@
 		814966201733D5C700C7063A /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 814966121733D5C700C7063A /* CTidy.m */; };
 		A143011D173CFE0800E5518D /* OpenLigaScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */; };
 		A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */; };
+		DF0CBC3E175696E200E1F32D /* MatchNC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0CBC3D175696E200E1F32D /* MatchNC.m */; };
 		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
 		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
 		DF120540173CFA27004CD78F /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053F173CFA27004CD78F /* Goal.m */; };
@@ -42,7 +43,13 @@
 		DF3570F0173D3735002A3519 /* menu-hsection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E5173D3735002A3519 /* menu-hsection@2x.png */; };
 		DF3570F1173D3735002A3519 /* navbar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E6173D3735002A3519 /* navbar-shadow@2x.png */; };
 		DF3570F2173D3735002A3519 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E7173D3735002A3519 /* navbar@2x.png */; };
-		DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3570F5173D3B95002A3519 /* CustomMenuCell.m */; };
+		DF3C540E174F7FB000C35C37 /* MatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3C540D174F7FB000C35C37 /* MatchCell.xib */; };
+		DF3C5415174F918800C35C37 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3C5414174F918800C35C37 /* MatchCell.m */; };
+		DF3C5418174F9B9100C35C37 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C5416174F9B9100C35C37 /* clock@2x.png */; };
+		DF3C5419174F9B9100C35C37 /* talk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C5417174F9B9100C35C37 /* talk@2x.png */; };
+		DF3C541C174F9C6B00C35C37 /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C541A174F9C6B00C35C37 /* clock.png */; };
+		DF3C541D174F9C6B00C35C37 /* talk.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C541B174F9C6B00C35C37 /* talk.png */; };
+		DF3C541F1750176E00C35C37 /* score-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C541E1750176E00C35C37 /* score-bg.png */; };
 		DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* MatchViewController.m */; };
 		DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuViewController.m */; };
 		DF86F595173D173600DF4EAE /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF86F593173D173600DF4EAE /* iPhone.storyboard */; };
@@ -54,7 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		814965A21733CA7A00C7063A /* myScoreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myScoreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		814965A21733CA7A00C7063A /* Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		814965A51733CA7A00C7063A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		814965A71733CA7A00C7063A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		814965A91733CA7A00C7063A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +103,8 @@
 		A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenLigaScoreAPI.m; sourceTree = "<group>"; };
 		A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLConnectionStub.h; sourceTree = "<group>"; };
 		A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLConnectionStub.m; sourceTree = "<group>"; };
+		DF0CBC3C175696E200E1F32D /* MatchNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchNC.h; sourceTree = "<group>"; };
+		DF0CBC3D175696E200E1F32D /* MatchNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNC.m; sourceTree = "<group>"; };
 		DF120538173CF65D004CD78F /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Models/Match.h; sourceTree = "<group>"; };
 		DF120539173CF65D004CD78F /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Models/Match.m; sourceTree = "<group>"; };
 		DF12053B173CF96D004CD78F /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = Models/Team.h; sourceTree = "<group>"; };
@@ -112,8 +121,14 @@
 		DF3570E5173D3735002A3519 /* menu-hsection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-hsection@2x.png"; path = "Images/menu-hsection@2x.png"; sourceTree = "<group>"; };
 		DF3570E6173D3735002A3519 /* navbar-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbar-shadow@2x.png"; path = "Images/navbar-shadow@2x.png"; sourceTree = "<group>"; };
 		DF3570E7173D3735002A3519 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbar@2x.png"; path = "Images/navbar@2x.png"; sourceTree = "<group>"; };
-		DF3570F4173D3B95002A3519 /* CustomMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomMenuCell.h; path = CustomViews/CustomMenuCell.h; sourceTree = "<group>"; };
-		DF3570F5173D3B95002A3519 /* CustomMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomMenuCell.m; path = CustomViews/CustomMenuCell.m; sourceTree = "<group>"; };
+		DF3C540D174F7FB000C35C37 /* MatchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MatchCell.xib; path = CustomViews/MatchCell.xib; sourceTree = "<group>"; };
+		DF3C5413174F918800C35C37 /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchCell.h; path = CustomViews/MatchCell.h; sourceTree = "<group>"; };
+		DF3C5414174F918800C35C37 /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchCell.m; path = CustomViews/MatchCell.m; sourceTree = "<group>"; };
+		DF3C5416174F9B9100C35C37 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@2x.png"; path = "Images/clock@2x.png"; sourceTree = "<group>"; };
+		DF3C5417174F9B9100C35C37 /* talk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "talk@2x.png"; path = "Images/talk@2x.png"; sourceTree = "<group>"; };
+		DF3C541A174F9C6B00C35C37 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = Images/clock.png; sourceTree = "<group>"; };
+		DF3C541B174F9C6B00C35C37 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = talk.png; path = Images/talk.png; sourceTree = "<group>"; };
+		DF3C541E1750176E00C35C37 /* score-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "score-bg.png"; path = "Images/score-bg.png"; sourceTree = "<group>"; };
 		DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSlidingViewController.h; sourceTree = "<group>"; };
 		DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSlidingViewController.m; sourceTree = "<group>"; };
 		DF86F584173D172400DF4EAE /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
@@ -159,7 +174,7 @@
 		814965A31733CA7A00C7063A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				814965A21733CA7A00C7063A /* myScoreBoard.app */,
+				814965A21733CA7A00C7063A /* Scoreboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -181,7 +196,14 @@
 				814965B41733CA7A00C7063A /* AppDelegate.h */,
 				814965B51733CA7A00C7063A /* AppDelegate.m */,
 				DF86F593173D173600DF4EAE /* iPhone.storyboard */,
-				DF86F583173D171200DF4EAE /* Controllers */,
+				DF0CBC3C175696E200E1F32D /* MatchNC.h */,
+				DF0CBC3D175696E200E1F32D /* MatchNC.m */,
+				DF86F585173D172400DF4EAE /* MatchViewController.h */,
+				DF86F584173D172400DF4EAE /* MatchViewController.m */,
+				DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */,
+				DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */,
+				DF86F587173D172400DF4EAE /* MenuViewController.h */,
+				DF86F586173D172400DF4EAE /* MenuViewController.m */,
 				DF3570F3173D3B66002A3519 /* CustomViews */,
 				DF120537173CF61D004CD78F /* Models */,
 				A143011B173CFE0800E5518D /* OpenLigaScoreAPI.h */,
@@ -278,6 +300,11 @@
 		DF3570DB173D2407002A3519 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF3C541E1750176E00C35C37 /* score-bg.png */,
+				DF3C541A174F9C6B00C35C37 /* clock.png */,
+				DF3C541B174F9C6B00C35C37 /* talk.png */,
+				DF3C5416174F9B9100C35C37 /* clock@2x.png */,
+				DF3C5417174F9B9100C35C37 /* talk@2x.png */,
 				DF3570DD173D3735002A3519 /* cell-transparency@2x.png */,
 				DF3570DE173D3735002A3519 /* Default-568h@2x.png */,
 				DF3570DF173D3735002A3519 /* Default.png */,
@@ -295,8 +322,9 @@
 		DF3570F3173D3B66002A3519 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				DF3570F4173D3B95002A3519 /* CustomMenuCell.h */,
-				DF3570F5173D3B95002A3519 /* CustomMenuCell.m */,
+				DF3C540D174F7FB000C35C37 /* MatchCell.xib */,
+				DF3C5413174F918800C35C37 /* MatchCell.h */,
+				DF3C5414174F918800C35C37 /* MatchCell.m */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -308,19 +336,6 @@
 				814966211733D5CD00C7063A /* TouchXML */,
 			);
 			name = Vendor;
-			sourceTree = "<group>";
-		};
-		DF86F583173D171200DF4EAE /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */,
-				DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */,
-				DF86F587173D172400DF4EAE /* MenuViewController.h */,
-				DF86F586173D172400DF4EAE /* MenuViewController.m */,
-				DF86F585173D172400DF4EAE /* MatchViewController.h */,
-				DF86F584173D172400DF4EAE /* MatchViewController.m */,
-			);
-			name = Controllers;
 			sourceTree = "<group>";
 		};
 		DFE74E8A174664C600D14896 /* ECSlidingViewController */ = {
@@ -337,9 +352,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		814965A11733CA7A00C7063A /* myScoreBoard */ = {
+		814965A11733CA7A00C7063A /* Scoreboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 814965C51733CA7A00C7063A /* Build configuration list for PBXNativeTarget "myScoreBoard" */;
+			buildConfigurationList = 814965C51733CA7A00C7063A /* Build configuration list for PBXNativeTarget "Scoreboard" */;
 			buildPhases = (
 				8149659E1733CA7A00C7063A /* Sources */,
 				8149659F1733CA7A00C7063A /* Frameworks */,
@@ -349,9 +364,9 @@
 			);
 			dependencies = (
 			);
-			name = myScoreBoard;
+			name = Scoreboard;
 			productName = myScoreBoard;
-			productReference = 814965A21733CA7A00C7063A /* myScoreBoard.app */;
+			productReference = 814965A21733CA7A00C7063A /* Scoreboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -375,7 +390,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				814965A11733CA7A00C7063A /* myScoreBoard */,
+				814965A11733CA7A00C7063A /* Scoreboard */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +412,12 @@
 				DF3570F0173D3735002A3519 /* menu-hsection@2x.png in Resources */,
 				DF3570F1173D3735002A3519 /* navbar-shadow@2x.png in Resources */,
 				DF3570F2173D3735002A3519 /* navbar@2x.png in Resources */,
+				DF3C540E174F7FB000C35C37 /* MatchCell.xib in Resources */,
+				DF3C5418174F9B9100C35C37 /* clock@2x.png in Resources */,
+				DF3C5419174F9B9100C35C37 /* talk@2x.png in Resources */,
+				DF3C541C174F9C6B00C35C37 /* clock.png in Resources */,
+				DF3C541D174F9C6B00C35C37 /* talk.png in Resources */,
+				DF3C541F1750176E00C35C37 /* score-bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,13 +449,14 @@
 				A143011D173CFE0800E5518D /* OpenLigaScoreAPI.m in Sources */,
 				DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */,
 				DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */,
-				DF3570F6173D3B95002A3519 /* CustomMenuCell.m in Sources */,
 				A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */,
 				DFE74E89174663EB00D14896 /* InitialSlidingViewController.m in Sources */,
 				DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */,
 				DFE74E90174664DD00D14896 /* UIImage+ImageWithUIView.m in Sources */,
 				DFE74E93174676A100D14896 /* MatchGroup.m in Sources */,
 				DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */,
+				DF3C5415174F918800C35C37 /* MatchCell.m in Sources */,
+				DF0CBC3E175696E200E1F32D /* MatchNC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +540,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "myScoreBoard/myScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "myScoreBoard/myScoreBoard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -530,7 +552,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "myScoreBoard/myScoreBoard-Prefix.pch";
 				INFOPLIST_FILE = "myScoreBoard/myScoreBoard-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -548,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		814965C51733CA7A00C7063A /* Build configuration list for PBXNativeTarget "myScoreBoard" */ = {
+		814965C51733CA7A00C7063A /* Build configuration list for PBXNativeTarget "Scoreboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				814965C61733CA7A00C7063A /* Debug */,

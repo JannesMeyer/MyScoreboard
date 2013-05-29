@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  myScoreBoard
 //
-//  Created by Artur Malek on 03.05.13.
+//  Created by Jannes Meyer on 03.05.13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @interface AppDelegate()
 @property (readwrite, nonatomic) bool dummyApiEnabled;
-@property (readwrite, nonatomic) id<ScoreAPI> api;
+@property (readwrite, nonatomic) id <ScoreAPI> api;
 @property (readwrite, nonatomic) MatchGroup* matchgroup;
 @end
 
@@ -27,12 +27,14 @@
         self.dummyApiEnabled = false;
     }
 
-
+    // Navbar background image
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 
 // Lazy instantiation of the API socket
-- (id<ScoreAPI>)api {
+- (id <ScoreAPI>)api {
     if (!_api) {
         if (self.dummyApiEnabled) {
             _api = [[DummyScoreAPI alloc] init];

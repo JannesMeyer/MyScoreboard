@@ -2,7 +2,7 @@
 //  main.m
 //  myScoreBoard
 //
-//  Created by Artur Malek on 03.05.13.
+//  Created by Jannes Meyer on 03.05.13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 

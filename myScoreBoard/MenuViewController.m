@@ -6,59 +6,48 @@
 //  Copyright (c) 2012 EdgeCase. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import "MenuViewController.h"
-#import "MatchViewController.h"
-#import "CustomMenuCell.h"
 
+#import "AppDelegate.h"
+#import "MatchViewController.h"
+#import "MatchNC.h"
+// Custom view
+#import "CustomViews/MatchCell.h"
+// Model
 #import "Match.h"
 
 @interface MenuViewController()
+//@property (strong, nonatomic) IBOutlet UITableView *menuTView;
 @property (weak, nonatomic) NSMutableArray* matches;
 @property (weak, nonatomic) NSString* groupName;
-@property (weak, nonatomic) AppDelegate* app;
 @end
 
 @implementation MenuViewController
 
-// Lazy instantiation of the reference to the AppDelegate
-- (AppDelegate*)app {
-    if (!_app) _app = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    return _app;
-}
-
-- (void)awakeFromNib {
-    self.matches = self.app.matchgroup.matches;
-    self.groupName = self.app.matchgroup.name;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    // Get some data from the API
-//    for (Match* match in self.matches) {
-//        NSLog(@"%@ - %@", match.team1.name, match.team2.name);
-//    }
+    AppDelegate* app = [[UIApplication sharedApplication] delegate];
+    self.matches = app.matchgroup.matches;
+    self.groupName = app.matchgroup.name;
     
-    self.menuTView.delegate = self;
-    self.menuTView.dataSource = self;
+    // Select first item
+//    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-bg"]];
-
-    [self.slidingViewController setAnchorRightRevealAmount:276.0f];
-    self.slidingViewController.underLeftWidthLayout = ECFullWidth;
-    self.menuTView.backgroundColor = [UIColor clearColor];
-    
-    self.menuTView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
-    //[self.menuTView selectRowAtIndexPath:indexPath animated:YES  scrollPosition:UITableViewScrollPositionTop];
-
-
-    self.menuTView.rowHeight = 50;
-    self.menuTView.sectionHeaderHeight = 27;
-//    self.menuTView.allowsSelection = false;
+    // Custom style
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu-bg"]];
 }
 
+#pragma mark - TableView header
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+    return 1;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.groupName uppercaseString];
+}
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     int paddingLeft = 10;
@@ -83,50 +72,46 @@
     return headerView;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
+#pragma mark - TableView rows
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return [self.groupName uppercaseString];
-    }
-    return nil;
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
-    if (sectionIndex == 0) {
-        return self.matches.count;
-    }
-    return 0;
+    return self.matches.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *cellIdentifier = @"MenuItemCell";
-    CustomMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+- (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell"];
     if (cell == nil) {
-        cell = [[CustomMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        // It's a new cell
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MatchCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
     }
+    // Set the data
+    Match* match = [self.matches objectAtIndex:indexPath.row];
+    [cell setTeam1Name:match.team1.name];
+    [cell setTeam2Name:match.team2.name];
+//    [NSDate timeIntervalSinceReferenceDate]
     return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* identifier = @"Match";
-
-    MatchViewController *newTopViewController = [self.storyboard instantiateViewControllerWithIdentifier:identifier];
-    // Set match ID in the new ViewController
-//    NSLog(@"%@", [[[self.matches objectAtIndex:indexPath.row] team1] name]);
-    newTopViewController.matchName = @"Hallo";
-
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        CGRect frame = self.slidingViewController.topViewController.view.frame;
-        self.slidingViewController.topViewController = newTopViewController;
-        self.slidingViewController.topViewController.view.frame = frame;
-        [self.slidingViewController resetTopView];
-    }];
     
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
+#pragma mark - Events
+
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    if (![self.slidingViewController.topViewController isKindOfClass:[MatchNC class]]) {
+        // Something is wrong, do nothing
+        return;
+    }
+    MatchNC* navigationController = (MatchNC*) self.slidingViewController.topViewController;
+    
+    // Prepare match view
+    MatchViewController* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
+    newViewController.match = self.matches[indexPath.row];
+
+    // Replace view controller and slide out the menu
+    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+        [navigationController setViewControllers:@[newViewController]];
+        [self.slidingViewController resetTopView];
+    }];
 }
+
 @end

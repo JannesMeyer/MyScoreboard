@@ -2,7 +2,7 @@
 //  AppDelegate.h
 //  myScoreBoard
 //
-//  Created by Artur Malek on 03.05.13.
+//  Created by Jannes Meyer on 03.05.13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
@@ -13,8 +13,8 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic) UIWindow *window;
-// API
-@property (readonly, nonatomic) id<ScoreAPI> api;
+// API handle
+@property (readonly, nonatomic) id <ScoreAPI> api;
 @property (readonly, nonatomic) MatchGroup* matchgroup;
 
 @end

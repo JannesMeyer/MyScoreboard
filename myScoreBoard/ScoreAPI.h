@@ -11,6 +11,7 @@
 
 @protocol ScoreAPI <NSObject>
 
+@required
 //- (id)init;
 - (MatchGroup*)getMatchesForToday;
 - (MatchGroup*)getMatchesForMatchday;
