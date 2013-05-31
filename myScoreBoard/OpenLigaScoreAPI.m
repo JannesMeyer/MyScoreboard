@@ -17,34 +17,18 @@
 // ###########################
 // API - Public Methods
 
-
-// Nur zum Testen
--(id) init {
-    self = [super init];
-    if (self) {
-        // Testaufruf
-        
-        MatchGroup *matchGroup = [self getMatchesForMatchday];
-        
-        
-        
-        for(Match *match in [matchGroup matches]) {
-            
-            
-            NSLog(@"Match: %@ - %@", [[match team1] name], [[match team2] name]);
-            
-            for(Goal *goal in [match goals]) {
-                NSLog(@"Tor von: %@", [[goal byTeam] name]);
-
-            }
-            NSLog(@"-------");
-            
-            //NSLog(@"MatchId: %d", [match matchId]);
-            
+- (void) test {
+    // Testaufruf
+    MatchGroup *matchGroup = [self getMatchesForMatchday];
+    
+    for(Match *match in [matchGroup matches]) {
+        NSLog(@"Match: %@ - %@", [[match team1] name], [[match team2] name]);
+        for(Goal *goal in [match goals]) {
+            NSLog(@"Tor von: %@", [[goal byTeam] name]);
         }
-        
+        NSLog(@"-------");
+        //NSLog(@"MatchId: %d", [match matchId]);
     }
-    return self;
 }
 
 - (MatchGroup*)getMatchesForToday {
@@ -99,16 +83,16 @@
         NSString *matchID = [[[node elementsForName:@"matchID"] objectAtIndex:0] stringValue];
         Match *match = [[Match alloc] initWithId:[matchID intValue]];
         
-        // team1	
-        Team *team1 = [[Team alloc] init];
-        [team1 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam1"] objectAtIndex:0] stringValue]];
+        // team1
+        NSUInteger team1ID = (NSUInteger) [[[node elementsForName:@"idTeam1"] objectAtIndex:0] stringValue];
+        Team *team1 = [[Team alloc] initWithId:team1ID];
         [team1 setName:[[[node elementsForName:@"nameTeam1"] objectAtIndex:0] stringValue]];
         [team1 setTeamIconURL:[[[node elementsForName:@"iconUrlTeam1"] objectAtIndex:0] stringValue]];
         [match setTeam1:team1];
         
         // team2
-        Team *team2 = [[Team alloc]init];
-        [team2 setTeamId: (NSUInteger) [[[node elementsForName:@"idTeam2"] objectAtIndex:0] stringValue]];
+        NSUInteger team2ID = (NSUInteger) [[[node elementsForName:@"idTeam2"] objectAtIndex:0] stringValue];
+        Team *team2 = [[Team alloc] initWithId:team2ID];
         [team2 setName: [[[node elementsForName:@"nameTeam2"] objectAtIndex:0] stringValue]];
         [team2 setTeamIconURL: [[[node elementsForName:@"iconUrlTeam2"] objectAtIndex:0] stringValue]];
         [match setTeam2:team2];
@@ -279,11 +263,8 @@
     NSMutableArray *teams = [[NSMutableArray alloc] initWithCapacity:[nodes count]];
     
     for (CXMLElement *node in nodes) {
-        id team = [[Team alloc] init];
-        
-        // TeamId hinzufügen
-        NSString *teamId = [[[node elementsForName:@"teamID"] objectAtIndex:0] stringValue];
-        [team setTeamId:(NSUInteger) teamId];
+        NSUInteger teamId = (NSUInteger) [[[node elementsForName:@"teamID"] objectAtIndex:0] stringValue];
+        id team = [[Team alloc] initWithId:teamId];
         
         // TeamNamen hinzufügen
         NSString *teamName = [[[node elementsForName:@"teamName"] objectAtIndex:0] stringValue];

@@ -9,12 +9,13 @@
 #import "Team.h"
 
 @implementation Team
-    
-- (id)initWithId:(int) teamId andName:(NSString*) name {
+
+- (id)initWithId:(int) teamId {
     self = [super init];
     if (self) {
-        self.teamId = teamId;
-        self.name = name;
+        _teamId = teamId;
+#warning Should be replaced by actual hashtag
+        _twitterHashTag = @"fcb";
     }
     return self;
 }

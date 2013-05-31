@@ -33,6 +33,14 @@
 		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
 		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
 		DF120540173CFA27004CD78F /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053F173CFA27004CD78F /* Goal.m */; };
+		DF2018B31757AED600BC8C20 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018B21757AED600BC8C20 /* Accounts.framework */; };
+		DF2018C91757DE0900BC8C20 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018C01757DCA800BC8C20 /* libRestKit.a */; };
+		DF2018CF1757DE8E00BC8C20 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018CE1757DE8E00BC8C20 /* CFNetwork.framework */; };
+		DF2018D11757DE9600BC8C20 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D01757DE9600BC8C20 /* CoreData.framework */; };
+		DF2018D31757DEA200BC8C20 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D21757DEA200BC8C20 /* MobileCoreServices.framework */; };
+		DF2018D51757DEA700BC8C20 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D41757DEA700BC8C20 /* Security.framework */; };
+		DF2018D71757DEB000BC8C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */; };
+		DF2018DB1757E09200BC8C20 /* RKTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2018DA1757E09200BC8C20 /* RKTweet.m */; };
 		DF3570E8173D3735002A3519 /* cell-transparency@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DD173D3735002A3519 /* cell-transparency@2x.png */; };
 		DF3570E9173D3735002A3519 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DE173D3735002A3519 /* Default-568h@2x.png */; };
 		DF3570EA173D3735002A3519 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DF173D3735002A3519 /* Default.png */; };
@@ -58,7 +66,47 @@
 		DFE74E90174664DD00D14896 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8E174664DD00D14896 /* UIImage+ImageWithUIView.m */; };
 		DFE74E93174676A100D14896 /* MatchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E92174676A100D14896 /* MatchGroup.m */; };
 		DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E95174680B600D14896 /* DummyScoreAPI.m */; };
+		DFF545911757A0FB00061BD8 /* CommentsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DFF545901757A0FB00061BD8 /* CommentsTVC.m */; };
+		DFF545931757A30600061BD8 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF545921757A30600061BD8 /* Social.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DF2018BF1757DCA800BC8C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		DF2018C11757DCA800BC8C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		DF2018C31757DCA800BC8C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		DF2018C51757DCA800BC8C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		DF2018CC1757DE6700BC8C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		814965A21733CA7A00C7063A /* Scoreboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scoreboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +159,15 @@
 		DF12053C173CF96D004CD78F /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Team.m; path = Models/Team.m; sourceTree = "<group>"; };
 		DF12053E173CFA27004CD78F /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Goal.h; path = Models/Goal.h; sourceTree = "<group>"; };
 		DF12053F173CFA27004CD78F /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Goal.m; path = Models/Goal.m; sourceTree = "<group>"; };
+		DF2018B21757AED600BC8C20 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		DF2018CE1757DE8E00BC8C20 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		DF2018D01757DE9600BC8C20 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DF2018D21757DEA200BC8C20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		DF2018D41757DEA700BC8C20 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DF2018D91757E09200BC8C20 /* RKTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTweet.h; sourceTree = "<group>"; };
+		DF2018DA1757E09200BC8C20 /* RKTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTweet.m; sourceTree = "<group>"; };
 		DF3570DD173D3735002A3519 /* cell-transparency@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-transparency@2x.png"; path = "Images/cell-transparency@2x.png"; sourceTree = "<group>"; };
 		DF3570DE173D3735002A3519 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		DF3570DF173D3735002A3519 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Default.png; sourceTree = "<group>"; };
@@ -145,6 +202,9 @@
 		DFE74E94174680B600D14896 /* DummyScoreAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyScoreAPI.h; sourceTree = "<group>"; };
 		DFE74E95174680B600D14896 /* DummyScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyScoreAPI.m; sourceTree = "<group>"; };
 		DFE74E97174681B600D14896 /* ScoreAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScoreAPI.h; sourceTree = "<group>"; };
+		DFF5458F1757A0FB00061BD8 /* CommentsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsTVC.h; sourceTree = "<group>"; };
+		DFF545901757A0FB00061BD8 /* CommentsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsTVC.m; sourceTree = "<group>"; };
+		DFF545921757A30600061BD8 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +212,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2018D71757DEB000BC8C20 /* SystemConfiguration.framework in Frameworks */,
+				DF2018D51757DEA700BC8C20 /* Security.framework in Frameworks */,
+				DF2018D31757DEA200BC8C20 /* MobileCoreServices.framework in Frameworks */,
+				DF2018D11757DE9600BC8C20 /* CoreData.framework in Frameworks */,
+				DF2018CF1757DE8E00BC8C20 /* CFNetwork.framework in Frameworks */,
+				DF2018C91757DE0900BC8C20 /* libRestKit.a in Frameworks */,
+				DF2018B31757AED600BC8C20 /* Accounts.framework in Frameworks */,
+				DFF545931757A30600061BD8 /* Social.framework in Frameworks */,
 				814965F61733D40400C7063A /* libxml2.dylib in Frameworks */,
 				814965A61733CA7A00C7063A /* UIKit.framework in Frameworks */,
 				814965A81733CA7A00C7063A /* Foundation.framework in Frameworks */,
@@ -168,6 +236,7 @@
 				814965AB1733CA7A00C7063A /* myScoreBoard */,
 				814965A41733CA7A00C7063A /* Frameworks */,
 				814965A31733CA7A00C7063A /* Products */,
+				DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +251,13 @@
 		814965A41733CA7A00C7063A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */,
+				DF2018D41757DEA700BC8C20 /* Security.framework */,
+				DF2018D21757DEA200BC8C20 /* MobileCoreServices.framework */,
+				DF2018D01757DE9600BC8C20 /* CoreData.framework */,
+				DF2018CE1757DE8E00BC8C20 /* CFNetwork.framework */,
+				DF2018B21757AED600BC8C20 /* Accounts.framework */,
+				DFF545921757A30600061BD8 /* Social.framework */,
 				814965F51733D40400C7063A /* libxml2.dylib */,
 				814965A51733CA7A00C7063A /* UIKit.framework */,
 				814965A71733CA7A00C7063A /* Foundation.framework */,
@@ -193,6 +269,7 @@
 		814965AB1733CA7A00C7063A /* myScoreBoard */ = {
 			isa = PBXGroup;
 			children = (
+				DF2018D81757E04000BC8C20 /* RKModels */,
 				814965B41733CA7A00C7063A /* AppDelegate.h */,
 				814965B51733CA7A00C7063A /* AppDelegate.m */,
 				DF86F593173D173600DF4EAE /* iPhone.storyboard */,
@@ -200,6 +277,8 @@
 				DF0CBC3D175696E200E1F32D /* MatchNC.m */,
 				DF86F585173D172400DF4EAE /* MatchViewController.h */,
 				DF86F584173D172400DF4EAE /* MatchViewController.m */,
+				DFF5458F1757A0FB00061BD8 /* CommentsTVC.h */,
+				DFF545901757A0FB00061BD8 /* CommentsTVC.m */,
 				DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */,
 				DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */,
 				DF86F587173D172400DF4EAE /* MenuViewController.h */,
@@ -297,6 +376,26 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		DF2018B91757DCA800BC8C20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF2018C01757DCA800BC8C20 /* libRestKit.a */,
+				DF2018C21757DCA800BC8C20 /* RestKitTests.octest */,
+				DF2018C41757DCA800BC8C20 /* RestKit.framework */,
+				DF2018C61757DCA800BC8C20 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DF2018D81757E04000BC8C20 /* RKModels */ = {
+			isa = PBXGroup;
+			children = (
+				DF2018D91757E09200BC8C20 /* RKTweet.h */,
+				DF2018DA1757E09200BC8C20 /* RKTweet.m */,
+			);
+			name = RKModels;
+			sourceTree = "<group>";
+		};
 		DF3570DB173D2407002A3519 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +462,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DF2018CD1757DE6700BC8C20 /* PBXTargetDependency */,
 			);
 			name = Scoreboard;
 			productName = myScoreBoard;
@@ -388,12 +488,49 @@
 			mainGroup = 814965991733CA7900C7063A;
 			productRefGroup = 814965A31733CA7A00C7063A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DF2018B91757DCA800BC8C20 /* Products */;
+					ProjectRef = DF2018B81757DCA800BC8C20 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				814965A11733CA7A00C7063A /* Scoreboard */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DF2018C01757DCA800BC8C20 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = DF2018BF1757DCA800BC8C20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF2018C21757DCA800BC8C20 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = DF2018C11757DCA800BC8C20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF2018C41757DCA800BC8C20 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = DF2018C31757DCA800BC8C20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DF2018C61757DCA800BC8C20 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = DF2018C51757DCA800BC8C20 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		814965A01733CA7A00C7063A /* Resources */ = {
@@ -457,10 +594,20 @@
 				DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */,
 				DF3C5415174F918800C35C37 /* MatchCell.m in Sources */,
 				DF0CBC3E175696E200E1F32D /* MatchNC.m in Sources */,
+				DFF545911757A0FB00061BD8 /* CommentsTVC.m in Sources */,
+				DF2018DB1757E09200BC8C20 /* RKTweet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DF2018CD1757DE6700BC8C20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = DF2018CC1757DE6700BC8C20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		814965AE1733CA7A00C7063A /* InfoPlist.strings */ = {
@@ -499,10 +646,17 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(BUILT_PRODUCTS_DIR)/../../Headers",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lxml2",
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -525,10 +679,17 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(BUILT_PRODUCTS_DIR)/../../Headers",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_LDFLAGS = "-lxml2";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+					"-lxml2",
+				);
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

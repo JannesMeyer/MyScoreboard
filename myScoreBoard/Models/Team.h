@@ -10,11 +10,12 @@
 
 @interface Team : NSObject
 
-@property (nonatomic) int teamId;
+@property (readonly, nonatomic) NSUInteger teamId;
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSString* teamIconURL;
 @property (nonatomic) NSString* twitterHashTag;
 
-- (id)initWithId:(int) teamId andName:(NSString*) name;
+// designated initializer
+- (id)initWithId:(int) teamId;
 
 @end

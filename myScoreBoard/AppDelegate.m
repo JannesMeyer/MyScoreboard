@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+
+#import <RestKit/RestKit.h>
 #import "OpenLigaScoreAPI.h"
 #import "DummyScoreAPI.h"
 
@@ -27,6 +29,12 @@
         self.dummyApiEnabled = false;
     }
 
+    // Enable network activity indicator for requests
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    // Enable RestKit logging
+//    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    
     // Navbar background image
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     
