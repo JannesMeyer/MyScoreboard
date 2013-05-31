@@ -41,6 +41,7 @@
     NSString *ligaShortcut = @"BL1";
     NSString *leagueSaison = @"2012";
     NSString *currentGroupOrderID = [self getCurrentGroupOrderID:ligaShortcut];
+    currentGroupOrderID = @"25";
     
     NSString *completeString = @"<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:SOAP-ENC=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"><SOAP-ENV:Body><m:GetMatchdataByGroupLeagueSaison xmlns:m=\"http://msiggi.de/Sportsdata/Webservices\">";
     
