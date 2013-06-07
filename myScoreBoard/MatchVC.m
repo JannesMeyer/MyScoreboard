@@ -169,10 +169,24 @@
     // Get a recycled cell
     static NSString* cellIdentifier = @"Comment cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+
+    // Check for first use
+    if (cell.tag != 1) {
+        NSLog(@"Hallo, First use");
+//        UIImageView* backgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
+//        backgroundView.image = [[UIImage imageNamed:@"bg-cell-tweet-score"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 8, 7)];
+//        [cell addSubview:backgroundView];
+        cell.backgroundColor = [UIColor greenColor];
+
+        // Never do this again
+        cell.tag = 1;
+    }
     
     // Configure the cell
     RKTweet* tweet = self.tweets[indexPath.row];
     cell.textLabel.text = tweet.text;
+    cell.textLabel.backgroundColor = [UIColor greenColor];
+    cell.textLabel.textColor = [UIColor blackColor];
     
     return cell;
 }
