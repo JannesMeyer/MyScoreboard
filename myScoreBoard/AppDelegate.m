@@ -38,6 +38,11 @@
     // Navbar background image
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     
+    // Test
+//    [self.api setUpdateAction:^{
+//        NSLog(@"Update fertig!");
+//    }];
+    
     return YES;
 }
 

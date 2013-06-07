@@ -12,6 +12,12 @@
 #import "XMLConnectionStub.h"
 #import "Goal.h"
 
+@interface OpenLigaScoreAPI()
+
+//@property (nonatomic) (void (^)(void)) updateAction;
+
+@end
+
 @implementation OpenLigaScoreAPI
 
 // ###########################
@@ -76,7 +82,7 @@
     
     NSMutableArray *matches = [[NSMutableArray alloc] init];
     
-    for (CXMLElement *node in nodes) {        
+    for (CXMLElement *node in nodes) {
         
         // XML-Extract of...
         // matchID
@@ -154,6 +160,9 @@
     }
     
     MatchGroup *matchGroup = [[MatchGroup alloc] initWithMatches:matches];
+    
+//    matchGroup.name = [[[[nodes lastObject] elementsForName:@"groupName"] objectAtIndex:0] stringValue];
+    matchGroup.name = [[[nodes lastObject] elementsForName:@"leagueName"][0] stringValue];
     
     return matchGroup;
 
@@ -307,9 +316,19 @@
     return nodes;
 }
 
--(void) triggerUpdate {
+
+
+
+
+
+#pragma mark - Update
+
+- (void)setUpdateAction:(void (^)(void)) action {
     
 }
 
+- (void)triggerUpdate {
+    
+}
 
 @end

@@ -15,7 +15,7 @@
 //- (id)init;
 - (MatchGroup*)getMatchesForToday;
 - (MatchGroup*)getMatchesForMatchday;
-//- (void)setUpdateAction;
-//- (void)triggerUodate;
+- (void)setUpdateAction:(void (^)(void)) action;
+- (void)triggerUpdate;
 
 @end

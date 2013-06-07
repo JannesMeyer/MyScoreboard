@@ -30,8 +30,6 @@
         [self updateUI];
     }
     
-    [self sharingStatus];
-    
     // Background image
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
     // Navigation bar button
@@ -60,33 +58,6 @@
 }
 
 #pragma mark - Twitter stuff
-
-- (void)sharingStatus {
-//    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
-//        NSLog(@"Twitter available");
-//    }
-    
-    // Request access to the Twitter accounts
-    ACAccountStore* accountStore = [[ACAccountStore alloc] init];
-    ACAccountType* accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-
-    
-    [accountStore requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError* error) {
-         if (granted) {
-             // Permissions needed?
-             NSArray* twitterAccounts = [accountStore accountsWithAccountType:accountType];
-             if ([twitterAccounts count] > 0) {
-                 ACAccount* twitterAccount = [twitterAccounts lastObject];
-                 NSLog(@"Twitter Account configured: %@ %@", twitterAccount.username, [twitterAccount valueForKeyPath:@"properties.user_id"]);
-             } else {
-                 NSLog(@"No Twitter Account configured");
-             }
-         } else {
-             NSLog(@"No Twitter Access Error");
-         }
-     }];
-    
-}
 
 - (IBAction)shareComment {
     static BOOL animated = YES;

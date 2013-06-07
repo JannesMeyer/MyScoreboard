@@ -8,18 +8,19 @@
 
 #import "CommentsTVC.h"
 
-#import <RestKit/RestKit.h>
 #import "RKTweet.h"
+#import "TwitterAPI.h"
 
 @interface CommentsTVC ()
-@property (nonatomic) NSArray* tweets;
-@property (nonatomic) UITableViewCell* prototypeCell;
+@property (nonatomic) NSArray* tweets; // of RKTweet
+@property (nonatomic) CGFloat cellMarginLeft;
+@property (nonatomic) UIFont* cellFont;
 @end
 
 @implementation CommentsTVC
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+// Designated initializer
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -27,58 +28,45 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Save comment cell prototype
-    static NSString* CellIdentifier = @"Comment cell";
-    self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    // Get a temporary comment cell prototype so that we can pull out the font that's used on the label
+    UITableViewCell* prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"Comment cell"];
+    self.cellMarginLeft = prototypeCell.textLabel.frame.origin.x;
+    self.cellFont = prototypeCell.textLabel.font;
+    
+    // Ask the Twitter API for data
+    TwitterAPI* twApi = [TwitterAPI sharedInstance];
+    [twApi findTweetsForHashtag:@"fcb" withCompletionHandler:^(NSArray* tweets, NSError* error) {
+        // Reload tableview data
+        self.tweets = tweets;
+        [self.tableView reloadData];
+    }];
     
     // Background image
 //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main-bg"]];
-    
-    // Describe object mapping
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKTweet class]];
-    [mapping addAttributeMappingsFromDictionary:@{
-     @"from_user": @"username",
-     @"from_user_id": @"userID",
-     @"text": @"text"
-     }];
-    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping pathPattern:@"/search.json" keyPath:@"results" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://search.twitter.com/search.json?q=%23fcb"]];
-    
-    // Create operation
-    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
-    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation* operation, RKMappingResult* results) {
-        self.tweets = [results array];
-        [self.tableView reloadData];
-    } failure:nil];
-    // Execute operation
-    [operation start];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 1;
-}
-
+/*!
+ * Returns the number of rows in the first section
+ *
+ * @return The number of tweets, or 0 if self.tweets is nil
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    if (self.tweets) {
-        return [self.tweets count];
-    } else {
-        return 0;
-    }
+    return [self.tweets count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString* CellIdentifier = @"Comment cell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+/*!
+ * Retrieve a cell that's populated with data
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Get a recycled cell
+    static NSString* cellIdentifier = @"Comment cell";
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     RKTweet* tweet = self.tweets[indexPath.row];
@@ -87,18 +75,23 @@
     return cell;
 }
 
+/*!
+ * Computes the height for each row of the UITableView.
+ * This method is called before tableView:cellForRowAtIndexPath: so we have to calculate
+ * the height using NSString's methods
+ *
+ * @return Height of the row at the specified index path
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = ((RKTweet*) self.tweets[indexPath.row]).text;
+    NSString* text = ((RKTweet*) self.tweets[indexPath.row]).text;
     
     // Compute height
-    CGFloat marginLeft = self.prototypeCell.textLabel.frame.origin.x;
-    CGSize size = [text sizeWithFont:self.prototypeCell.textLabel.font
-                   constrainedToSize:CGSizeMake(self.view.bounds.size.width - 2 * marginLeft, CGFLOAT_MAX)
+    CGSize maxBounds = CGSizeMake(self.view.bounds.size.width - 2 * self.cellMarginLeft, CGFLOAT_MAX);
+    CGSize size = [text sizeWithFont:self.cellFont
+                   constrainedToSize:maxBounds
                        lineBreakMode:NSLineBreakByWordWrapping];
-//    CGFloat height = MAX(size.height, 44);
-    CGFloat height = size.height;
     
-    return height + 2 * marginLeft;
+    return size.height + 2 * self.cellMarginLeft;
 }
 
 @end

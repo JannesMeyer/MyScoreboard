@@ -23,7 +23,7 @@
     m.team1 = [[Team alloc] initWithId: 0];
     m.team1.name = @"Werder Bremen";
     m.team2 = [[Team alloc] initWithId: 1];
-    m.team1.name = @"Bayern München";
+    m.team2.name = @"Bayern München";
     m.startTime = [NSDate date];
     m.stadiumName = @"Weserstadion";
     m.locationName = @"Bremen";
@@ -33,7 +33,7 @@
     m.team1 = [[Team alloc] initWithId: 2];
     m.team1.name = @"Eintracht Frankfurt";
     m.team2 = [[Team alloc] initWithId: 3];
-    m.team1.name = @"VfL Wolfsburg";
+    m.team2.name = @"VfL Wolfsburg";
     m.startTime = [NSDate date];
     m.stadiumName = @"Commerzbank-Arena";
     m.locationName = @"Frankfurt";
@@ -52,6 +52,16 @@
     MatchGroup* matches = [[MatchGroup alloc] initWithMatches:matchArr];
     matches.name = @"1. Bundesliga";
     return matches;
+}
+
+- (void)setUpdateAction:(void (^)(void))action {
+    
+}
+
+- (void)triggerUpdate {
+    [NSThread sleepForTimeInterval:2];
+    // Send a notification through NotificationCenter
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Score API updated" object:nil];
 }
 
 @end
