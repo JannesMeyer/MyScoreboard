@@ -6,23 +6,23 @@
 //  Copyright (c) 2012 EdgeCase. All rights reserved.
 //
 
-#import "MenuViewController.h"
+#import "MenuVC.h"
 
 #import "AppDelegate.h"
-#import "MatchViewController.h"
+#import "MatchVC.h"
 #import "MatchNC.h"
 // Custom view
 #import "CustomViews/MatchCell.h"
 // Model
 #import "Match.h"
 
-@interface MenuViewController()
+@interface MenuVC()
 //@property (strong, nonatomic) IBOutlet UITableView *menuTView;
 @property (weak, nonatomic) NSMutableArray* matches;
 @property (weak, nonatomic) NSString* groupName;
 @end
 
-@implementation MenuViewController
+@implementation MenuVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -106,7 +106,7 @@
     MatchNC* navigationController = (MatchNC*) self.slidingViewController.topViewController;
     
     // Prepare match view
-    MatchViewController* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
+    MatchVC* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
     newViewController.match = self.matches[indexPath.row];
 
     // Replace view controller and slide out the menu

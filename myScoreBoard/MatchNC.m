@@ -7,7 +7,7 @@
 //
 
 #import "MatchNC.h"
-#import "MenuViewController.h"
+#import "MenuVC.h"
 
 @interface MatchNC ()
 
@@ -27,7 +27,7 @@
 //    self.navigationBar.shadowImage = [UIImage imageNamed:@"navbar-shadow"];
     
     // Create left menu if it doesn't exist yet
-    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuViewController class]]) {
+    if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuVC class]]) {
         self.slidingViewController.underLeftViewController  = [self.storyboard instantiateViewControllerWithIdentifier:@"LeftMenu"];
     }
     

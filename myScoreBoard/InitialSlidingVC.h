@@ -8,6 +8,6 @@
 
 #import "ECSlidingViewController.h"
 
-@interface InitialSlidingViewController : ECSlidingViewController
+@interface InitialSlidingVC : ECSlidingViewController
 
 @end

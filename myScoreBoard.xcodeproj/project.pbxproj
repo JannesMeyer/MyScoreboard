@@ -59,11 +59,11 @@
 		DF3C541D174F9C6B00C35C37 /* talk.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C541B174F9C6B00C35C37 /* talk.png */; };
 		DF3C541F1750176E00C35C37 /* score-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C541E1750176E00C35C37 /* score-bg.png */; };
 		DF80CB941761196D000B2162 /* TwitterAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = DF80CB931761196D000B2162 /* TwitterAPI.m */; };
-		DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* MatchViewController.m */; };
-		DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuViewController.m */; };
+		DF86F58E173D172400DF4EAE /* MatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* MatchVC.m */; };
+		DF86F58F173D172400DF4EAE /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuVC.m */; };
 		DF86F595173D173600DF4EAE /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF86F593173D173600DF4EAE /* iPhone.storyboard */; };
 		DFDD40F51762077B00294B93 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDD40F41762077B00294B93 /* Util.m */; };
-		DFE74E89174663EB00D14896 /* InitialSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */; };
+		DFE74E89174663EB00D14896 /* InitialSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BADA91746562D00B298FF /* InitialSlidingVC.m */; };
 		DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8C174664DD00D14896 /* ECSlidingViewController.m */; };
 		DFE74E90174664DD00D14896 /* UIImage+ImageWithUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8E174664DD00D14896 /* UIImage+ImageWithUIView.m */; };
 		DFE74E93174676A100D14896 /* MatchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E92174676A100D14896 /* MatchGroup.m */; };
@@ -188,14 +188,14 @@
 		DF3C541A174F9C6B00C35C37 /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = clock.png; path = Images/clock.png; sourceTree = "<group>"; };
 		DF3C541B174F9C6B00C35C37 /* talk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = talk.png; path = Images/talk.png; sourceTree = "<group>"; };
 		DF3C541E1750176E00C35C37 /* score-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "score-bg.png"; path = "Images/score-bg.png"; sourceTree = "<group>"; };
-		DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSlidingViewController.h; sourceTree = "<group>"; };
-		DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSlidingViewController.m; sourceTree = "<group>"; };
+		DF6BADA81746562D00B298FF /* InitialSlidingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialSlidingVC.h; sourceTree = "<group>"; };
+		DF6BADA91746562D00B298FF /* InitialSlidingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialSlidingVC.m; sourceTree = "<group>"; };
 		DF80CB921761196D000B2162 /* TwitterAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAPI.h; sourceTree = "<group>"; };
 		DF80CB931761196D000B2162 /* TwitterAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAPI.m; sourceTree = "<group>"; };
-		DF86F584173D172400DF4EAE /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
-		DF86F585173D172400DF4EAE /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
-		DF86F586173D172400DF4EAE /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		DF86F587173D172400DF4EAE /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		DF86F584173D172400DF4EAE /* MatchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchVC.m; sourceTree = "<group>"; };
+		DF86F585173D172400DF4EAE /* MatchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchVC.h; sourceTree = "<group>"; };
+		DF86F586173D172400DF4EAE /* MenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuVC.m; sourceTree = "<group>"; };
+		DF86F587173D172400DF4EAE /* MenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuVC.h; sourceTree = "<group>"; };
 		DF86F593173D173600DF4EAE /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		DFDD40F31762077B00294B93 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		DFDD40F41762077B00294B93 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
@@ -281,14 +281,14 @@
 				DF86F593173D173600DF4EAE /* iPhone.storyboard */,
 				DF0CBC3C175696E200E1F32D /* MatchNC.h */,
 				DF0CBC3D175696E200E1F32D /* MatchNC.m */,
-				DF86F585173D172400DF4EAE /* MatchViewController.h */,
-				DF86F584173D172400DF4EAE /* MatchViewController.m */,
+				DF86F585173D172400DF4EAE /* MatchVC.h */,
+				DF86F584173D172400DF4EAE /* MatchVC.m */,
 				DFF5458F1757A0FB00061BD8 /* CommentsTVC.h */,
 				DFF545901757A0FB00061BD8 /* CommentsTVC.m */,
-				DF6BADA81746562D00B298FF /* InitialSlidingViewController.h */,
-				DF6BADA91746562D00B298FF /* InitialSlidingViewController.m */,
-				DF86F587173D172400DF4EAE /* MenuViewController.h */,
-				DF86F586173D172400DF4EAE /* MenuViewController.m */,
+				DF6BADA81746562D00B298FF /* InitialSlidingVC.h */,
+				DF6BADA91746562D00B298FF /* InitialSlidingVC.m */,
+				DF86F587173D172400DF4EAE /* MenuVC.h */,
+				DF86F586173D172400DF4EAE /* MenuVC.m */,
 				DF3570F3173D3B66002A3519 /* CustomViews */,
 				DF120537173CF61D004CD78F /* Models */,
 				A143011B173CFE0800E5518D /* OpenLigaScoreAPI.h */,
@@ -594,10 +594,10 @@
 				DF12053D173CF96D004CD78F /* Team.m in Sources */,
 				DF120540173CFA27004CD78F /* Goal.m in Sources */,
 				A143011D173CFE0800E5518D /* OpenLigaScoreAPI.m in Sources */,
-				DF86F58E173D172400DF4EAE /* MatchViewController.m in Sources */,
-				DF86F58F173D172400DF4EAE /* MenuViewController.m in Sources */,
+				DF86F58E173D172400DF4EAE /* MatchVC.m in Sources */,
+				DF86F58F173D172400DF4EAE /* MenuVC.m in Sources */,
 				A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */,
-				DFE74E89174663EB00D14896 /* InitialSlidingViewController.m in Sources */,
+				DFE74E89174663EB00D14896 /* InitialSlidingVC.m in Sources */,
 				DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */,
 				DFE74E90174664DD00D14896 /* UIImage+ImageWithUIView.m in Sources */,
 				DFE74E93174676A100D14896 /* MatchGroup.m in Sources */,
