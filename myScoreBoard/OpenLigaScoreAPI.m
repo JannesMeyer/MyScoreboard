@@ -7,15 +7,16 @@
 //
 
 #import "OpenLigaScoreAPI.h"
-#import "MatchGroup.h"
+
+#import "Models/Match.h"
+#import "Models/MatchGroup.h"
+#import "Models/Goal.h"
 #import "TouchXML.h"
 #import "XMLConnectionStub.h"
-#import "Goal.h"
 
 @interface OpenLigaScoreAPI()
-
-//@property (nonatomic) (void (^)(void)) updateAction;
-
+@property (nonatomic, copy) ScoreApiCompletionHandler completionHandler;
+@property (nonatomic, readwrite) MatchGroup* matchCache;
 @end
 
 @implementation OpenLigaScoreAPI
@@ -23,25 +24,11 @@
 // ###########################
 // API - Public Methods
 
-- (void) test {
-    // Testaufruf
-    MatchGroup *matchGroup = [self getMatchesForMatchday];
-    
-    for(Match *match in [matchGroup matches]) {
-        NSLog(@"Match: %@ - %@", [[match team1] name], [[match team2] name]);
-        for(Goal *goal in [match goals]) {
-            NSLog(@"Tor von: %@", [[goal byTeam] name]);
-        }
-        NSLog(@"-------");
-        //NSLog(@"MatchId: %d", [match matchId]);
-    }
+- (void)setCompletionHandler:(ScoreApiCompletionHandler)completionHandler {
+    _completionHandler = completionHandler;
 }
 
-- (MatchGroup*)getMatchesForToday {
-    return nil;
-}
-
-- (MatchGroup*)getMatchesForMatchday {
+- (void)loadMatchesForMatchday {
     
     // default: Current matchday
     NSString *ligaShortcut = @"BL1";
@@ -165,8 +152,11 @@
 //    matchGroup.name = [[[[nodes lastObject] elementsForName:@"groupName"] objectAtIndex:0] stringValue];
     matchGroup.name = [[[nodes lastObject] elementsForName:@"leagueName"][0] stringValue];
     
-    return matchGroup;
-
+    
+    // Put the results in the match cache
+    self.matchCache = matchGroup;
+    // And fire off the completion handler on the UI thread
+    dispatch_async(dispatch_get_main_queue(), self.completionHandler);
 }
 
 
@@ -232,11 +222,8 @@
     
     NSString *currentGroupOrderID = [[nodes objectAtIndex:0] stringValue];
     
-    
     return currentGroupOrderID;
-    
 }
-
 
 /**
  Works fine ;-) 24.05.2013
@@ -292,13 +279,10 @@
     
 }
 
-
 // Syntaxvorlage / Uebung
 -(NSString *)printVorname:(NSString *)vorname PlusNachname:(NSString *)nachname {
     return [[vorname stringByAppendingString:@" "] stringByAppendingString:nachname];
 }
-
-
 
 -(NSArray *) getNodesByXPath:(NSString*) xpath AndXMLResponse:(NSString*) xmlResponse {
 
@@ -315,21 +299,6 @@
     //[alert show];
     
     return nodes;
-}
-
-
-
-
-
-
-#pragma mark - Update
-
-- (void)setUpdateAction:(void (^)(void)) action {
-    
-}
-
-- (void)triggerUpdate {
-    
 }
 
 @end

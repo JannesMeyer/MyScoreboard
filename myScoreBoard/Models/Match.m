@@ -45,6 +45,11 @@
 }
 
 - (int)currentMinute {
+    //TODO: implement time difference logic
+    return 90;
+}
+
+- (NSUInteger)commentCount {
     return arc4random() % 90;
 }
 

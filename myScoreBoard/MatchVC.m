@@ -16,6 +16,8 @@
 @interface MatchVC() <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIImageView *scoreContainer;
 @property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -25,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *goalsLabel1;
 
 
-@property (weak, nonatomic) IBOutlet UITableView *commentsTableView;
+@property (weak, nonatomic) IBOutlet UITableView* commentsTableView;
 @property (nonatomic) NSArray* tweets; // of RKTweet
 @property (nonatomic) CGFloat cellMarginLeft;
 @property (nonatomic) UIFont* cellFont;
@@ -38,34 +40,41 @@
     [super viewDidLoad];
     
     if (self.match) {
+        NSLog(@"There is a match");
+        // Load the data from the match
         [self updateUI];
+        
+        // Ask the Twitter API for data
+        [[TwitterAPI sharedInstance] findTweetsForHashtag:@"fcb" withCompletionHandler:^(NSArray* tweets, NSError* error) {
+            // Reload tableview data
+            self.tweets = tweets;
+            [self.commentsTableView reloadData];
+        }];
+    } else {
+        NSLog(@"There is no match");
     }
-    
-    // Background image
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
-    // Navigation bar button
-    [self.menuButton setImage:[UIImage imageNamed:@"icon-navbar"]];
-    [self.menuButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    
-    // Score container
-    self.scoreContainer.image = [[UIImage imageNamed:@"score-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 8, 7)];
-    
     
     // Get a temporary comment cell prototype so that we can pull out the font that's used on the label
     UITableViewCell* prototypeCell = [self.commentsTableView dequeueReusableCellWithIdentifier:@"Comment cell"];
     self.cellMarginLeft = prototypeCell.textLabel.frame.origin.x;
     self.cellFont = prototypeCell.textLabel.font;
     
-    // Ask the Twitter API for data
-    [[TwitterAPI sharedInstance] findTweetsForHashtag:@"fcb" withCompletionHandler:^(NSArray* tweets, NSError* error) {
-        // Reload tableview data
-        self.tweets = tweets;
-        [self.commentsTableView reloadData];
-    }];
     
-    // Background image
-    //    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
-    //    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"main-bg"]];
+    // Custom UI
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
+    
+    [self.menuButton setImage:[UIImage imageNamed:@"icon-navbar"]];
+    [self.menuButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    [self.settingsButton setImage:[UIImage imageNamed:@"teams"]];
+    [self.settingsButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    self.scoreContainer.image = [[UIImage imageNamed:@"score-bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 8, 7)];
+    
+    // Change navigation bar style globally through the appearance proxy
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
+    // Change navigation bar style locally
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)updateUI {

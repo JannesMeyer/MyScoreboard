@@ -13,8 +13,5 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic) UIWindow *window;
-// API handle
-@property (readonly, nonatomic) id <ScoreAPI> api;
-@property (readonly, nonatomic) MatchGroup* matchgroup;
 
 @end

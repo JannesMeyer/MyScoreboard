@@ -18,10 +18,9 @@
 @property (nonatomic) NSMutableArray* goals; // of Goal
 @property (nonatomic) NSString* stadiumName;
 @property (nonatomic) NSString* locationName;
+@property (nonatomic) NSUInteger commentCount;
 
-// designated initializer
-- (id)initWithId:(int) matchId;
-
+- (id)initWithId:(int) matchId; // Designated initializer
 - (int)team1Score;
 - (int)team2Score;
 - (int)currentMinute;

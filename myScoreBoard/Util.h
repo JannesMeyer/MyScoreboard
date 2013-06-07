@@ -14,18 +14,11 @@
 #ifndef SINGLETON_GCD
 #define SINGLETON_GCD(classname)                        \
 + (classname*)sharedInstance {                          \
-    static dispatch_once_t token;                        \
-    __strong static classname* _sharedInstance = nil;     \
+    static dispatch_once_t token;                       \
+    __strong static classname* _sharedInstance = nil;   \
     dispatch_once(&token, ^{                            \
-        _sharedInstance = [[self alloc] init];\
-    });        \
-    return _sharedInstance;                               \
+        _sharedInstance = [[self alloc] init];          \
+    });                                                 \
+    return _sharedInstance;                             \
 }
 #endif
-
-
-//static YourClassName * volatile sharedInstance = nil;
-
-@interface Util : NSObject
-
-@end

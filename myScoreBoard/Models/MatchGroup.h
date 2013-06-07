@@ -14,7 +14,7 @@
 @property (readonly, nonatomic) NSMutableArray* matches;
 @property (nonatomic) NSString* name;
 
--(id) initWithMatches:(NSMutableArray*) matches;
+-(id) initWithMatches:(NSMutableArray*) matches; // Designated initializer
 -(void) add:(Match*) match;
 -(Match*) matchAtIndex:(NSInteger) index;
 

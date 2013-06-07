@@ -7,15 +7,21 @@
 //
 
 #import "DummyScoreAPI.h"
+
 #import "Match.h"
+
+@interface DummyScoreAPI()
+@property (nonatomic, copy) ScoreApiCompletionHandler completionHandler;
+@property (nonatomic, readwrite) MatchGroup* matchCache;
+@end
 
 @implementation DummyScoreAPI
 
-- (MatchGroup*)getMatchesForToday {
-    return nil;
+- (void)setCompletionHandler:(ScoreApiCompletionHandler)completionHandler {
+    _completionHandler = completionHandler;
 }
 
-- (MatchGroup*)getMatchesForMatchday {
+- (void)loadMatchesForMatchday {
     NSMutableArray* matchArr = [[NSMutableArray alloc] init];
     Match* m;
     
@@ -51,17 +57,11 @@
     
     MatchGroup* matches = [[MatchGroup alloc] initWithMatches:matchArr];
     matches.name = @"1. Bundesliga";
-    return matches;
-}
-
-- (void)setUpdateAction:(void (^)(void))action {
     
-}
-
-- (void)triggerUpdate {
-    [NSThread sleepForTimeInterval:2];
-    // Send a notification through NotificationCenter
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Score API updated" object:nil];
+    // Put the results in the match cache
+    self.matchCache = matches;
+    // And fire off the completion handler
+    dispatch_async(dispatch_get_main_queue(), self.completionHandler);
 }
 
 @end

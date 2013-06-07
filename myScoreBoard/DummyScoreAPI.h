@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ScoreAPI.h"
+#import "ScoreApi.h"
 
-@interface DummyScoreAPI : NSObject <ScoreAPI>
+@interface DummyScoreAPI : NSObject <ScoreApiProtocol>
 
 @end

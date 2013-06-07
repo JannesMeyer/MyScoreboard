@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef void(^TWTweetsCompletionHandler)(NSArray* tweets, NSError* error);
-//typedef void(^ACAccountStoreRequestAccessCompletionHandler)(BOOL granted, NSError *error);
+
 
 @interface TwitterAPI : NSObject
 

@@ -15,7 +15,7 @@
 @property (nonatomic) NSString* teamIconURL;
 @property (nonatomic) NSString* twitterHashTag;
 
-// designated initializer
+// Designated initializer
 - (id)initWithId:(int) teamId;
 
 @end

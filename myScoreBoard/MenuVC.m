@@ -8,16 +8,13 @@
 
 #import "MenuVC.h"
 
-#import "AppDelegate.h"
+#import "Models/Match.h"
 #import "MatchVC.h"
 #import "MatchNC.h"
-// Custom view
 #import "CustomViews/MatchCell.h"
-// Model
-#import "Match.h"
+#import "ScoreApi.h"
 
 @interface MenuVC()
-//@property (strong, nonatomic) IBOutlet UITableView *menuTView;
 @property (weak, nonatomic) NSMutableArray* matches;
 @property (weak, nonatomic) NSString* groupName;
 @end
@@ -27,27 +24,88 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    AppDelegate* app = [[UIApplication sharedApplication] delegate];
-    self.matches = app.matchgroup.matches;
-    self.groupName = app.matchgroup.name;
+    // Load data
+    [self refreshData:nil];
     
-    // Select first item
-//    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-//    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+    // Manually connect refresh control because connecting in the Storyboard is buggy
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshData:)
+                  forControlEvents:UIControlEventValueChanged];
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
     
-    // Custom style
+    // Custom background imge
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu-bg"]];
 }
 
-#pragma mark - TableView header
+#pragma mark - Load data
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
-    return 1;
+- (IBAction)refreshData:(id)sender {
+    id<ScoreApiProtocol> api = [ScoreApi sharedApi];
+    [api setCompletionHandler:^{
+        MatchGroup* group = [ScoreApi sharedApi].matchCache;
+        self.matches = group.matches;
+        self.groupName = group.name;
+        [self.refreshControl endRefreshing];
+        
+        // Stupid
+        [self.tableView reloadData];
+        
+        // Select first item if this request is not coming from a call to ScoreAPI
+        if (!sender && [self.matches count] > 0) {
+            NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self showMatch:[self.matches objectAtIndex:indexPath.row]];
+            [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
+        }
+    }];
+    // Execute the request
+    [api loadMatchesForMatchday];
 }
+
+- (void)showMatch:(Match*)match {
+    // Get the top view controller (it has to be a UINavigationController)
+    UINavigationController* viewController = (UINavigationController*) self.slidingViewController.topViewController;
+    
+    // Initialize the new view
+    MatchVC* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
+    newViewController.match = match;
+    
+    // Replace the view
+    [viewController setViewControllers:@[newViewController]];
+}
+
+#pragma mark - TableView datasource
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView {
+//    return 1;
+//}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self.groupName uppercaseString];
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
+    return self.matches.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell"];
+    if (cell == nil) {
+        // It's a new cell
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MatchCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    // Set the data
+    Match* match = [self.matches objectAtIndex:indexPath.row];
+    [cell setTeam1Name:match.team1.name];
+    [cell setTeam2Name:match.team2.name];
+    [cell setTeam1Score:match.team1Score];
+    [cell setTeam2Score:match.team2Score];
+    [cell setMinutes:match.currentMinute];
+    [cell setCommentCount:match.commentCount];
+    return cell;
+}
+
+#pragma mark - TableView delegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     int paddingLeft = 10;
@@ -72,48 +130,21 @@
     return headerView;
 }
 
-#pragma mark - TableView rows
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
-    return self.matches.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-    MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell"];
-    if (cell == nil) {
-        // It's a new cell
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MatchCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
-    // Set the data
-    Match* match = [self.matches objectAtIndex:indexPath.row];
-    [cell setTeam1Name:match.team1.name];
-    [cell setTeam2Name:match.team2.name];
-    [cell setTeam1Score:match.team1Score];
-    [cell setTeam2Score:match.team2Score];
-    [cell setMinutes:match.currentMinute];
-    return cell;
-    
-}
-
-#pragma mark - Events
-
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
-    if (![self.slidingViewController.topViewController isKindOfClass:[MatchNC class]]) {
-        // Something is wrong, do nothing
-        return;
+    // Make sure that the top view controller is of the right class
+    if ([self.slidingViewController.topViewController isKindOfClass:[MatchNC class]]) {
+        MatchNC* navigationController = (MatchNC*) self.slidingViewController.topViewController;
+        
+        // Prepare match view
+        MatchVC* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
+        newViewController.match = self.matches[indexPath.row];
+        
+        // Replace view controller and slide out the menu
+        [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
+            [navigationController setViewControllers:@[newViewController]];
+            [self.slidingViewController resetTopView];
+        }];
     }
-    MatchNC* navigationController = (MatchNC*) self.slidingViewController.topViewController;
-    
-    // Prepare match view
-    MatchVC* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
-    newViewController.match = self.matches[indexPath.row];
-
-    // Replace view controller and slide out the menu
-    [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{
-        [navigationController setViewControllers:@[newViewController]];
-        [self.slidingViewController resetTopView];
-    }];
 }
 
 @end

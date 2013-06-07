@@ -9,25 +9,10 @@
 #import "AppDelegate.h"
 
 #import <RestKit/RestKit.h>
-#import "OpenLigaScoreAPI.h"
-#import "DummyScoreAPI.h"
-
-@interface AppDelegate()
-@property (readwrite, nonatomic) bool dummyApiEnabled;
-@property (readwrite, nonatomic) id <ScoreAPI> api;
-@property (readwrite, nonatomic) MatchGroup* matchgroup;
-@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Detect whether to use dummy data or live data
-    NSArray* args = [[NSProcessInfo processInfo] arguments];
-    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {
-        self.dummyApiEnabled = true;
-    } else {
-        self.dummyApiEnabled = false;
-    }
 
     // Enable network activity indicator for requests
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
@@ -36,32 +21,20 @@
 //    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
     
     // Navbar background image
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     
-    // Test
-//    [self.api setUpdateAction:^{
-//        NSLog(@"Update fertig!");
-//    }];
+// Detect whether to use dummy data or live data
+//    NSArray* args = [[NSProcessInfo processInfo] arguments];
+//    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {
+//        self.dummyApiEnabled = true;
+//    } else {
+//        self.dummyApiEnabled = false;
+//    }
+    
+//    // How to get a reference to this place
+//    AppDelegate* app = [[UIApplication sharedApplication] delegate];
     
     return YES;
-}
-
-// Lazy instantiation of the API socket
-- (id <ScoreAPI>)api {
-    if (!_api) {
-        if (self.dummyApiEnabled) {
-            _api = [[DummyScoreAPI alloc] init];
-        } else {
-            _api = [[OpenLigaScoreAPI alloc] init];
-        }
-    }
-    return _api;
-}
-
-// Lazy instantiation of the MatchGroup
-- (MatchGroup*)matchgroup {
-    if (!_matchgroup) _matchgroup = [self.api getMatchesForMatchday];
-    return _matchgroup;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Models/Match.h"
+
 #import "ScoreAPI.h"
 
-@interface OpenLigaScoreAPI : NSObject <ScoreAPI>
+@interface OpenLigaScoreAPI : NSObject <ScoreApiProtocol>
 
 @end
