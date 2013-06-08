@@ -64,7 +64,7 @@
                                     <action selector="writeComment" destination="evF-Ej-VPe" eventType="touchUpInside" id="n7I-Tr-EJT"/>
                                 </connections>
                             </button>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-rC-1YF">
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="210" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-rC-1YF">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" id="4yV-45-RNk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
@@ -94,21 +94,42 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment cell" textLabel="Cyq-JZ-tRM" rowHeight="80" style="IBUITableViewCellStyleDefault" id="rrP-af-OCP">
-                                        <rect key="frame" x="0.0" y="167" width="320" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment cell" rowHeight="210" id="rrP-af-OCP" customClass="TweetCell">
+                                        <rect key="frame" x="0.0" y="167" width="320" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="209"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Tweet" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="Cyq-JZ-tRM">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sw-YU-uJd">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" type="user" id="pH2-jL-xVw"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spielminute" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iF-ab-ycd">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-ha-SSg">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="1Sw-YU-uJd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="7mj-Qh-OOn"/>
+                                            <constraint firstItem="1Sw-YU-uJd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="20" type="default" id="SRz-Ye-Ngf"/>
+                                            <constraint firstItem="1Sw-YU-uJd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="20" type="user" id="Tiv-Up-Mec"/>
+                                            <constraint firstAttribute="bottom" secondItem="tUA-ha-SSg" secondAttribute="bottom" constant="20" type="user" id="bHl-eI-02T"/>
+                                            <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="86" id="cei-oW-YYU"/>
+                                            <constraint firstAttribute="trailing" secondItem="tUA-ha-SSg" secondAttribute="trailing" constant="20" type="default" id="fIl-48-u30"/>
+                                            <constraint firstItem="9iF-ab-ycd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="20" type="default" id="kGy-Ah-mf3"/>
+                                            <constraint firstItem="tUA-ha-SSg" firstAttribute="leading" secondItem="1Sw-YU-uJd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="rI2-A3-jdC"/>
+                                            <constraint firstItem="tUA-ha-SSg" firstAttribute="top" secondItem="9iF-ab-ycd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rf9-V0-Pth"/>
+                                        </constraints>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -419,6 +440,13 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TweetCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TweetCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="avatar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
         <class className="UIRefreshControl" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>

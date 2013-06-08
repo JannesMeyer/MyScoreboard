@@ -12,6 +12,7 @@
 #import "Goal.h"
 #import "RKTweet.h"
 #import "TwitterAPI.h"
+#import "CustomViews/TweetCell.h"
 
 @interface MatchVC() <UITableViewDataSource, UITableViewDelegate>
 
@@ -29,7 +30,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView* commentsTableView;
 @property (nonatomic) NSArray* tweets; // of RKTweet
-@property (nonatomic) CGFloat cellMarginLeft;
 @property (nonatomic) UIFont* cellFont;
 
 @end
@@ -40,7 +40,6 @@
     [super viewDidLoad];
     
     if (self.match) {
-        NSLog(@"There is a match");
         // Load the data from the match
         [self updateUI];
         
@@ -50,15 +49,11 @@
             self.tweets = tweets;
             [self.commentsTableView reloadData];
         }];
-    } else {
-        NSLog(@"There is no match");
     }
     
     // Get a temporary comment cell prototype so that we can pull out the font that's used on the label
-    UITableViewCell* prototypeCell = [self.commentsTableView dequeueReusableCellWithIdentifier:@"Comment cell"];
-    self.cellMarginLeft = prototypeCell.textLabel.frame.origin.x;
+    TweetCell* prototypeCell = [self.commentsTableView dequeueReusableCellWithIdentifier:@"Comment cell"];
     self.cellFont = prototypeCell.textLabel.font;
-    
     
     // Custom UI
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
@@ -169,26 +164,19 @@
     // Get a recycled cell
     static NSString* cellIdentifier = @"Comment cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
-
-    // Check for first use
-    if (cell.tag != 1) {
-        NSLog(@"Hallo, First use");
-//        UIImageView* backgroundView = [[UIImageView alloc] initWithFrame:cell.frame];
-//        backgroundView.image = [[UIImage imageNamed:@"bg-cell-tweet-score"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 7, 8, 7)];
-//        [cell addSubview:backgroundView];
-        cell.backgroundColor = [UIColor greenColor];
-
-        // Never do this again
-        cell.tag = 1;
-    }
     
     // Configure the cell
     RKTweet* tweet = self.tweets[indexPath.row];
-    cell.textLabel.text = tweet.text;
-    cell.textLabel.backgroundColor = [UIColor greenColor];
-    cell.textLabel.textColor = [UIColor blackColor];
+//    cell.textLabel.text = tweet.text;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    TweetCell* tweetCell = (TweetCell*)cell;
+//    cell.backgroundColor = indexPath.row % 2 ? [UIColor blackColor] : [UIColor greenColor];
+//    tweetCell.textLabel.backgroundColor = [UIColor redColor];
+    tweetCell.avatar.backgroundColor = [UIColor grayColor];
 }
 
 /*!
@@ -200,14 +188,7 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* text = ((RKTweet*) self.tweets[indexPath.row]).text;
-    
-    // Compute height
-    CGSize maxBounds = CGSizeMake(self.view.bounds.size.width - 2 * self.cellMarginLeft, CGFLOAT_MAX);
-    CGSize size = [text sizeWithFont:self.cellFont
-                   constrainedToSize:maxBounds
-                       lineBreakMode:NSLineBreakByWordWrapping];
-    
-    return size.height + 2 * self.cellMarginLeft;
+    return [TweetCell calculateHeightWithText:text font:self.cellFont width:self.view.bounds.size.width];
 }
 
 @end
