@@ -40,13 +40,14 @@
 }
 
 + (CGFloat)calculateHeightWithText:(NSString*)text font:(UIFont*)font width:(CGFloat)width {
-    CGFloat margin = 20;
+    static CGFloat margin = 20;
     
     // Compute height
     CGSize maxBounds = CGSizeMake(width - 2 * margin, CGFLOAT_MAX);
     CGSize size = [text sizeWithFont:font
                    constrainedToSize:maxBounds
                        lineBreakMode:NSLineBreakByWordWrapping];
+    // Minimum height
     CGFloat height = MAX(60, size.height);
     
     return height + 2 * margin;

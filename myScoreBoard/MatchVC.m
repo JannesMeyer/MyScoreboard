@@ -163,21 +163,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // Get a recycled cell
     static NSString* cellIdentifier = @"Comment cell";
-    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    TweetCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
     RKTweet* tweet = self.tweets[indexPath.row];
-//    cell.textLabel.text = tweet.text;
+    cell.tweetLabel.text = tweet.text;
+    NSLog(@"Setting text at: %g", cell.textLabel.frame.origin.x);
     
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    TweetCell* tweetCell = (TweetCell*)cell;
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    TweetCell* tweetCell = (TweetCell*)cell;
 //    cell.backgroundColor = indexPath.row % 2 ? [UIColor blackColor] : [UIColor greenColor];
 //    tweetCell.textLabel.backgroundColor = [UIColor redColor];
-    tweetCell.avatar.backgroundColor = [UIColor grayColor];
-}
+//}
 
 /*!
  * Computes the height for each row of the UITableView.
@@ -187,8 +187,9 @@
  * @return Height of the row at the specified index path
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString* text = ((RKTweet*) self.tweets[indexPath.row]).text;
-    return [TweetCell calculateHeightWithText:text font:self.cellFont width:self.view.bounds.size.width];
+    return [TweetCell calculateHeightWithText:((RKTweet*)self.tweets[indexPath.row]).text
+                                         font:self.cellFont
+                                        width:self.view.bounds.size.width];
 }
 
 @end

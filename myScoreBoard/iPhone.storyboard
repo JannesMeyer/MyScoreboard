@@ -64,7 +64,7 @@
                                     <action selector="writeComment" destination="evF-Ej-VPe" eventType="touchUpInside" id="n7I-Tr-EJT"/>
                                 </connections>
                             </button>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="210" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-rC-1YF">
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="158" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VHe-rC-1YF">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="500" id="4yV-45-RNk">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
@@ -94,11 +94,11 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment cell" rowHeight="210" id="rrP-af-OCP" customClass="TweetCell">
-                                        <rect key="frame" x="0.0" y="167" width="320" height="210"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment cell" rowHeight="158" id="rrP-af-OCP" customClass="TweetCell">
+                                        <rect key="frame" x="0.0" y="167" width="320" height="158"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="209"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="157"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sw-YU-uJd">
@@ -108,12 +108,28 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spielminute" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iF-ab-ycd">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="ZGq-5X-pKI"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-ha-SSg">
+                                                    <subviews>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-O2-JNU">
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="QgG-O2-JNU" firstAttribute="leading" secondItem="tUA-ha-SSg" secondAttribute="leading" type="default" id="Fs8-5Z-nIW"/>
+                                                        <constraint firstItem="QgG-O2-JNU" firstAttribute="top" secondItem="tUA-ha-SSg" secondAttribute="top" type="default" id="WEz-t3-TtK"/>
+                                                        <constraint firstItem="QgG-O2-JNU" firstAttribute="bottom" secondItem="tUA-ha-SSg" secondAttribute="bottom" type="default" id="YwW-fz-eef"/>
+                                                        <constraint firstItem="QgG-O2-JNU" firstAttribute="trailing" secondItem="tUA-ha-SSg" secondAttribute="trailing" type="default" id="hyl-ol-A7f"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -123,13 +139,16 @@
                                             <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="1Sw-YU-uJd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="7mj-Qh-OOn"/>
                                             <constraint firstItem="1Sw-YU-uJd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="20" type="default" id="SRz-Ye-Ngf"/>
                                             <constraint firstItem="1Sw-YU-uJd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="20" type="user" id="Tiv-Up-Mec"/>
-                                            <constraint firstAttribute="bottom" secondItem="tUA-ha-SSg" secondAttribute="bottom" constant="20" type="user" id="bHl-eI-02T"/>
                                             <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="86" id="cei-oW-YYU"/>
                                             <constraint firstAttribute="trailing" secondItem="tUA-ha-SSg" secondAttribute="trailing" constant="20" type="default" id="fIl-48-u30"/>
                                             <constraint firstItem="9iF-ab-ycd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="20" type="default" id="kGy-Ah-mf3"/>
+                                            <constraint firstItem="tUA-ha-SSg" firstAttribute="top" secondItem="9iF-ab-ycd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kqq-Hn-5F3"/>
                                             <constraint firstItem="tUA-ha-SSg" firstAttribute="leading" secondItem="1Sw-YU-uJd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="rI2-A3-jdC"/>
-                                            <constraint firstItem="tUA-ha-SSg" firstAttribute="top" secondItem="9iF-ab-ycd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rf9-V0-Pth"/>
+                                            <constraint firstAttribute="bottom" secondItem="tUA-ha-SSg" secondAttribute="bottom" constant="21" id="xNC-bz-uin"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="tweetLabel" destination="QgG-O2-JNU" id="8j8-nr-YDN"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -422,6 +441,7 @@
         <class className="MatchVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchVC.h"/>
             <relationships>
+                <relationship kind="action" name="exitTeamSelection:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="commentsTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="goalsLabel1" candidateClass="UILabel"/>
@@ -445,11 +465,14 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TweetCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="avatar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="textLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tweetLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="UIRefreshControl" superclassName="UIControl">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIRefreshControl.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
