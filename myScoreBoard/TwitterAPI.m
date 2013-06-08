@@ -25,7 +25,7 @@ SINGLETON_GCD(TwitterAPI);
          @"user.id": @"userId",
          @"user.screen_name": @"userName",
          @"text": @"text"
-     }];
+    }];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
                                                                                        pathPattern:@"/1.1/search/tweets.json"
                                                                                            keyPath:@"statuses"
@@ -43,10 +43,15 @@ SINGLETON_GCD(TwitterAPI);
                 ACAccount* twitterAccount = [twitterAccounts lastObject];
                 
                 // Create a request to get the tweets for a hashtag on Twitter
+                NSDictionary* parameters = @{
+                                             @"q": [@"exclude:retweets #" stringByAppendingString:hashtag],
+                                             @"lang": @"de",
+                                             @"result_type": @"recent"
+                                            };
                 SLRequest *twitterRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                                requestMethod:SLRequestMethodGET
                                                                          URL:[NSURL URLWithString:@"https://api.twitter.com/1.1/search/tweets.json"]
-                                                                  parameters:@{ @"q": [@"#" stringByAppendingString:hashtag] }];
+                                                                  parameters:parameters];
                 [twitterRequest setAccount:twitterAccount];
                 
 //                // Log Twitter username

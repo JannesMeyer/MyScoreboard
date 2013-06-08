@@ -10,7 +10,7 @@
 
 @interface TweetCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIView *avatar;
-// Do not ever overwrite the property textLabel. It will put you in a world of pain.
+// Do NOT accidentally overwrite the property textLabel. It will put you in a world of pain.
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
-+ (CGFloat)calculateHeightWithText:(NSString*)text font:(UIFont*)font width:(CGFloat)width;
++ (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView;
 @end

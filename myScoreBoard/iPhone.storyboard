@@ -102,9 +102,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sw-YU-uJd">
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="59" type="user" id="pH2-jL-xVw"/>
+                                                        <constraint firstAttribute="width" constant="48" type="user" id="Z3I-38-nuh"/>
+                                                        <constraint firstAttribute="height" constant="48" type="user" id="pH2-jL-xVw"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spielminute" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iF-ab-ycd">
@@ -115,15 +116,15 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-ha-SSg">
+                                                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-ha-SSg">
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-O2-JNU">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="224" translatesAutoresizingMaskIntoConstraints="NO" id="QgG-O2-JNU">
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="QgG-O2-JNU" firstAttribute="leading" secondItem="tUA-ha-SSg" secondAttribute="leading" type="default" id="Fs8-5Z-nIW"/>
                                                         <constraint firstItem="QgG-O2-JNU" firstAttribute="top" secondItem="tUA-ha-SSg" secondAttribute="top" type="default" id="WEz-t3-TtK"/>
@@ -136,10 +137,9 @@
                                         </view>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="1Sw-YU-uJd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="7mj-Qh-OOn"/>
-                                            <constraint firstItem="1Sw-YU-uJd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="20" type="default" id="SRz-Ye-Ngf"/>
+                                            <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="1Sw-YU-uJd" secondAttribute="trailing" constant="8" symbolic="YES" type="user" id="7mj-Qh-OOn"/>
+                                            <constraint firstItem="1Sw-YU-uJd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="20" type="user" id="SRz-Ye-Ngf"/>
                                             <constraint firstItem="1Sw-YU-uJd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="20" type="user" id="Tiv-Up-Mec"/>
-                                            <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="rrP-af-OCP" secondAttribute="leading" constant="86" id="cei-oW-YYU"/>
                                             <constraint firstAttribute="trailing" secondItem="tUA-ha-SSg" secondAttribute="trailing" constant="20" type="default" id="fIl-48-u30"/>
                                             <constraint firstItem="9iF-ab-ycd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="20" type="default" id="kGy-Ah-mf3"/>
                                             <constraint firstItem="tUA-ha-SSg" firstAttribute="top" secondItem="9iF-ab-ycd" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="kqq-Hn-5F3"/>
@@ -442,6 +442,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchVC.h"/>
             <relationships>
                 <relationship kind="action" name="exitTeamSelection:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="revealMenu:"/>
                 <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="commentsTableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="goalsLabel1" candidateClass="UILabel"/>

@@ -30,7 +30,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView* commentsTableView;
 @property (nonatomic) NSArray* tweets; // of RKTweet
-@property (nonatomic) UIFont* cellFont;
 
 @end
 
@@ -50,10 +49,6 @@
             [self.commentsTableView reloadData];
         }];
     }
-    
-    // Get a temporary comment cell prototype so that we can pull out the font that's used on the label
-    TweetCell* prototypeCell = [self.commentsTableView dequeueReusableCellWithIdentifier:@"Comment cell"];
-    self.cellFont = prototypeCell.textLabel.font;
     
     // Custom UI
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"main-bg"]];
@@ -168,16 +163,17 @@
     // Configure the cell
     RKTweet* tweet = self.tweets[indexPath.row];
     cell.tweetLabel.text = tweet.text;
-    NSLog(@"Setting text at: %g", cell.textLabel.frame.origin.x);
+//    NSLog(@"Setting text:\n%@", tweet.text);
+    
+//    UIView* topview = (UIView*) [cell.tweetLabel superview];
+//    CGFloat marginTop = topview.frame.origin.y;
+//    CGFloat marginLeft = topview.frame.origin.x;
+//    CGFloat marginBottom = cell.bounds.size.height - marginTop - topview.bounds.size.height;
+//    CGFloat marginRight = cell.bounds.size.width - marginLeft - topview.bounds.size.width;
+//    NSLog(@"UIEdgeInsetsMake(%g, %g, %g, %g)", marginTop, marginLeft, marginBottom, marginRight);
     
     return cell;
 }
-
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    TweetCell* tweetCell = (TweetCell*)cell;
-//    cell.backgroundColor = indexPath.row % 2 ? [UIColor blackColor] : [UIColor greenColor];
-//    tweetCell.textLabel.backgroundColor = [UIColor redColor];
-//}
 
 /*!
  * Computes the height for each row of the UITableView.
@@ -188,8 +184,12 @@
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [TweetCell calculateHeightWithText:((RKTweet*)self.tweets[indexPath.row]).text
-                                         font:self.cellFont
-                                        width:self.view.bounds.size.width];
+                                    andTableView:tableView];
 }
+
+// For Debugging
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    cell.backgroundColor = indexPath.row%2 ? [UIColor blackColor] : [UIColor redColor];
+//}
 
 @end

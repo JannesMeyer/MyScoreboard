@@ -39,18 +39,21 @@
     // Configure the view for the selected state
 }
 
-+ (CGFloat)calculateHeightWithText:(NSString*)text font:(UIFont*)font width:(CGFloat)width {
-    static CGFloat margin = 20;
++ (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView {
+//    UIEdgeInsets margin = UIEdgeInsetsMake(30, 100, 20, 20);
+    UIEdgeInsets margin = UIEdgeInsetsMake(43, 76, 21, 20);
+    CGFloat width = tableView.bounds.size.width;
+    UIFont* font = [UIFont systemFontOfSize:14];
     
     // Compute height
-    CGSize maxBounds = CGSizeMake(width - 2 * margin, CGFLOAT_MAX);
+    CGSize maxBounds = CGSizeMake(width - (margin.left + margin.right), CGFLOAT_MAX);
     CGSize size = [text sizeWithFont:font
                    constrainedToSize:maxBounds
                        lineBreakMode:NSLineBreakByWordWrapping];
     // Minimum height
     CGFloat height = MAX(60, size.height);
     
-    return height + 2 * margin;
+    return height + margin.top + margin.bottom;
 }
 
 @end
