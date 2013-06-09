@@ -8,11 +8,11 @@
 
 #import "MatchVController.h"
 
-#import <RestKit/RestKit.h>
+#import <RestKit/RestKit.h> // Gets us AFNetworking
 #import "MenuVController.h"
 #import "SettingsTVController.h"
 #import "Goal.h"
-#import "RKTweet.h"
+#import "Tweet.h"
 #import "TwitterAPI.h"
 #import "CustomViews/TweetCell.h"
 
@@ -174,7 +174,7 @@
     TweetCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-    RKTweet* tweet = self.tweets[indexPath.row];
+    Tweet* tweet = self.tweets[indexPath.row];
     cell.tweetLabel.text = tweet.text;
     // Using AFNetworking's category on UIImageView
     [cell.profileImage setImageWithURL:[NSURL URLWithString:tweet.thumbnailUrl]];
@@ -198,7 +198,7 @@
  * @return Height of the row at the specified index path
  */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [TweetCell calculateHeightWithText:((RKTweet*)self.tweets[indexPath.row]).text
+    return [TweetCell calculateHeightWithText:((Tweet*)self.tweets[indexPath.row]).text
                                     andTableView:tableView];
 }
 

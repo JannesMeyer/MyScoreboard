@@ -11,7 +11,7 @@
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
 #import <RestKit/RestKit.h>
-#import "RKTweet.h"
+#import "Models/Tweet.h"
 #import "Util.h"
 
 @implementation TwitterAPI
@@ -20,7 +20,7 @@ SINGLETON_GCD(TwitterAPI);
 
 - (void)findTweetsForHashtag:(NSString*)searchTerms withCompletionHandler:(TWTweetsCompletionHandler)completion {
     // Describe RestKit object mapping
-    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKTweet class]];
+    RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[Tweet class]];
     [mapping addAttributeMappingsFromDictionary:@{
          @"user.id": @"userId",
          @"user.screen_name": @"userName",

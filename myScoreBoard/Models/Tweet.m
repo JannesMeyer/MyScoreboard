@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
-#import "RKTweet.h"
+#import "Tweet.h"
 
-@implementation RKTweet
+@implementation Tweet
 
 @end

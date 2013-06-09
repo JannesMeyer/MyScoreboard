@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface RKTweet : NSObject
+@interface Tweet : NSObject
 @property (nonatomic, copy) NSNumber* userId;
 @property (nonatomic, copy) NSString* userName;
 @property (nonatomic, copy) NSString* text;

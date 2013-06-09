@@ -43,7 +43,7 @@
 		DF2018D31757DEA200BC8C20 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D21757DEA200BC8C20 /* MobileCoreServices.framework */; };
 		DF2018D51757DEA700BC8C20 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D41757DEA700BC8C20 /* Security.framework */; };
 		DF2018D71757DEB000BC8C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */; };
-		DF2018DB1757E09200BC8C20 /* RKTweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2018DA1757E09200BC8C20 /* RKTweet.m */; };
+		DF2018DB1757E09200BC8C20 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2018DA1757E09200BC8C20 /* Tweet.m */; };
 		DF3570E8173D3735002A3519 /* cell-transparency@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DD173D3735002A3519 /* cell-transparency@2x.png */; };
 		DF3570E9173D3735002A3519 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DE173D3735002A3519 /* Default-568h@2x.png */; };
 		DF3570EA173D3735002A3519 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DF173D3735002A3519 /* Default.png */; };
@@ -178,8 +178,8 @@
 		DF2018D21757DEA200BC8C20 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DF2018D41757DEA700BC8C20 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		DF2018D91757E09200BC8C20 /* RKTweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKTweet.h; sourceTree = "<group>"; };
-		DF2018DA1757E09200BC8C20 /* RKTweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKTweet.m; sourceTree = "<group>"; };
+		DF2018D91757E09200BC8C20 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Models/Tweet.h; sourceTree = "<group>"; };
+		DF2018DA1757E09200BC8C20 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Models/Tweet.m; sourceTree = "<group>"; };
 		DF3570DD173D3735002A3519 /* cell-transparency@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-transparency@2x.png"; path = "Images/cell-transparency@2x.png"; sourceTree = "<group>"; };
 		DF3570DE173D3735002A3519 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		DF3570DF173D3735002A3519 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Default.png; sourceTree = "<group>"; };
@@ -392,6 +392,8 @@
 				DF12053C173CF96D004CD78F /* Team.m */,
 				DF12053E173CFA27004CD78F /* Goal.h */,
 				DF12053F173CFA27004CD78F /* Goal.m */,
+				DF2018D91757E09200BC8C20 /* Tweet.h */,
+				DF2018DA1757E09200BC8C20 /* Tweet.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -460,8 +462,6 @@
 			children = (
 				DF80CB921761196D000B2162 /* TwitterAPI.h */,
 				DF80CB931761196D000B2162 /* TwitterAPI.m */,
-				DF2018D91757E09200BC8C20 /* RKTweet.h */,
-				DF2018DA1757E09200BC8C20 /* RKTweet.m */,
 				DFDD40F31762077B00294B93 /* Util.h */,
 			);
 			name = "Controller Helpers";
@@ -629,7 +629,7 @@
 				DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */,
 				DF3C5415174F918800C35C37 /* MatchCell.m in Sources */,
 				DF0CBC3E175696E200E1F32D /* MatchNController.m in Sources */,
-				DF2018DB1757E09200BC8C20 /* RKTweet.m in Sources */,
+				DF2018DB1757E09200BC8C20 /* Tweet.m in Sources */,
 				DF80CB941761196D000B2162 /* TwitterAPI.m in Sources */,
 				DFDD40F817622DC400294B93 /* ScoreApi.m in Sources */,
 				DF15A0661762734A00C77308 /* TweetCell.m in Sources */,
