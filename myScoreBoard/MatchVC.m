@@ -8,6 +8,7 @@
 
 #import "MatchVC.h"
 
+#import <RestKit/RestKit.h>
 #import "MenuVC.h"
 #import "Goal.h"
 #import "RKTweet.h"
@@ -43,8 +44,8 @@
         [self updateUI];
         
         // Ask the Twitter API for data
-        [[TwitterAPI sharedInstance] findTweetsForHashtag:@"fcb" withCompletionHandler:^(NSArray* tweets, NSError* error) {
-            // Reload tableview data
+        [[TwitterAPI sharedInstance] findTweetsForHashtag:[self.match.team1 hashtagsAsString]
+                                    withCompletionHandler:^(NSArray* tweets, NSError* error) {
             self.tweets = tweets;
             [self.commentsTableView reloadData];
         }];
@@ -105,7 +106,7 @@
 		});
 	};
     // Initial text contains the appropriate hashtag
-	[tweetSheet setInitialText:[NSString stringWithFormat:@" #%@", self.match.team1.twitterHashTag]];
+	[tweetSheet setInitialText:[self.match.team1 hashtagsAsString]];
 	//  Presents the Tweet Sheet to the user
 	[self presentViewController:tweetSheet animated:animated completion:NULL];
 }
@@ -163,8 +164,10 @@
     // Configure the cell
     RKTweet* tweet = self.tweets[indexPath.row];
     cell.tweetLabel.text = tweet.text;
-//    NSLog(@"Setting text:\n%@", tweet.text);
+    // Using AFNetworking's category on UIImageView
+    [cell.profileImage setImageWithURL:[NSURL URLWithString:tweet.thumbnailUrl]];
     
+    // Calculate frame of the text label. This frame never changes and is used in calculate
 //    UIView* topview = (UIView*) [cell.tweetLabel superview];
 //    CGFloat marginTop = topview.frame.origin.y;
 //    CGFloat marginLeft = topview.frame.origin.x;

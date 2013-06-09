@@ -23,8 +23,8 @@
     self.view.layer.shadowRadius = 10.0f;
     self.view.layer.shadowColor = [UIColor blackColor].CGColor;
     
-//    // Navigation bar shadow
-//    self.navigationBar.shadowImage = [UIImage imageNamed:@"navbar-shadow"];
+    // Navigation bar shadow
+    self.navigationBar.shadowImage = [UIImage imageNamed:@"navbar-shadow"];
     
     // Create left menu if it doesn't exist yet
     if (![self.slidingViewController.underLeftViewController isKindOfClass:[MenuVC class]]) {

@@ -13,9 +13,10 @@
 @property (readonly, nonatomic) NSUInteger teamId;
 @property (nonatomic) NSString* name;
 @property (nonatomic) NSString* teamIconURL;
-@property (nonatomic) NSString* twitterHashTag;
+@property (nonatomic) NSArray* hashtags; // of NSString
 
 // Designated initializer
 - (id)initWithId:(int) teamId;
+- (NSString*)hashtagsAsString;
 
 @end

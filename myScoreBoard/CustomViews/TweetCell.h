@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface TweetCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIView *avatar;
-// Do NOT accidentally overwrite the property textLabel. It will put you in a world of pain.
+// Do NOT accidentally use the name textLabel. It will put you in a world of pain, because that will overwrite UITableViewCell's label
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+
 + (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView;
 @end

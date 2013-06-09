@@ -18,12 +18,13 @@
 
 SINGLETON_GCD(TwitterAPI);
 
-- (void)findTweetsForHashtag:(NSString*)hashtag withCompletionHandler:(TWTweetsCompletionHandler)completion {
+- (void)findTweetsForHashtag:(NSString*)searchTerms withCompletionHandler:(TWTweetsCompletionHandler)completion {
     // Describe RestKit object mapping
     RKObjectMapping* mapping = [RKObjectMapping mappingForClass:[RKTweet class]];
     [mapping addAttributeMappingsFromDictionary:@{
          @"user.id": @"userId",
          @"user.screen_name": @"userName",
+         @"user.profile_image_url": @"thumbnailUrl",
          @"text": @"text"
     }];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
@@ -44,7 +45,7 @@ SINGLETON_GCD(TwitterAPI);
                 
                 // Create a request to get the tweets for a hashtag on Twitter
                 NSDictionary* parameters = @{
-                                             @"q": [@"exclude:retweets #" stringByAppendingString:hashtag],
+                                             @"q": [searchTerms stringByAppendingString:@" exclude:retweets"],
                                              @"lang": @"de",
                                              @"result_type": @"recent"
                                             };
@@ -54,10 +55,11 @@ SINGLETON_GCD(TwitterAPI);
                                                                   parameters:parameters];
                 [twitterRequest setAccount:twitterAccount];
                 
-//                // Log Twitter username
+                // Log Twitter username
 //                NSLog(@"Twitter Account configured: %@ %@", twitterAccount.username, [twitterAccount valueForKeyPath:@"properties.user_id"]);
-//                // Log response
-//                [twitterInfoRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                
+                // Log response
+//                [twitterRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
 //                    NSString* response = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 //                    NSLog(@"%@", response);
 //                }];
