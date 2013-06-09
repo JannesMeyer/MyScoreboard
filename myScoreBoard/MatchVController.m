@@ -10,6 +10,7 @@
 
 #import <RestKit/RestKit.h>
 #import "MenuVController.h"
+#import "SettingsTVController.h"
 #import "Goal.h"
 #import "RKTweet.h"
 #import "TwitterAPI.h"
@@ -81,8 +82,19 @@
     self.goalsLabel1.text = goalText;
 }
 
+// Show menu
 - (IBAction)revealMenu:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
+}
+
+// Segue
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Show settings"]) {
+        // Setup settings
+        UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;
+        SettingsTVController* settingsController = (SettingsTVController*)navigationController.topViewController;
+        settingsController.teams = @[self.match.team1, self.match.team2];
+    }
 }
 
 // Unwind segue

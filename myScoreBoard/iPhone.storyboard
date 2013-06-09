@@ -185,7 +185,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="m84-Uh-cUG">
                             <connections>
-                                <segue destination="06A-bs-2sx" kind="modal" modalTransitionStyle="flipHorizontal" id="fAi-gD-wTd"/>
+                                <segue destination="06A-bs-2sx" kind="modal" identifier="Show settings" modalTransitionStyle="flipHorizontal" id="fAi-gD-wTd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -210,7 +210,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Mannschaften" footerTitle="Zu diesen Mannschaften werden dir während des Spiels Kommentare angezeigt" id="uGr-za-Ueh">
+                            <tableViewSection headerTitle="Mannschaften" footerTitle="Zu diesen Mannschaften werden dir während des Spiels Kommentare angezeigt." id="uGr-za-Ueh">
                                 <cells>
                                     <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Team selection cell" textLabel="ZCn-PR-a9x" style="IBUITableViewCellStyleDefault" id="AKN-da-8z5">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
@@ -222,7 +222,6 @@
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Team 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZCn-PR-a9x">
                                                     <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
@@ -239,7 +238,6 @@
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Team 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wK1-LH-LIc">
                                                     <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
@@ -313,8 +311,33 @@
         <image name="btn-commentary-us@2x.png" width="640" height="78"/>
     </resources>
     <classes>
+        <class className="ECSlidingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ECSlidingViewController.h"/>
+        </class>
+        <class className="InitialSlidingVController" superclassName="ECSlidingViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSlidingVController.h"/>
+        </class>
         <class className="MatchNController" superclassName="UINavigationController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchNController.h"/>
+        </class>
+        <class className="MatchVController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchVController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="commentsTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="goalsLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="matchNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="minuteLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreContainer" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scoreLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scoreLabel2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="settingsButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="MenuVController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuVController.h"/>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>

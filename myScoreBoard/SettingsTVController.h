@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsTVController : UITableViewController
-
+@property (nonatomic) NSArray* teams; // of Team
 @end
