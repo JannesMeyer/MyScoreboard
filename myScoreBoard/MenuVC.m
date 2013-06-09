@@ -10,7 +10,7 @@
 
 #import "Models/Match.h"
 #import "MatchVC.h"
-#import "MatchNC.h"
+#import "MatchNController.h"
 #import "CustomViews/MatchCell.h"
 #import "ScoreApi.h"
 
@@ -132,8 +132,8 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
     // Make sure that the top view controller is of the right class
-    if ([self.slidingViewController.topViewController isKindOfClass:[MatchNC class]]) {
-        MatchNC* navigationController = (MatchNC*) self.slidingViewController.topViewController;
+    if ([self.slidingViewController.topViewController isKindOfClass:[MatchNController class]]) {
+        MatchNController* navigationController = (MatchNController*) self.slidingViewController.topViewController;
         
         // Prepare match view
         MatchVC* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];

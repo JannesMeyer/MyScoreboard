@@ -29,7 +29,7 @@
 		814966201733D5C700C7063A /* CTidy.m in Sources */ = {isa = PBXBuildFile; fileRef = 814966121733D5C700C7063A /* CTidy.m */; };
 		A143011D173CFE0800E5518D /* OpenLigaScoreAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */; };
 		A1A2F70B17464EDB00DFEF93 /* XMLConnectionStub.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */; };
-		DF0CBC3E175696E200E1F32D /* MatchNC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0CBC3D175696E200E1F32D /* MatchNC.m */; };
+		DF0CBC3E175696E200E1F32D /* MatchNController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF0CBC3D175696E200E1F32D /* MatchNController.m */; };
 		DF12053A173CF65D004CD78F /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = DF120539173CF65D004CD78F /* Match.m */; };
 		DF12053D173CF96D004CD78F /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053C173CF96D004CD78F /* Team.m */; };
 		DF120540173CFA27004CD78F /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = DF12053F173CFA27004CD78F /* Goal.m */; };
@@ -68,6 +68,7 @@
 		DF86F58E173D172400DF4EAE /* MatchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F584173D172400DF4EAE /* MatchVC.m */; };
 		DF86F58F173D172400DF4EAE /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuVC.m */; };
 		DF86F595173D173600DF4EAE /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF86F593173D173600DF4EAE /* iPhone.storyboard */; };
+		DFB466E81764610700A14D37 /* SettingsTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB466E71764610700A14D37 /* SettingsTVController.m */; };
 		DFDD40F817622DC400294B93 /* ScoreApi.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDD40F717622DC400294B93 /* ScoreApi.m */; };
 		DFE74E89174663EB00D14896 /* InitialSlidingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BADA91746562D00B298FF /* InitialSlidingVC.m */; };
 		DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8C174664DD00D14896 /* ECSlidingViewController.m */; };
@@ -158,8 +159,8 @@
 		A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenLigaScoreAPI.m; sourceTree = "<group>"; };
 		A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLConnectionStub.h; sourceTree = "<group>"; };
 		A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLConnectionStub.m; sourceTree = "<group>"; };
-		DF0CBC3C175696E200E1F32D /* MatchNC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchNC.h; sourceTree = "<group>"; };
-		DF0CBC3D175696E200E1F32D /* MatchNC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNC.m; sourceTree = "<group>"; };
+		DF0CBC3C175696E200E1F32D /* MatchNController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchNController.h; sourceTree = "<group>"; };
+		DF0CBC3D175696E200E1F32D /* MatchNController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchNController.m; sourceTree = "<group>"; };
 		DF120538173CF65D004CD78F /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Match.h; path = Models/Match.h; sourceTree = "<group>"; };
 		DF120539173CF65D004CD78F /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Models/Match.m; sourceTree = "<group>"; };
 		DF12053B173CF96D004CD78F /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Team.h; path = Models/Team.h; sourceTree = "<group>"; };
@@ -209,6 +210,8 @@
 		DF86F586173D172400DF4EAE /* MenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuVC.m; sourceTree = "<group>"; };
 		DF86F587173D172400DF4EAE /* MenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuVC.h; sourceTree = "<group>"; };
 		DF86F593173D173600DF4EAE /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		DFB466E61764610700A14D37 /* SettingsTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTVController.h; sourceTree = "<group>"; };
+		DFB466E71764610700A14D37 /* SettingsTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVController.m; sourceTree = "<group>"; };
 		DFDD40F31762077B00294B93 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		DFDD40F617622DC400294B93 /* ScoreApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreApi.h; sourceTree = "<group>"; };
 		DFDD40F717622DC400294B93 /* ScoreApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreApi.m; sourceTree = "<group>"; };
@@ -288,8 +291,10 @@
 				814965B41733CA7A00C7063A /* AppDelegate.h */,
 				814965B51733CA7A00C7063A /* AppDelegate.m */,
 				DF86F593173D173600DF4EAE /* iPhone.storyboard */,
-				DF0CBC3C175696E200E1F32D /* MatchNC.h */,
-				DF0CBC3D175696E200E1F32D /* MatchNC.m */,
+				DFB466E61764610700A14D37 /* SettingsTVController.h */,
+				DFB466E71764610700A14D37 /* SettingsTVController.m */,
+				DF0CBC3C175696E200E1F32D /* MatchNController.h */,
+				DF0CBC3D175696E200E1F32D /* MatchNController.m */,
 				DF86F585173D172400DF4EAE /* MatchVC.h */,
 				DF86F584173D172400DF4EAE /* MatchVC.m */,
 				DF6BADA81746562D00B298FF /* InitialSlidingVC.h */,
@@ -623,11 +628,12 @@
 				DFE74E93174676A100D14896 /* MatchGroup.m in Sources */,
 				DFE74E96174680B600D14896 /* DummyScoreAPI.m in Sources */,
 				DF3C5415174F918800C35C37 /* MatchCell.m in Sources */,
-				DF0CBC3E175696E200E1F32D /* MatchNC.m in Sources */,
+				DF0CBC3E175696E200E1F32D /* MatchNController.m in Sources */,
 				DF2018DB1757E09200BC8C20 /* RKTweet.m in Sources */,
 				DF80CB941761196D000B2162 /* TwitterAPI.m in Sources */,
 				DFDD40F817622DC400294B93 /* ScoreApi.m in Sources */,
 				DF15A0661762734A00C77308 /* TweetCell.m in Sources */,
+				DFB466E81764610700A14D37 /* SettingsTVController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

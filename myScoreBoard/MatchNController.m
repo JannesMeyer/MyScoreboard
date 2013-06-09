@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
-#import "MatchNC.h"
+#import "MatchNController.h"
 #import "MenuVC.h"
 
-@interface MatchNC ()
+@interface MatchNController ()
 
 @end
 
-@implementation MatchNC
+@implementation MatchNController
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

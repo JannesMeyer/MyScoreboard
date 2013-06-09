@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MatchNC : UINavigationController
+@interface MatchNController : UINavigationController
 
 @end

@@ -185,7 +185,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="m84-Uh-cUG">
                             <connections>
-                                <segue destination="06A-bs-2sx" kind="modal" modalTransitionStyle="flipHorizontal" id="K98-wi-iwh"/>
+                                <segue destination="06A-bs-2sx" kind="modal" modalTransitionStyle="flipHorizontal" id="fAi-gD-wTd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -201,43 +201,45 @@
             </objects>
             <point key="canvasLocation" x="1295" y="-96"/>
         </scene>
-        <!--Table View Controller - Einstellungen-->
+        <!--SettingsTV Controller - Einstellungen-->
         <scene sceneID="XYc-FO-z2c">
             <objects>
-                <tableViewController id="cpK-Hx-HIn" sceneMemberID="viewController">
+                <tableViewController id="cpK-Hx-HIn" customClass="SettingsTVController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BDg-1B-nTJ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Wählen sie ihre Mannschaften aus" id="T7W-pL-JOv">
+                            <tableViewSection headerTitle="Mannschaften" footerTitle="Zu diesen Mannschaften werden dir während des Spiels Kommentare angezeigt" id="uGr-za-Ueh">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ZCn-PR-a9x" style="IBUITableViewCellStyleDefault" id="AKN-da-8z5">
+                                    <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Team selection cell" textLabel="ZCn-PR-a9x" style="IBUITableViewCellStyleDefault" id="AKN-da-8z5">
                                         <rect key="frame" x="0.0" y="46" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Bayern" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCn-PR-a9x">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Team 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZCn-PR-a9x">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="HWv-MI-qeO" style="IBUITableViewCellStyleDefault" id="lWD-nA-Rsg">
+                                    <tableViewCell tag="2" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Team selection cell" textLabel="wK1-LH-LIc" style="IBUITableViewCellStyleDefault" id="JQh-Ii-xNW">
                                         <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Gladbach" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWv-MI-qeO">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Team 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wK1-LH-LIc">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
@@ -248,7 +250,6 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="cpK-Hx-HIn" id="BQS-yx-wXI"/>
                             <outlet property="delegate" destination="cpK-Hx-HIn" id="bv5-l6-Nlz"/>
                         </connections>
                     </tableView>
@@ -263,12 +264,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEM-YV-yGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="KPR-nB-FH1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="194"/>
+            <point key="canvasLocation" x="2697" y="186"/>
         </scene>
-        <!--MatchNC-->
+        <!--MatchN Controller-->
         <scene sceneID="LOU-Sd-dzb">
             <objects>
-                <navigationController storyboardIdentifier="MatchNC" id="zfY-us-PMM" customClass="MatchNC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MatchNC" id="zfY-us-PMM" customClass="MatchNController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="Sr1-c6-P3E">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -304,7 +305,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSI-kd-M2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="194"/>
+            <point key="canvasLocation" x="2105" y="186"/>
         </scene>
     </scenes>
     <resources>
@@ -318,8 +319,8 @@
         <class className="InitialSlidingVC" superclassName="ECSlidingViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialSlidingVC.h"/>
         </class>
-        <class className="MatchNC" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchNC.h"/>
+        <class className="MatchNController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchNController.h"/>
         </class>
         <class className="MatchVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchVC.h"/>
@@ -342,6 +343,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="SettingsTVController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsTVController.h"/>
         </class>
         <class className="TweetCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TweetCell.h"/>

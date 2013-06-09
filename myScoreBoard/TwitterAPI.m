@@ -45,9 +45,9 @@ SINGLETON_GCD(TwitterAPI);
                 
                 // Create a request to get the tweets for a hashtag on Twitter
                 NSDictionary* parameters = @{
-                                             @"q": [searchTerms stringByAppendingString:@" exclude:retweets"],
-                                             @"lang": @"de",
-                                             @"result_type": @"recent"
+                                             @"q": [searchTerms stringByAppendingString:@" exclude:retweets"]
+//                                             @"lang": @"de",
+//                                             @"result_type": @"recent"
                                             };
                 SLRequest *twitterRequest = [SLRequest requestForServiceType:SLServiceTypeTwitter
                                                                requestMethod:SLRequestMethodGET
