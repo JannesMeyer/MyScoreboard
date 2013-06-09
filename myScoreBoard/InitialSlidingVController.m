@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 EdgeCase. All rights reserved.
 //
 
-#import "InitialSlidingVC.h"
+#import "InitialSlidingVController.h"
 
-@implementation InitialSlidingVC
+@implementation InitialSlidingVController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

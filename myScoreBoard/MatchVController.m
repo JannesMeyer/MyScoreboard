@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
-#import "MatchVC.h"
+#import "MatchVController.h"
 
 #import <RestKit/RestKit.h>
-#import "MenuVC.h"
+#import "MenuVController.h"
 #import "Goal.h"
 #import "RKTweet.h"
 #import "TwitterAPI.h"
 #import "CustomViews/TweetCell.h"
 
-@interface MatchVC() <UITableViewDataSource, UITableViewDelegate>
+@interface MatchVController() <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation MatchVC
+@implementation MatchVController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

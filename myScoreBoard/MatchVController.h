@@ -10,7 +10,7 @@
 #import <Social/Social.h>
 #import "Match.h"
 
-@interface MatchVC : UIViewController
+@interface MatchVController : UIViewController
 
 @property (weak, nonatomic) Match* match;
 
