@@ -13,26 +13,14 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    // Enable network activity indicator for requests
+    // Enable network activity indicator
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    // Enable RestKit logging
-//    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    // Set RestKit logging
+    RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
     
-    // Navbar background image
-//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
-    
-// Detect whether to use dummy data or live data
 //    NSArray* args = [[NSProcessInfo processInfo] arguments];
-//    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {
-//        self.dummyApiEnabled = true;
-//    } else {
-//        self.dummyApiEnabled = false;
-//    }
-    
-//    // How to get a reference to this place
-//    AppDelegate* app = [[UIApplication sharedApplication] delegate];
+//    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {}
     
     return YES;
 }
