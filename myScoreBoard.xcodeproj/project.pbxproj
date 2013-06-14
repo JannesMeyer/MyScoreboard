@@ -45,6 +45,7 @@
 		DF2018D71757DEB000BC8C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */; };
 		DF2018DB1757E09200BC8C20 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2018DA1757E09200BC8C20 /* Tweet.m */; };
 		DF20BCC9176B77E500044174 /* trennlinie.png in Resources */ = {isa = PBXBuildFile; fileRef = DF20BCC8176B77E500044174 /* trennlinie.png */; };
+		DF20BCFB176B8C9D00044174 /* MatchTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF20BCFA176B8C9D00044174 /* MatchTVController.m */; };
 		DF3570E8173D3735002A3519 /* cell-transparency@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DD173D3735002A3519 /* cell-transparency@2x.png */; };
 		DF3570E9173D3735002A3519 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DE173D3735002A3519 /* Default-568h@2x.png */; };
 		DF3570EA173D3735002A3519 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DF173D3735002A3519 /* Default.png */; };
@@ -182,6 +183,8 @@
 		DF2018D91757E09200BC8C20 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Models/Tweet.h; sourceTree = "<group>"; };
 		DF2018DA1757E09200BC8C20 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Models/Tweet.m; sourceTree = "<group>"; };
 		DF20BCC8176B77E500044174 /* trennlinie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trennlinie.png; path = Images/trennlinie.png; sourceTree = "<group>"; };
+		DF20BCF9176B8C9D00044174 /* MatchTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTVController.h; sourceTree = "<group>"; };
+		DF20BCFA176B8C9D00044174 /* MatchTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTVController.m; sourceTree = "<group>"; };
 		DF3570DD173D3735002A3519 /* cell-transparency@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-transparency@2x.png"; path = "Images/cell-transparency@2x.png"; sourceTree = "<group>"; };
 		DF3570DE173D3735002A3519 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		DF3570DF173D3735002A3519 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Default.png; sourceTree = "<group>"; };
@@ -299,6 +302,8 @@
 				DF0CBC3D175696E200E1F32D /* MatchNController.m */,
 				DF86F585173D172400DF4EAE /* MatchVController.h */,
 				DF86F584173D172400DF4EAE /* MatchVController.m */,
+				DF20BCF9176B8C9D00044174 /* MatchTVController.h */,
+				DF20BCFA176B8C9D00044174 /* MatchTVController.m */,
 				DF6BADA81746562D00B298FF /* InitialSlidingVController.h */,
 				DF6BADA91746562D00B298FF /* InitialSlidingVController.m */,
 				DF86F587173D172400DF4EAE /* MenuVController.h */,
@@ -638,6 +643,7 @@
 				DFDD40F817622DC400294B93 /* ScoreApi.m in Sources */,
 				DF15A0661762734A00C77308 /* TweetCell.m in Sources */,
 				DFB466E81764610700A14D37 /* SettingsTVController.m in Sources */,
+				DF20BCFB176B8C9D00044174 /* MatchTVController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,10 @@
 //    NSArray* args = [[NSProcessInfo processInfo] arguments];
 //    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {}
     
+    
+    // Change navigation bar style globally through the appearance proxy
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
+    
     return YES;
 }
 

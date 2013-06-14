@@ -12,6 +12,6 @@
 
 @interface MatchVController : UIViewController
 
-@property (weak, nonatomic) Match* match;
+@property (nonatomic) Match* match;
 
 @end
