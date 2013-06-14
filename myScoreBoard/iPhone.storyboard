@@ -283,32 +283,48 @@
                                         <constraint firstAttribute="height" constant="3" type="user" id="DRf-1i-T4b"/>
                                     </constraints>
                                 </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Torschütze - 1 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djg-LD-Etf">
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Torschütze - 1 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9V-bW-wiO">
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="6BJ-PL-DFo" firstAttribute="top" secondItem="ugz-jJ-Kid" secondAttribute="bottom" constant="2" type="user" id="43R-o7-Qzo"/>
                                 <constraint firstItem="YHU-5h-VJ7" firstAttribute="leading" secondItem="fqN-xW-A8c" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="50k-hg-Z7R"/>
                                 <constraint firstItem="fqN-xW-A8c" firstAttribute="leading" secondItem="axl-Mj-iaJ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="719-J9-DYo"/>
+                                <constraint firstAttribute="trailing" secondItem="f9V-bW-wiO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="82k-Dy-0FZ"/>
                                 <constraint firstItem="utS-J2-u0t" firstAttribute="top" secondItem="a6h-QX-5up" secondAttribute="top" constant="25" type="user" id="C88-lr-pcS"/>
                                 <constraint firstItem="ugz-jJ-Kid" firstAttribute="leading" secondItem="a6h-QX-5up" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="Caj-sH-J7P"/>
                                 <constraint firstItem="axl-Mj-iaJ" firstAttribute="baseline" secondItem="fqN-xW-A8c" secondAttribute="baseline" type="default" id="Kv6-nl-439"/>
                                 <constraint firstItem="axl-Mj-iaJ" firstAttribute="top" secondItem="a6h-QX-5up" secondAttribute="top" constant="67" type="user" id="LfH-AT-rpp"/>
                                 <constraint firstAttribute="centerX" secondItem="fqN-xW-A8c" secondAttribute="centerX" type="user" id="LsM-5P-iWz"/>
                                 <constraint firstItem="4ly-0x-phu" firstAttribute="leading" secondItem="RhI-DK-0Vv" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Mti-Ti-BZ0"/>
+                                <constraint firstItem="djg-LD-Etf" firstAttribute="leading" secondItem="a6h-QX-5up" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PwW-fl-Dg3"/>
                                 <constraint firstItem="utS-J2-u0t" firstAttribute="centerX" secondItem="a6h-QX-5up" secondAttribute="centerX" type="user" id="QXN-hj-EWc"/>
                                 <constraint firstItem="UjC-e5-QcQ" firstAttribute="leading" secondItem="a6h-QX-5up" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="S05-0D-7dn"/>
                                 <constraint firstAttribute="trailing" secondItem="4ly-0x-phu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="UNB-LK-7IB"/>
                                 <constraint firstItem="UjC-e5-QcQ" firstAttribute="centerY" secondItem="RhI-DK-0Vv" secondAttribute="centerY" type="default" id="Vnx-9l-Aeh"/>
+                                <constraint firstItem="f9V-bW-wiO" firstAttribute="leading" secondItem="4ly-0x-phu" secondAttribute="leading" type="default" id="XGd-Tm-Uca"/>
+                                <constraint firstItem="f9V-bW-wiO" firstAttribute="baseline" secondItem="djg-LD-Etf" secondAttribute="baseline" type="default" id="aUP-T0-wfx"/>
                                 <constraint firstItem="ugz-jJ-Kid" firstAttribute="top" secondItem="UjC-e5-QcQ" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="aqW-lC-VNP"/>
                                 <constraint firstAttribute="trailing" secondItem="YHU-5h-VJ7" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="csk-ds-CMh"/>
                                 <constraint firstItem="RhI-DK-0Vv" firstAttribute="leading" secondItem="UjC-e5-QcQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="e7k-2F-TQG"/>
                                 <constraint firstItem="UjC-e5-QcQ" firstAttribute="top" secondItem="a6h-QX-5up" secondAttribute="top" constant="85" type="user" id="eIC-IQ-E03"/>
                                 <constraint firstAttribute="trailing" secondItem="6BJ-PL-DFo" secondAttribute="trailing" constant="20" symbolic="YES" type="user" id="l4h-4U-EPg"/>
+                                <constraint firstItem="UjC-e5-QcQ" firstAttribute="trailing" secondItem="djg-LD-Etf" secondAttribute="trailing" type="default" id="l5C-0d-IQe"/>
                                 <constraint firstItem="YHU-5h-VJ7" firstAttribute="baseline" secondItem="fqN-xW-A8c" secondAttribute="baseline" type="default" id="l8F-xb-RpW"/>
                                 <constraint firstItem="6BJ-PL-DFo" firstAttribute="leading" secondItem="a6h-QX-5up" secondAttribute="leading" constant="20" symbolic="YES" type="user" id="nCP-SQ-coQ"/>
                                 <constraint firstItem="axl-Mj-iaJ" firstAttribute="leading" secondItem="a6h-QX-5up" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="uSx-Uo-p3p"/>
                                 <constraint firstAttribute="centerX" secondItem="RhI-DK-0Vv" secondAttribute="centerX" type="user" id="wcI-M7-Id7"/>
                                 <constraint firstItem="4ly-0x-phu" firstAttribute="baseline" secondItem="UjC-e5-QcQ" secondAttribute="baseline" type="default" id="y1W-iW-KkN"/>
+                                <constraint firstItem="djg-LD-Etf" firstAttribute="top" secondItem="6BJ-PL-DFo" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="yGX-DD-KdF"/>
                                 <constraint firstItem="4ly-0x-phu" firstAttribute="top" secondItem="UjC-e5-QcQ" secondAttribute="top" type="default" id="zbo-3K-Wgj"/>
                             </constraints>
                         </view>
@@ -388,6 +404,8 @@
                     </refreshControl>
                     <connections>
                         <outlet property="dividerLine" destination="6BJ-PL-DFo" id="za1-qg-42B"/>
+                        <outlet property="goalsListLabel1" destination="djg-LD-Etf" id="gjL-MM-4Ag"/>
+                        <outlet property="goalsListLabel2" destination="f9V-bW-wiO" id="JhR-yl-xy8"/>
                         <outlet property="minuteLabel" destination="utS-J2-u0t" id="9eF-F9-nye"/>
                         <outlet property="scoreLabel1" destination="UjC-e5-QcQ" id="qya-cO-3zE"/>
                         <outlet property="scoreLabel2" destination="4ly-0x-phu" id="166-V1-hak"/>
@@ -436,6 +454,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MatchTVController.h"/>
             <relationships>
                 <relationship kind="outlet" name="dividerLine" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="goalsListLabel1" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="minuteLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel1" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scoreLabel2" candidateClass="UILabel"/>

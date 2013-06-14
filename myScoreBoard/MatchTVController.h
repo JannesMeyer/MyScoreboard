@@ -23,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel2;
 @property (weak, nonatomic) IBOutlet UIImageView *dividerLine;
+@property (weak, nonatomic) IBOutlet UILabel *goalsListLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *goalsListLabel2;
 
 @end
