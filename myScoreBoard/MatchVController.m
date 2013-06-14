@@ -21,6 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *settingsButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+
+
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (nonatomic) UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *scoreContainer;
 @property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
@@ -48,8 +52,7 @@
         [self updateUI];
         
         // Ask the Twitter API for data
-        [[TwitterAPI sharedInstance] findTweetsForHashtag:[self.match.team1 hashtagsAsString]
-                                    withCompletionHandler:^(NSArray* tweets, NSError* error) {
+        [[TwitterAPI sharedInstance] findTweetsForHashtag:[self.match.team1 hashtagsAsString] withCompletionHandler:^(NSArray* tweets, NSError* error) {
             self.tweets = tweets;
             [self.commentsTableView reloadData];
         }];
@@ -72,8 +75,21 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     
     // Divider
-//    self.dividerLine.backgroundColor = [UIColor redColor];
     self.dividerLine.image = [[UIImage imageNamed:@"trennlinie"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 2, 0, 2)];
+    
+    
+    // Background image
+    UIImage* image = [[UIImage imageNamed:@"bg-cell-tweet-score"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 8, 9, 8)];
+    self.backgroundImageView = [[UIImageView alloc] initWithImage:image];
+    [self.headerView addSubview:self.backgroundImageView];
+    [self.headerView sendSubviewToBack:self.backgroundImageView];
+}
+
+- (void)viewDidLayoutSubviews {
+    // Background image size
+    CGRect fullSize =[self.backgroundImageView superview].bounds;
+    CGFloat topSpacing = 14;
+    self.backgroundImageView.frame = UIEdgeInsetsInsetRect(fullSize, UIEdgeInsetsMake(topSpacing, 10, 5, 10));
 }
 
 - (void)updateUI {

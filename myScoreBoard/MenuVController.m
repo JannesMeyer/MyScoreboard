@@ -24,17 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Custom background imge
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu-bg"]];
+    
     // Load data
     [self refreshData:nil];
     
     // Manually connect refresh control because connecting in the Storyboard is buggy
-    [self.refreshControl addTarget:self
-                            action:@selector(refreshData:)
-                  forControlEvents:UIControlEventValueChanged];
-    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    
-    // Custom background imge
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu-bg"]];
+    [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
 }
 
 #pragma mark - Load data
