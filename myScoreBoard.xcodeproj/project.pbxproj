@@ -44,6 +44,7 @@
 		DF2018D51757DEA700BC8C20 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D41757DEA700BC8C20 /* Security.framework */; };
 		DF2018D71757DEB000BC8C20 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */; };
 		DF2018DB1757E09200BC8C20 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2018DA1757E09200BC8C20 /* Tweet.m */; };
+		DF20BCC9176B77E500044174 /* trennlinie.png in Resources */ = {isa = PBXBuildFile; fileRef = DF20BCC8176B77E500044174 /* trennlinie.png */; };
 		DF3570E8173D3735002A3519 /* cell-transparency@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DD173D3735002A3519 /* cell-transparency@2x.png */; };
 		DF3570E9173D3735002A3519 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DE173D3735002A3519 /* Default-568h@2x.png */; };
 		DF3570EA173D3735002A3519 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570DF173D3735002A3519 /* Default.png */; };
@@ -180,6 +181,7 @@
 		DF2018D61757DEB000BC8C20 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DF2018D91757E09200BC8C20 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tweet.h; path = Models/Tweet.h; sourceTree = "<group>"; };
 		DF2018DA1757E09200BC8C20 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tweet.m; path = Models/Tweet.m; sourceTree = "<group>"; };
+		DF20BCC8176B77E500044174 /* trennlinie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trennlinie.png; path = Images/trennlinie.png; sourceTree = "<group>"; };
 		DF3570DD173D3735002A3519 /* cell-transparency@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cell-transparency@2x.png"; path = "Images/cell-transparency@2x.png"; sourceTree = "<group>"; };
 		DF3570DE173D3735002A3519 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		DF3570DF173D3735002A3519 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Images/Default.png; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 		DF3570DB173D2407002A3519 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DF20BCC8176B77E500044174 /* trennlinie.png */,
 				DF15A06C176281F200C77308 /* bg-cell-tweet-score.png */,
 				DF15A06A17627F7300C77308 /* bg-cell-tweet-score@2x.png */,
 				DF7CC4DA1762585900671417 /* teams@2x.png */,
@@ -590,6 +593,7 @@
 				DF7CC4DB1762585900671417 /* teams@2x.png in Resources */,
 				DF15A06B17627F7300C77308 /* bg-cell-tweet-score@2x.png in Resources */,
 				DF15A06D176281F200C77308 /* bg-cell-tweet-score.png in Resources */,
+				DF20BCC9176B77E500044174 /* trennlinie.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

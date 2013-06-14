@@ -28,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *goalsLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *team1Label;
+@property (weak, nonatomic) IBOutlet UILabel *team2Label;
+@property (weak, nonatomic) IBOutlet UIImageView *dividerLine;
 
 
 @property (weak, nonatomic) IBOutlet UITableView* commentsTableView;
@@ -67,12 +70,20 @@
 //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     // Change navigation bar style locally
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
+    
+    // Divider
+//    self.dividerLine.backgroundColor = [UIColor redColor];
+    self.dividerLine.image = [[UIImage imageNamed:@"trennlinie"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 2, 0, 2)];
 }
 
 - (void)updateUI {
     self.minuteLabel.text = [NSString stringWithFormat:@"%d", self.match.currentMinute];
     self.locationLabel.text = self.match.stadiumName;
+    
     self.matchNameLabel.text = [NSString stringWithFormat:@"%@ vs. %@", self.match.team1.name, self.match.team2.name];
+    self.team1Label.text = self.match.team1.name;
+    self.team2Label.text = self.match.team2.name;
+    
     self.scoreLabel1.text = [NSString stringWithFormat:@"%d", self.match.team1Score];
     self.scoreLabel2.text = [NSString stringWithFormat:@"%d", self.match.team2Score];
     NSString* goalText = @"";

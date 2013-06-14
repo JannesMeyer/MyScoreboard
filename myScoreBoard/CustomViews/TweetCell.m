@@ -35,12 +35,12 @@
 //}
 
 + (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView {
-    // View configuration
+    // These are the view's settings that we have set in the storyboard. Unfortunately it's too difficult to read those values from the storyboard so we just duplicate them
     UIFont* font = [UIFont systemFontOfSize:14];
     UIEdgeInsets margin = UIEdgeInsetsMake(43, 76, 21, 20);
     CGFloat width = tableView.bounds.size.width;
     
-    // Compute height
+    // Compute height with an infinite maximum height
     CGSize maxBounds = CGSizeMake(width - margin.left - margin.right, CGFLOAT_MAX);
     CGSize size = [text sizeWithFont:font
                    constrainedToSize:maxBounds
