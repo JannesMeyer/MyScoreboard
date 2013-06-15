@@ -154,6 +154,7 @@
     // Configure the cell
     Tweet* tweet = self.tweets[indexPath.row];
     cell.tweetLabel.text = tweet.text;
+    cell.usernameLabel.text = tweet.userName;
     // Using AFNetworking's category on UIImageView
     [cell.profileImage setImageWithURL:[NSURL URLWithString:tweet.thumbnailUrl]];
     

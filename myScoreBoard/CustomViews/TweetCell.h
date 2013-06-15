@@ -12,6 +12,7 @@
 // Do NOT accidentally use the name textLabel. It will put you in a world of pain, because that will overwrite UITableViewCell's label
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 + (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView;
 @end
