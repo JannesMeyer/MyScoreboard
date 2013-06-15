@@ -66,7 +66,6 @@
 
 // Unwind segue from settings
 - (IBAction)exitTeamSelection:(UIStoryboardSegue*)segue {
-    NSLog(@"Back in Match View");
     // Find the embedded TableViewController
     for (UIViewController* viewController in self.childViewControllers) {
         if ([viewController isKindOfClass:[MatchTVController class]]) {
@@ -74,8 +73,13 @@
             MatchTVController* matchTVC = (MatchTVController*)viewController;
             // self.selectedTeams was set by the unwind segue, now we just need to tell the embedded TableViewController in case it changed
             if (![self.selectedTeams isEqualToArray:matchTVC.selectedTeams]) {
+                NSLog(@"Settings changed");
                 // The selection changed, so we need to update it in the TableViewController
+//                matchTVC.tweets = @[];
+//                [matchTVC.tableView reloadData];
                 matchTVC.selectedTeams = self.selectedTeams;
+            } else {
+                NSLog(@"Settings didn't change");
             }
         }
     }
@@ -99,9 +103,17 @@
         });
 	};
     
-    // Set the initial text to contain the appropriate hashtags
-    // TODO: both teams
-    [tweetSheet setInitialText:[self.match.team1 hashtagsAsString]];
+    // Set the text to contain the appropriate hashtags
+    NSString* text = @"";
+    if ([self.selectedTeams count] == 1) {
+        Team* team1 = self.selectedTeams[0];
+        text = [NSString stringWithFormat:@"%@", team1.hashtags[0]];
+    } else if ([self.selectedTeams count] == 2) {
+        Team* team1 = self.selectedTeams[0];
+        Team* team2 = self.selectedTeams[1];
+        text = [NSString stringWithFormat:@"%@ %@", team1.hashtags[0], team2.hashtags[0]];
+    }
+    [tweetSheet setInitialText:text];
 	
     // Presents the tweet sheet to the user
     [self presentViewController:tweetSheet animated:animated completion:NULL];

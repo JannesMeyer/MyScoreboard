@@ -76,6 +76,8 @@
     }];
 }
 
+
+
 - (void)updateScoreView {
     // Show minute of the game
     self.minuteLabel.text = [NSString stringWithFormat:@"%d min", self.match.currentMinute];
