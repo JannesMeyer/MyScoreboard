@@ -13,5 +13,6 @@
 @interface MatchVController : UIViewController
 
 @property (nonatomic) Match* match;
+@property (nonatomic) NSArray* selectedTeams;  // of Team
 
 @end

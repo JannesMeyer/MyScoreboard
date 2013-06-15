@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^TWTweetsCompletionHandler)(NSArray* tweets, NSError* error);
+typedef void(^TweetsCompletionHandler)(NSArray* tweets, NSError* error);
 
 
 @interface TwitterAPI : NSObject
 
 + (TwitterAPI*)sharedInstance;
-- (void)findTweetsForHashtag:(NSString*)hashtag withCompletionHandler:(TWTweetsCompletionHandler)completion;
+- (void)findTweetsForSearchTerms:(NSArray*)searchTerms withCompletionHandler:(TweetsCompletionHandler)completion;
 
 @end

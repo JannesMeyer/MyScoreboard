@@ -2,8 +2,8 @@
 //  MenuViewController.h
 //  ECSlidingViewController
 //
-//  Created by Michael Enriquez on 1/23/12.
-//  Copyright (c) 2012 EdgeCase. All rights reserved.
+//  Created by Jannes on 03.05.13.
+//  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

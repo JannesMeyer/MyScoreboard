@@ -14,8 +14,7 @@
 
 @property (nonatomic) Match* match;
 @property (nonatomic) NSArray* tweets; // of RKTweet
-
-@property (nonatomic) UIImageView *backgroundImageView; // Background image in the tableHeader
+@property (nonatomic) NSArray* selectedTeams; // of Team
 
 @property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
 @property (weak, nonatomic) IBOutlet UILabel *team1Label;
@@ -25,5 +24,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dividerLine;
 @property (weak, nonatomic) IBOutlet UILabel *goalsListLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *goalsListLabel2;
+@property (nonatomic) UIImageView *backgroundImageView; // Background image in the tableHeaderView
 
 @end

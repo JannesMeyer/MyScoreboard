@@ -2,7 +2,7 @@
 //  MatchViewController.m
 //  myScoreBoard
 //
-//  Created by Jannes Meyer on 26.04.13.
+//  Created by Jannes on 26.04.13.
 //  Copyright (c) 2013 28Apps. All rights reserved.
 //
 
@@ -36,6 +36,13 @@
     [self.settingsButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
+// Lazy instantiation
+- (NSArray*)selectedTeams {
+    if (!_selectedTeams) _selectedTeams = (self.match != nil) ? @[self.match.team1, self.match.team2] : @[];
+    return _selectedTeams;
+}
+
+// Show menu
 - (IBAction)revealMenu:(id)sender {
     [self.slidingViewController anchorTopViewTo:ECRight];
 }
@@ -48,16 +55,30 @@
         UINavigationController* navigationController = (UINavigationController*)segue.destinationViewController;
         SettingsTVController* settings = (SettingsTVController*)navigationController.topViewController;
         settings.teams = @[self.match.team1, self.match.team2];
+        settings.selectedTeams = [self.selectedTeams mutableCopy];
     } else if ([segue.identifier isEqualToString:@"Embed MatchTableViewController"]) {
         // Embed TableViewController
         MatchTVController* matchTableView = (MatchTVController*)segue.destinationViewController;
         matchTableView.match = self.match; // could be nil
+        matchTableView.selectedTeams = self.selectedTeams; // could be nil
     }
 }
 
 // Unwind segue from settings
 - (IBAction)exitTeamSelection:(UIStoryboardSegue*)segue {
     NSLog(@"Back in Match View");
+    // Find the embedded TableViewController
+    for (UIViewController* viewController in self.childViewControllers) {
+        if ([viewController isKindOfClass:[MatchTVController class]]) {
+            // Found the embedded TableViewController
+            MatchTVController* matchTVC = (MatchTVController*)viewController;
+            // self.selectedTeams was set by the unwind segue, now we just need to tell the embedded TableViewController in case it changed
+            if (![self.selectedTeams isEqualToArray:matchTVC.selectedTeams]) {
+                // The selection changed, so we need to update it in the TableViewController
+                matchTVC.selectedTeams = self.selectedTeams;
+            }
+        }
+    }
 }
 
 #pragma mark - Twitter posting
@@ -72,9 +93,8 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             // Hide tweet sheet
             [self dismissViewControllerAnimated:animated completion:NULL];
-            // Tweet sent
             if (result == SLComposeViewControllerResultDone) {
-                // TODO: Refresh data
+                // TODO: Refresh data after a certain timeout?
             }
         });
 	};

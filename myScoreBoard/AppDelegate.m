@@ -17,7 +17,7 @@
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     // Set RestKit logging
-    RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/Network", RKLogLevelOff);
     
 //    NSArray* args = [[NSProcessInfo processInfo] arguments];
 //    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {}
