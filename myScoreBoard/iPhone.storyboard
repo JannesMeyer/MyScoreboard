@@ -346,7 +346,8 @@
                                             <color key="textColor" red="0.52941176469999995" green="0.91372549020000005" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28F-tv-GBd">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28F-tv-GBd">
+                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="48" id="Cq9-yr-GVH"/>
                                                 <constraint firstAttribute="height" constant="48" id="HHx-BP-qdC"/>
@@ -362,7 +363,7 @@
                                         </label>
                                         <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgH-89-IX0">
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="224" translatesAutoresizingMaskIntoConstraints="NO" id="dWA-vg-yft">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tweet-Text" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="224" translatesAutoresizingMaskIntoConstraints="NO" id="dWA-vg-yft">
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -370,10 +371,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="dWA-vg-yft" firstAttribute="leading" secondItem="IgH-89-IX0" secondAttribute="leading" type="default" id="bgY-zY-aKF"/>
-                                                <constraint firstItem="dWA-vg-yft" firstAttribute="bottom" secondItem="IgH-89-IX0" secondAttribute="bottom" type="default" id="dbc-d9-s2d"/>
-                                                <constraint firstItem="dWA-vg-yft" firstAttribute="top" secondItem="IgH-89-IX0" secondAttribute="top" type="default" id="ySC-6D-t60"/>
-                                                <constraint firstItem="dWA-vg-yft" firstAttribute="trailing" secondItem="IgH-89-IX0" secondAttribute="trailing" type="default" id="zvF-e7-xol"/>
+                                                <constraint firstItem="dWA-vg-yft" firstAttribute="trailing" secondItem="IgH-89-IX0" secondAttribute="trailing" type="default" id="ISv-OX-apr"/>
+                                                <constraint firstItem="dWA-vg-yft" firstAttribute="top" secondItem="IgH-89-IX0" secondAttribute="top" type="default" id="ijN-Uy-nFM"/>
+                                                <constraint firstItem="dWA-vg-yft" firstAttribute="leading" secondItem="IgH-89-IX0" secondAttribute="leading" type="default" id="mqe-zw-JOi"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -386,7 +386,7 @@
                                     <constraint firstItem="IgH-89-IX0" firstAttribute="top" secondItem="9iF-ab-ycd" secondAttribute="bottom" constant="4" type="user" id="BuK-C9-1Oa"/>
                                     <constraint firstItem="28F-tv-GBd" firstAttribute="top" secondItem="rrP-af-OCP" secondAttribute="top" constant="14" type="user" id="KP0-tO-0ks"/>
                                     <constraint firstItem="9iF-ab-ycd" firstAttribute="leading" secondItem="28F-tv-GBd" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="O5z-Le-9QV"/>
-                                    <constraint firstItem="Gqd-cn-F3t" firstAttribute="top" secondItem="28F-tv-GBd" secondAttribute="bottom" constant="1" type="user" id="Ss4-c1-9tO"/>
+                                    <constraint firstItem="Gqd-cn-F3t" firstAttribute="top" secondItem="28F-tv-GBd" secondAttribute="bottom" type="user" id="Ss4-c1-9tO"/>
                                     <constraint firstAttribute="trailing" secondItem="IgH-89-IX0" secondAttribute="trailing" constant="20" type="user" id="UZ2-l2-OHm"/>
                                     <constraint firstItem="28F-tv-GBd" firstAttribute="top" secondItem="9iF-ab-ycd" secondAttribute="top" type="default" id="XSh-SZ-LJE"/>
                                     <constraint firstItem="9iF-ab-ycd" firstAttribute="top" secondItem="rXy-ec-KpY" secondAttribute="top" type="user" id="Ya2-Nm-yTS"/>
