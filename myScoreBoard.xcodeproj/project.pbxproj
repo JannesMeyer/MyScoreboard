@@ -56,7 +56,6 @@
 		DF3570F0173D3735002A3519 /* menu-hsection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E5173D3735002A3519 /* menu-hsection@2x.png */; };
 		DF3570F1173D3735002A3519 /* navbar-shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E6173D3735002A3519 /* navbar-shadow@2x.png */; };
 		DF3570F2173D3735002A3519 /* navbar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3570E7173D3735002A3519 /* navbar@2x.png */; };
-		DF3C540E174F7FB000C35C37 /* MatchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF3C540D174F7FB000C35C37 /* MatchCell.xib */; };
 		DF3C5415174F918800C35C37 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF3C5414174F918800C35C37 /* MatchCell.m */; };
 		DF3C5418174F9B9100C35C37 /* clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C5416174F9B9100C35C37 /* clock@2x.png */; };
 		DF3C5419174F9B9100C35C37 /* talk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF3C5417174F9B9100C35C37 /* talk@2x.png */; };
@@ -71,6 +70,8 @@
 		DF86F58F173D172400DF4EAE /* MenuVController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF86F586173D172400DF4EAE /* MenuVController.m */; };
 		DF86F595173D173600DF4EAE /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF86F593173D173600DF4EAE /* iPhone.storyboard */; };
 		DFB466E81764610700A14D37 /* SettingsTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFB466E71764610700A14D37 /* SettingsTVController.m */; };
+		DFB58396177B4B640084DFF5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB58395177B4B630084DFF5 /* icon.png */; };
+		DFB58398177B4B7A0084DFF5 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DFB58397177B4B790084DFF5 /* icon@2x.png */; };
 		DFDD40F817622DC400294B93 /* ScoreApi.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDD40F717622DC400294B93 /* ScoreApi.m */; };
 		DFE74E89174663EB00D14896 /* InitialSlidingVController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6BADA91746562D00B298FF /* InitialSlidingVController.m */; };
 		DFE74E8F174664DD00D14896 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFE74E8C174664DD00D14896 /* ECSlidingViewController.m */; };
@@ -195,7 +196,6 @@
 		DF3570E5173D3735002A3519 /* menu-hsection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-hsection@2x.png"; path = "Images/menu-hsection@2x.png"; sourceTree = "<group>"; };
 		DF3570E6173D3735002A3519 /* navbar-shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbar-shadow@2x.png"; path = "Images/navbar-shadow@2x.png"; sourceTree = "<group>"; };
 		DF3570E7173D3735002A3519 /* navbar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "navbar@2x.png"; path = "Images/navbar@2x.png"; sourceTree = "<group>"; };
-		DF3C540D174F7FB000C35C37 /* MatchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MatchCell.xib; path = CustomViews/MatchCell.xib; sourceTree = "<group>"; };
 		DF3C5413174F918800C35C37 /* MatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchCell.h; path = CustomViews/MatchCell.h; sourceTree = "<group>"; };
 		DF3C5414174F918800C35C37 /* MatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchCell.m; path = CustomViews/MatchCell.m; sourceTree = "<group>"; };
 		DF3C5416174F9B9100C35C37 /* clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "clock@2x.png"; path = "Images/clock@2x.png"; sourceTree = "<group>"; };
@@ -217,6 +217,8 @@
 		DF86F593173D173600DF4EAE /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		DFB466E61764610700A14D37 /* SettingsTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTVController.h; sourceTree = "<group>"; };
 		DFB466E71764610700A14D37 /* SettingsTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVController.m; sourceTree = "<group>"; };
+		DFB58395177B4B630084DFF5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		DFB58397177B4B790084DFF5 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		DFDD40F31762077B00294B93 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		DFDD40F617622DC400294B93 /* ScoreApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreApi.h; sourceTree = "<group>"; };
 		DFDD40F717622DC400294B93 /* ScoreApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreApi.m; sourceTree = "<group>"; };
@@ -296,18 +298,18 @@
 				814965B41733CA7A00C7063A /* AppDelegate.h */,
 				814965B51733CA7A00C7063A /* AppDelegate.m */,
 				DF86F593173D173600DF4EAE /* iPhone.storyboard */,
-				DFB466E61764610700A14D37 /* SettingsTVController.h */,
-				DFB466E71764610700A14D37 /* SettingsTVController.m */,
+				DF6BADA81746562D00B298FF /* InitialSlidingVController.h */,
+				DF6BADA91746562D00B298FF /* InitialSlidingVController.m */,
+				DF86F587173D172400DF4EAE /* MenuVController.h */,
+				DF86F586173D172400DF4EAE /* MenuVController.m */,
 				DF0CBC3C175696E200E1F32D /* MatchNController.h */,
 				DF0CBC3D175696E200E1F32D /* MatchNController.m */,
 				DF86F585173D172400DF4EAE /* MatchVController.h */,
 				DF86F584173D172400DF4EAE /* MatchVController.m */,
 				DF20BCF9176B8C9D00044174 /* MatchTVController.h */,
 				DF20BCFA176B8C9D00044174 /* MatchTVController.m */,
-				DF6BADA81746562D00B298FF /* InitialSlidingVController.h */,
-				DF6BADA91746562D00B298FF /* InitialSlidingVController.m */,
-				DF86F587173D172400DF4EAE /* MenuVController.h */,
-				DF86F586173D172400DF4EAE /* MenuVController.m */,
+				DFB466E61764610700A14D37 /* SettingsTVController.h */,
+				DFB466E71764610700A14D37 /* SettingsTVController.m */,
 				DF80CB8E176118C6000B2162 /* Controller Helpers */,
 				DF3570F3173D3B66002A3519 /* CustomViews */,
 				DF120537173CF61D004CD78F /* Models */,
@@ -328,6 +330,8 @@
 		814965AC1733CA7A00C7063A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DFB58397177B4B790084DFF5 /* icon@2x.png */,
+				DFB58395177B4B630084DFF5 /* icon.png */,
 				DF3570DB173D2407002A3519 /* Images */,
 				814965AD1733CA7A00C7063A /* myScoreBoard-Info.plist */,
 				814965AE1733CA7A00C7063A /* InfoPlist.strings */,
@@ -447,7 +451,6 @@
 		DF3570F3173D3B66002A3519 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				DF3C540D174F7FB000C35C37 /* MatchCell.xib */,
 				DF3C5413174F918800C35C37 /* MatchCell.h */,
 				DF3C5414174F918800C35C37 /* MatchCell.m */,
 				DF15A0641762734A00C77308 /* TweetCell.h */,
@@ -587,7 +590,6 @@
 				DF3570F0173D3735002A3519 /* menu-hsection@2x.png in Resources */,
 				DF3570F1173D3735002A3519 /* navbar-shadow@2x.png in Resources */,
 				DF3570F2173D3735002A3519 /* navbar@2x.png in Resources */,
-				DF3C540E174F7FB000C35C37 /* MatchCell.xib in Resources */,
 				DF3C5418174F9B9100C35C37 /* clock@2x.png in Resources */,
 				DF3C5419174F9B9100C35C37 /* talk@2x.png in Resources */,
 				DF3C541C174F9C6B00C35C37 /* clock.png in Resources */,
@@ -599,6 +601,8 @@
 				DF15A06B17627F7300C77308 /* bg-cell-tweet-score@2x.png in Resources */,
 				DF15A06D176281F200C77308 /* bg-cell-tweet-score.png in Resources */,
 				DF20BCC9176B77E500044174 /* trennlinie.png in Resources */,
+				DFB58396177B4B640084DFF5 /* icon.png in Resources */,
+				DFB58398177B4B7A0084DFF5 /* icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

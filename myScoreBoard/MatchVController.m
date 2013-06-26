@@ -29,9 +29,11 @@
     // Navigation bar
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     
+    // Top left button image
     [self.menuButton setImage:[UIImage imageNamed:@"icon-navbar"]];
     [self.menuButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
+    // Top right button image
     [self.settingsButton setImage:[UIImage imageNamed:@"teams"]];
     [self.settingsButton setBackgroundImage:[[UIImage alloc] init] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }

@@ -39,12 +39,13 @@
 - (IBAction)refreshData:(id)sender {
     id<ScoreApiProtocol> api = [ScoreApi sharedApi];
     [api setCompletionHandler:^{
+        // GCD doesn't support any parameters so we pull the data out of the ScoreApi singleton instead
         MatchGroup* group = [ScoreApi sharedApi].matchCache;
         self.matches = group.matches;
         self.groupName = group.name;
         [self.refreshControl endRefreshing];
         
-        // Stupid
+        // Stupid, but we don't know anything about what part of the data might have changed
         [self.tableView reloadData];
         
         // Select first item if this request is not coming from a call to ScoreAPI
@@ -85,12 +86,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
-    MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell"];
-    if (cell == nil) {
-        // It's a new cell
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MatchCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
-    }
+    MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Match cell"];
+
     // Set the data
     Match* match = [self.matches objectAtIndex:indexPath.row];
     [cell setTeam1Name:match.team1.name];
