@@ -21,7 +21,8 @@
     RKLogConfigureByName("RestKit/Network", RKLogLevelOff);
     
 //    NSArray* args = [[NSProcessInfo processInfo] arguments];
-//    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {}
+//    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {
+//    }
     
     return YES;
 }

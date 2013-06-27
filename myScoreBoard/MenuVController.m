@@ -119,7 +119,7 @@
     float b = ((textColor & 0x0000FF) >> 0) / 255.0;
     
     // Create a fresh new UIView
-    CGRect frame = CGRectMake(0, 0, tableView.frame.size.width, height);
+    CGRect frame = CGRectMake(0, 0, tableView.bounds.size.width, height);
     UIView* headerView = [[UIView alloc] initWithFrame: frame];
     headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-hsection"]];
     
