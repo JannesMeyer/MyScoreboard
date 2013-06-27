@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface TweetCell : UITableViewCell
-// Do NOT accidentally use the name textLabel. It will put you in a world of pain, because that will overwrite UITableViewCell's label
+
+// Do NOT accidentally use the name textLabel. It will put you in a world of pain, because
+// that will overwrite a property of UITableViewCell and will definitely not behave as expected.
 @property (weak, nonatomic) IBOutlet UILabel *tweetLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 
 + (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView;
+
 @end

@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScoreAPI.h"
-#import "MatchGroup.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

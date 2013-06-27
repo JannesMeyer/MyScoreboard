@@ -8,15 +8,14 @@
 
 #import "MenuVController.h"
 
-#import "Models/Match.h"
 #import "MatchVController.h"
 #import "MatchNController.h"
 #import "CustomViews/MatchCell.h"
 #import "ScoreApi.h"
+#import "Models/MatchGroup.h"
 
 @interface MenuVController()
-@property (weak, nonatomic) NSMutableArray* matches;
-@property (weak, nonatomic) NSString* groupName;
+@property (nonatomic) MatchGroup* group;
 @end
 
 @implementation MenuVController
@@ -30,7 +29,8 @@
     // Load data
     [self refreshData:nil];
     
-    // Manually connect refresh control because connecting in the Storyboard is buggy
+    // Manually connect the refresh control because connecting it in the storyboard
+    // is buggy (i.e. the action will never be called)
     [self.refreshControl addTarget:self action:@selector(refreshData:) forControlEvents:UIControlEventValueChanged];
 }
 
@@ -39,19 +39,20 @@
 - (IBAction)refreshData:(id)sender {
     id<ScoreApiProtocol> api = [ScoreApi sharedApi];
     [api setCompletionHandler:^{
-        // GCD doesn't support any parameters so we pull the data out of the ScoreApi singleton instead
-        MatchGroup* group = [ScoreApi sharedApi].matchCache;
-        self.matches = group.matches;
-        self.groupName = group.name;
+        // GCD doesn't support any parameters so we just pull the latest data out of the
+        // ScoreApi singleton instead. This certainly isn't the cleanest solution.
+        self.group = [ScoreApi sharedApi].matchCache;
+
         [self.refreshControl endRefreshing];
         
-        // Stupid, but we don't know anything about what part of the data might have changed
+        // Stupid
         [self.tableView reloadData];
         
-        // Select first item if this request is not coming from a call to ScoreAPI
-        if (!sender && [self.matches count] > 0) {
+        
+        // Show the first item's details if this was an initial request
+        if (!sender && [self.group.matches count] > 0) {
             NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self showMatch:[self.matches objectAtIndex:indexPath.row]];
+            [self showMatch:[self.group.matches objectAtIndex:indexPath.row]];
             [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionTop];
         }
     }];
@@ -59,6 +60,9 @@
     [api loadMatchesForMatchday];
 }
 
+/*!
+ * Replaces the ViewController on the MatchNavigationController's navigation stack
+ */
 - (void)showMatch:(Match*)match {
     // Get the top view controller (it has to be a UINavigationController)
     UINavigationController* viewController = (UINavigationController*) self.slidingViewController.topViewController;
@@ -78,52 +82,69 @@
 //}
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [self.groupName uppercaseString];
+    return [self.group.name uppercaseString];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
-    return self.matches.count;
+    return [self.group.matches count];
 }
 
 - (UITableViewCell *)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
     MatchCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Match cell"];
 
     // Set the data
-    Match* match = [self.matches objectAtIndex:indexPath.row];
+    Match* match = [self.group.matches objectAtIndex:indexPath.row];
     [cell setTeam1Name:match.team1.name];
     [cell setTeam2Name:match.team2.name];
     [cell setTeam1Score:match.team1Score];
     [cell setTeam2Score:match.team2Score];
     [cell setMinutes:match.currentMinute];
     [cell setCommentCount:match.commentCount];
+    
     return cell;
 }
 
 #pragma mark - TableView delegate
 
+/*!
+ * Builds a view that is to be used as section header in the menu
+ */
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    int paddingLeft = 10;
+    static int paddingLeft = 10;
+    static int height = 27;
     
-    CGRect frame = CGRectMake(0, 0, 320, 27);
-    UIView* headerView = [[UIView alloc] initWithFrame: frame];
-    headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-hsection"]];
-    
-    int textColor = 0x6b6e6b;
+    static int textColor = 0x6b6e6b;
     float r = ((textColor & 0xFF0000) >> 16) / 255.0;
     float g = ((textColor & 0x00FF00) >> 8) / 255.0;
     float b = ((textColor & 0x0000FF) >> 0) / 255.0;
     
-    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(paddingLeft, 0, frame.size.width - paddingLeft, frame.size.height)];
-    title.font = [UIFont systemFontOfSize:11];
-    title.textColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
-    title.backgroundColor = [UIColor clearColor];
-    title.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
+    // Create a fresh new UIView
+    CGRect frame = CGRectMake(0, 0, tableView.frame.size.width, height);
+    UIView* headerView = [[UIView alloc] initWithFrame: frame];
+    headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu-hsection"]];
     
+    // Add an UILabel
+    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(paddingLeft, 0, frame.size.width - paddingLeft, frame.size.height)];
     [headerView addSubview:title];
+    
+    // Font size
+    title.font = [UIFont systemFontOfSize:11];
+    
+    // Text color
+    title.textColor = [UIColor colorWithRed:r green:g blue:b alpha:1.0];
+    
+    // Translucent background
+    title.backgroundColor = [UIColor clearColor];
+    
+    // Section header text
+    title.text = [tableView.dataSource tableView:tableView titleForHeaderInSection:section];
     
     return headerView;
 }
 
+/*!
+ * When a row is tapped, the topViewController (of ECSlidingViewController) should be updated
+ */
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
     // Make sure that the top view controller is of the right class
     if ([self.slidingViewController.topViewController isKindOfClass:[MatchNController class]]) {
@@ -131,7 +152,7 @@
         
         // Prepare match view
         MatchVController* newViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MatchView"];
-        newViewController.match = self.matches[indexPath.row];
+        newViewController.match = self.group.matches[indexPath.row];
         
         // Replace view controller and slide out the menu
         [self.slidingViewController anchorTopViewOffScreenTo:ECRight animations:nil onComplete:^{

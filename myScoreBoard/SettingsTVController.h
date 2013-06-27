@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsTVController : UITableViewController
+
 @property (nonatomic) NSArray* teams; // of Team
 @property (nonatomic) NSMutableArray* selectedTeams; // of Team
+
 @end

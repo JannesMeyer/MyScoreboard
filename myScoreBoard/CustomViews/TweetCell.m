@@ -10,12 +10,16 @@
 
 @implementation TweetCell
 
-// Creation from storyboard
+/*!
+ * Creation from storyboard
+ */
 - (void)awakeFromNib {
     [self setup];
 }
 
-// Creation from code
+/*!
+ * Creation from code (designated initializer)
+ */
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString*)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     [self setup];
@@ -23,23 +27,35 @@
 }
 
 - (void)setup {
+    // Set the background
     UIImage* image = [[UIImage imageNamed:@"bg-cell-tweet-score"] resizableImageWithCapInsets:UIEdgeInsetsMake(7, 8, 9, 8)];
     self.backgroundView = [[UIImageView alloc] initWithImage:image];
 }
 
+/*!
+ * The superclass's implementation sets self.backgroundView to be the full size of
+ * this UITableViewCell, but we want some padding for the background image, so we apply
+ * it after the superclass's layout code is done
+ */
 - (void)layoutSubviews {
     [super layoutSubviews];
     // Add padding to the background image
     self.backgroundView.frame = CGRectInset(self.backgroundView.frame, 10, 5);
 }
 
+/*!
+ * This class method can calculate the height of a TweetCell just with the text that it should contain
+ * and without having an actual instance of the TweetCell
+ */
 + (CGFloat)calculateHeightWithText:(NSString*)text andTableView:(UITableView*)tableView {
-    // These are the view's settings that we have set in the storyboard. Unfortunately it's too difficult to read those values from the storyboard so we just duplicate them
+    // These are the view's settings that we have set in the storyboard.
+    // Unfortunately it's too difficult to read those values from the storyboard
+    // so we just duplicate them here.
     UIFont* font = [UIFont systemFontOfSize:14];
-    CGFloat marginLeft = 76;
-    CGFloat marginTop = 33;
-    CGFloat marginRight = 20;
-    CGFloat marginBottom = 20;
+    static CGFloat marginLeft = 76;
+    static CGFloat marginTop = 33;
+    static CGFloat marginRight = 20;
+    static CGFloat marginBottom = 20;
     
     // Compute height with an infinite maximum height
     CGSize maxBounds = CGSizeMake(tableView.bounds.size.width - marginLeft - marginRight, CGFLOAT_MAX);

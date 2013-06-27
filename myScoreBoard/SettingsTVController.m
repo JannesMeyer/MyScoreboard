@@ -13,13 +13,20 @@
 
 @implementation SettingsTVController
 
+/*!
+ * Initialize the list with both teams
+ */
 - (void)viewDidLoad {
-    // Set the names and selection of the teams
     NSInteger i = 0;
     for (Team* team in self.teams) {
+        // Find the cell
         NSIndexPath* indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         UITableViewCell* cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+        
+        // Set the team name
         cell.textLabel.text = team.name;
+        
+        // Set the checked state
         if ([self.selectedTeams containsObject:team]) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
@@ -27,9 +34,14 @@
     }
 }
 
+/*!
+ * The selected state of a row should be toggled when it is tapped.
+ * This seems to be the proper way to implement 'radio buttons'
+ */
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
     UITableViewCell* cell = [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
-    // Toggle checkmark
+    
+    // Toggle checkmark accessory
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
         //cell.textLabel.textColor = [UIColor blackColor];
@@ -39,10 +51,14 @@
         //cell.textLabel.textColor = [UIColor colorWithRed:56/255.0 green:84/255.0 blue:135/255.0 alpha:1];
         [self.selectedTeams addObject:self.teams[indexPath.row]];
     }
-    // Fade out blue selection
+    
+    // Fade out the blue background
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+/*!
+ * This pretty much only handles the unwind segue that goes back to MatchVController
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Settings done"]) {
         MatchVController* matchVC = (MatchVController*)segue.destinationViewController;

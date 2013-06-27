@@ -15,14 +15,11 @@ typedef void(^ScoreApiCompletionHandler)(void);
 
 // Define the protocol that all APIs must implement
 @protocol ScoreApiProtocol <NSObject>
-
 - (void)setCompletionHandler:(ScoreApiCompletionHandler)completion;
 - (void)loadMatchesForMatchday;
 @property (nonatomic, readonly) MatchGroup* matchCache;
-
 @optional
 - (void)loadMatchesForToday;
-
 @end
 
 

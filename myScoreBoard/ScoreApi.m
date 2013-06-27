@@ -15,6 +15,7 @@
 
 static id<ScoreApiProtocol> volatile _sharedInstance = nil;
 
+// Hands out an OpenLigaScoreAPI object. This can be replaced with DummyScoreAPI if wanted
 + (id<ScoreApiProtocol>)sharedApi {
     static dispatch_once_t token;
     dispatch_once(&token, ^{

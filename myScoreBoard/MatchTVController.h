@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *dividerLine;
 @property (weak, nonatomic) IBOutlet UILabel *goalsListLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *goalsListLabel2;
-@property (nonatomic) UIImageView *backgroundImageView; // Background image in the tableHeaderView
+
+@property (nonatomic) UIImageView *backgroundImageView; // Background image in the header view
 
 @end

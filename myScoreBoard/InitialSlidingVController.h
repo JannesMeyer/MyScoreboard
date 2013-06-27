@@ -8,6 +8,7 @@
 
 #import "ECSlidingViewController.h"
 
+// Subclass of ECSlidingViewController
 @interface InitialSlidingVController : ECSlidingViewController
 
 @end

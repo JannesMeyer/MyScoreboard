@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Social/Social.h>
 #import "Match.h"
 
 @interface MatchVController : UIViewController

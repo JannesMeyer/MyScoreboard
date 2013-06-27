@@ -8,7 +8,8 @@
 
 #import "MatchVController.h"
 
-#import "MenuVController.h" // required for self.slidingViewController
+#import <Social/Social.h>
+#import "ECSlidingViewController.h" // required for self.slidingViewController
 #import "MatchTVController.h"
 #import "SettingsTVController.h"
 
@@ -77,8 +78,6 @@
             if (![self.selectedTeams isEqualToArray:matchTVC.selectedTeams]) {
                 NSLog(@"Settings changed");
                 // The selection changed, so we need to update it in the TableViewController
-//                matchTVC.tweets = @[];
-//                [matchTVC.tableView reloadData];
                 matchTVC.selectedTeams = self.selectedTeams;
             } else {
                 NSLog(@"Settings didn't change");
@@ -105,7 +104,7 @@
         });
 	};
     
-    // Set the text to contain the appropriate hashtags
+    // Set the initial text to contain the appropriate hashtags
     NSString* text = @"";
     if ([self.selectedTeams count] == 1) {
         Team* team1 = self.selectedTeams[0];

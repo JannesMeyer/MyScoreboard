@@ -13,18 +13,15 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Enable network activity indicator
+    
+    // Enable network activity indicator (in the status bar at the top left of the screen)
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
-    // Set RestKit logging
+    // Disable RestKit logging
     RKLogConfigureByName("RestKit/Network", RKLogLevelOff);
     
 //    NSArray* args = [[NSProcessInfo processInfo] arguments];
 //    if (args.count > 1 && [args[1] isEqual: @"UseDummyApi"]) {}
-    
-    
-    // Change navigation bar style globally through the appearance proxy
-//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
     
     return YES;
 }

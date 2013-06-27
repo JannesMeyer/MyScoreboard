@@ -19,20 +19,9 @@
 
 @implementation MatchTVController
 
-// Creation originating from code
-- (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
-    [self setup];
-    return self;
-}
-
-// Creation originating from storyboard
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setup];
-}
-
-- (void)setup {
+    
     // Reset the background color so that it is see-through
     self.tableView.backgroundColor = [UIColor clearColor];
     
@@ -52,12 +41,18 @@
     [self.refreshControl addTarget:self action:@selector(loadTweets:) forControlEvents:UIControlEventValueChanged];
 }
 
+/*!
+ * Setter for selectedTeams that also reloads the tweets whenever the selection changes
+ */
 - (void)setSelectedTeams:(NSArray*)selectedTeams {
     _selectedTeams = selectedTeams;
     // Team selection changed. Reload tweets.
     [self loadTweets:nil];
 }
 
+/*!
+ * Queries the Twitter API for tweets that match this game's criteria and displays them
+ */
 - (IBAction)loadTweets:(id)sender {
     if (self.match == nil || self.selectedTeams == nil) {
         return;
@@ -68,16 +63,18 @@
     for (Team* team in self.selectedTeams) {
         [searchTerms addObject:[team hashtagsAsString]];
     }
-    // When the searchTerms are empty no results are returned
-    [[TwitterAPI sharedInstance] findTweetsForSearchTerms:[searchTerms copy] withCompletionHandler:^(NSArray* tweets, NSError* error) {
-        self.tweets = tweets;
+    // When the searchTerms are empty no results will be returned
+    [[TwitterAPI sharedInstance] findTweetsForSearchTerms:searchTerms withCompletionHandler:^(NSArray* tweets, NSError* error) {
         [self.refreshControl endRefreshing];
+        self.tweets = tweets;
         [self.tableView reloadData];
     }];
 }
 
-
-
+/*!
+ * Updates the header view of the UITableView that displays the current score
+ * and other statistics about the game
+ */
 - (void)updateScoreView {
     // Show minute of the game
     self.minuteLabel.text = [NSString stringWithFormat:@"%d min", self.match.currentMinute];
@@ -108,6 +105,8 @@
     }
     self.goalsListLabel1.text = goalText1;
     self.goalsListLabel2.text = goalText2;
+    
+    // Update the height so that all goals fit perfectly
     [self updateHeaderHeight:MAX(goalsHeight1, goalsHeight2)];
 }
 
@@ -158,7 +157,7 @@
     // Using AFNetworking's category on UIImageView
     [cell.profileImage setImageWithURL:[NSURL URLWithString:tweet.thumbnailUrl]];
     
-    // Calculate frame of the text label
+    // Calculate margins of the text label
 //    UIView* topview = (UIView*) [cell.tweetLabel superview];
 //    CGFloat marginTop = topview.frame.origin.y;
 //    CGFloat marginLeft = topview.frame.origin.x;
