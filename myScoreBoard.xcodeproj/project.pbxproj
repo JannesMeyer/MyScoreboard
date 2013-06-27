@@ -313,14 +313,6 @@
 				DF80CB8E176118C6000B2162 /* Controller Helpers */,
 				DF3570F3173D3B66002A3519 /* CustomViews */,
 				DF120537173CF61D004CD78F /* Models */,
-				A143011B173CFE0800E5518D /* OpenLigaScoreAPI.h */,
-				A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */,
-				A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */,
-				A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */,
-				DFDD40F617622DC400294B93 /* ScoreApi.h */,
-				DFDD40F717622DC400294B93 /* ScoreApi.m */,
-				DFE74E94174680B600D14896 /* DummyScoreAPI.h */,
-				DFE74E95174680B600D14896 /* DummyScoreAPI.m */,
 				DF6BAD9717464FF900B298FF /* Vendor */,
 				814965AC1733CA7A00C7063A /* Supporting Files */,
 			);
@@ -471,9 +463,17 @@
 		DF80CB8E176118C6000B2162 /* Controller Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DFDD40F31762077B00294B93 /* Util.h */,
 				DF80CB921761196D000B2162 /* TwitterAPI.h */,
 				DF80CB931761196D000B2162 /* TwitterAPI.m */,
-				DFDD40F31762077B00294B93 /* Util.h */,
+				A143011B173CFE0800E5518D /* OpenLigaScoreAPI.h */,
+				A143011C173CFE0800E5518D /* OpenLigaScoreAPI.m */,
+				A1A2F70917464EDB00DFEF93 /* XMLConnectionStub.h */,
+				A1A2F70A17464EDB00DFEF93 /* XMLConnectionStub.m */,
+				DFDD40F617622DC400294B93 /* ScoreApi.h */,
+				DFDD40F717622DC400294B93 /* ScoreApi.m */,
+				DFE74E94174680B600D14896 /* DummyScoreAPI.h */,
+				DFE74E95174680B600D14896 /* DummyScoreAPI.m */,
 			);
 			name = "Controller Helpers";
 			sourceTree = "<group>";
